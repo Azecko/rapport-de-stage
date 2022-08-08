@@ -1,14 +1,46 @@
-# Rapport de stage
+# Getting Started with Create React App
 
-## À propos
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-L'idée est de fournir une page web permettant de générer un rapport de stage de manière interactive.
+## Available Scripts
 
-Le rapport de stage doit avoir deux versions, l'une remplie par le·la stagiaire et l'autre par le·la resonsable de stage.
+In the project directory, you can run:
 
-## Liens et références
+### `yarn start`
 
-* La page [faire des stages](https://www.vd.ch/themes/formation/orientation/faire-des-stages/) proposée par le canton de Vaud fournit un [rapport de stage - stagiaire](https://www.vd.ch/fileadmin/user_upload/themes/formation/orientation/fichiers_pdf/apprentissage/rapp_stage_stag.pdf) et un [rapport de stage - responsable du stage](https://www.vd.ch/fileadmin/user_upload/themes/formation/orientation/fichiers_pdf/apprentissage/rapp_stage_resp.pdf). Bien qu'ils soient destinés aux stages d'orientation, ces documents sont bien structurés.
-* La page [Rapport de stage d'orientation](https://www.ge.ch/document/rapport-stage-orientation) proposée par le canton de Genève fournit un [rapport de stage à remplir par l'entreprise](https://www.ge.ch/document/28320/telecharger), assez générique.
-* Le site https://www.scribbr.fr/category/rapport-de-stage/ fournit différents articles en relation aux de rapport de stages et cet exemple : https://www.scribbr.fr/rapport-de-stage/rapport-de-stage-exemple/
-* Le site https://www.canva.com/fr_fr/decouvrir/exemple-rapport-de-stage/ propose 10 modèles de rapports de stage.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
