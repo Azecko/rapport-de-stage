@@ -9,7 +9,16 @@ const Container = styled.div`
 export default class HomePage extends React.Component {
 
 	state = {
-		internshipName: "ServiceDesk"
+		internshipName: "Ex : ServiceDesk",
+		internshipService: "Ex : 1234",
+
+		internshipManagerFirstName: "Ex : Charles",
+		internshipManagerLastName: "Ex : Baudelaire",
+		internshipManagerEmail: "charles.baudelaire@fleur.com",
+
+		internFirstName: "Ex : François-Marie",
+		internLastName: "Ex : Voltaire",
+		internEmail: "François.voltaire@candide.com"
 	}
 	render(): ReactNode {
 		return (
@@ -18,15 +27,46 @@ export default class HomePage extends React.Component {
 					<h1>Rapport de stage</h1>
 				</Box>
 				<div>
+				<Box>
+					<h3>Informations général sur le stage</h3>
+				</Box>
+					{/* Internship information */}
 					<form action="">
 						<label htmlFor="">Nom du stage : </label>
 						<input type="text" value={this.state.internshipName} />
-						
+						<label htmlFor="">Nom du service : </label>
+						<input type="text" value={this.state.internshipService} />
 					</form>
-						Service : 
+				<Box>
+					<h3>Responsable de stage</h3>
+				</Box>
+					{/* Manager information field */}
+					<form action="">
+						<label htmlFor="">Prénom : </label>
+						<input type="text" value={this.state.internshipManagerFirstName} />
+						<div></div>
+						<label htmlFor="">Nom  : </label>
+						<input type="text" value={this.state.internshipManagerLastName} />
+						<div></div>
+						<label htmlFor="">E-mail  : </label>
+						<input type="text" value={this.state.internshipManagerEmail} />
+					</form>
+				<Box>
+					<h3>Stagiaire</h3>
+				</Box>
+					{/* Intern information field */}
+					<form action="">
+						<label htmlFor="">Prénom : </label>
+						<input type="text" value={this.state.internFirstName} />
+						<div></div>
+						<label htmlFor="">Nom  : </label>
+						<input type="text" value={this.state.internLastName} />
+						<div></div>
+						<label htmlFor="">E-mail  : </label>
+						<input type="text" value={this.state.internEmail} />
+					</form>
 					
 					
-	
 					le/la/les responsable(s) :
 					Nom :
 					Prénom :
