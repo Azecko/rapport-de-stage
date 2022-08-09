@@ -34,14 +34,14 @@ export default class HomePage extends React.Component {
 		internEmail: "",
 		internUnit: "",
 
-		knowledgeLearned: "",
-		whatWentRight: "",
-		whatWentWrong: "",
-		whatNeedChange:"",
-		necessaryProfSkills:"",
-		skillQuestions:"",
-		jobUnderstanding:"",
-		introspection:"",
+		processknowledgeLearned: "",
+		processWhatWentRight: "",
+		processWhatWentWrong: "",
+		processWhatNeedChange:"",
+		processNecessaryProfSkills:"",
+		processSkillQuestions:"",
+		processJobUnderstanding:"",
+		processIntrospection:"",
 
 		prejudgeYes:"",
 		prejudgeNo:"",
@@ -92,50 +92,72 @@ export default class HomePage extends React.Component {
 							<h3>Responsable de stage</h3>
 						</Box>
 						{/* Manager information field */}
-						<label htmlFor="">Prénom : </label>
-						<input type="text" value={this.state.internshipManagerFirstName} /> <br/>
-						<label htmlFor="">Nom  : </label>
-						<input type="text" value={this.state.internshipManagerLastName} /> <br/>
-						<label htmlFor="">E-mail  : </label>
-						<input type="text" value={this.state.internshipManagerEmail} />
-						<Box>
+						<TextField id={this.state.internshipManagerFirstName} label="Prénom" variant="outlined" />
+						<TextField id={this.state.internshipManagerLastName} label="Nom" variant="outlined" />
+						<TextField id={this.state.internshipManagerEmail} label="E-mail" variant="outlined" />
+					<Box>
 					<h3>Stagiaire</h3>
 					</Box>
 					{/* Intern information field */}
-						<label htmlFor="">Prénom : </label>
-						<input type="text" value={this.state.internFirstName} /><br/>
-						<label htmlFor="">Nom  : </label>
-						<input type="text" value={this.state.internLastName} /><br/>
-						<label htmlFor="">E-mail  : </label>
-						<input type="text" value={this.state.internEmail} /><br/>
-						<label htmlFor="">Unité  : </label>
-						<input type="text" value={this.state.internUnit} />
+					<TextField id={this.state.internFirstName} label="Prénom" variant="outlined" />
+					<TextField id={this.state.internLastName} label="Nom" variant="outlined" />
+					<TextField id={this.state.internEmail} label="E-mail" variant="outlined" />
+					<TextField id={this.state.internUnit} label="Unité" variant="outlined" />
 					<Box>
 						<h3>Déroulement du stage</h3>
 					</Box>
 					{/* Process of the course */}
-						<label htmlFor="">Décrivez brièvement ce que vous avez appris: </label><br/>
-						<textarea name="message" defaultValue={this.state.knowledgeLearned}></textarea> <br/>
-						<label>Ce qui c'est bien passé ?</label><br/>
-						<textarea name="message" defaultValue={this.state.whatWentRight}></textarea> <br/>
-						<label>Ce qui c'est mal passé ?</label><br/>
-						<textarea name="message" defaultValue={this.state.whatWentWrong}></textarea> <br/>
-						<label>Ce que je modifierais ?</label><br/>
-						<textarea name="message" defaultValue={this.state.whatNeedChange}></textarea> <br/>
-						<label>A ton avis, quelles sont les qualités nécessaires à l’exercice de cette profession ?</label><br/>
-						<textarea name="message" defaultValue={this.state.necessaryProfSkills}></textarea><br/>
-						<label>As-tu l’impression de posséder ces qualités ?</label><br/>
-						<textarea name="message" defaultValue={this.state.skillQuestions}></textarea> <br/>
+					<TextField
+        			  id={this.state.processknowledgeLearned}
+        			  label="Décrivez brièvement ce que vous avez appris :"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processWhatWentRight}
+        			  label="Ce qui c'est bien passé ?"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processWhatWentWrong}
+        			  label="Ce qui c'est mal passé ?"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processWhatNeedChange}
+        			  label="Ce que je modifierais ?"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processNecessaryProfSkills}
+        			  label="A ton avis, quelles sont les qualités nécessaires à l’exercice de cette profession ?"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processWhatNeedChange}
+        			  label="Ce que je modifierais ?"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processSkillQuestions}
+        			  label="As-tu l’impression de posséder ces qualités ?"
+        			  multiline
+        			/>
 				<Box>
 					<h4>Ce que le stage t'a fait comprendre sur : </h4>
 				</Box>
-						<label htmlFor="">Le metier en question</label><br/>
-						<textarea name="message" defaultValue={this.state.jobUnderstanding}></textarea> <br/>
-						<label htmlFor="">Sur toi</label><br/>
-						<textarea name="message" defaultValue={this.state.introspection}></textarea> <br/>
+					<TextField
+        			  id={this.state.processJobUnderstanding}
+        			  label="Le metier en question"
+        			  multiline
+        			/>
+					<TextField
+        			  id={this.state.processIntrospection}
+        			  label="Sur toi"
+        			  multiline
+        			/>
 				<Box>
 					<h3>Conclusion </h3>
-				</Box>
+				</Box> 
 					{/* Conclusion */}
 						<label htmlFor="">Le métier correspond-il à l’idée que tu t’en faisais ?</label><br/>
 						<input type="radio" defaultValue={this.state.prejudgeYes}/>
