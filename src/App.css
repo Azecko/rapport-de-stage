@@ -1,3 +1,8 @@
 body{
 margin : 10px;
 }
+
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+  width: 980px;
+  margin-bottom: 20px;
+}
