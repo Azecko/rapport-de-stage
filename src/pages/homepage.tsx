@@ -1,53 +1,51 @@
-import { Box, TextField } from '@mui/material';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { ReactNode } from 'react';
-import styled from 'styled-components';
-import React from 'react';
+import React, { ReactNode } from 'react'
+import { Box, TextField } from '@mui/material'
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import styled from 'styled-components'
 
 const Container = styled.div`
 `
 
 export default class HomePage extends React.Component {
-
   state = {
-    internshipName: "",
-    internshipService: "",
+    internshipName: '',
+    internshipService: '',
     beginDate: null,
     endDate: null,
 
-    internshipManagerFirstName: "",
-    internshipManagerLastName: "",
-    internshipManagerEmail: "",
+    internshipManagerFirstName: '',
+    internshipManagerLastName: '',
+    internshipManagerEmail: '',
 
-    internFirstName: "",
-    internLastName: "",
-    internEmail: "",
-    internUnit: "",
+    internFirstName: '',
+    internLastName: '',
+    internEmail: '',
+    internUnit: '',
 
-    processknowledgeLearned: "",
-    processWhatWentRight: "",
-    processWhatWentWrong: "",
-    processWhatNeedChange: "",
-    processNecessaryProfSkills: "",
-    processSkillQuestions: "",
-    processJobUnderstanding: "",
-    processIntrospection: "",
+    processknowledgeLearned: '',
+    processWhatWentRight: '',
+    processWhatWentWrong: '',
+    processWhatNeedChange: '',
+    processNecessaryProfSkills: '',
+    processSkillQuestions: '',
+    processJobUnderstanding: '',
+    processIntrospection: '',
 
-    prejudgeYes: "",
-    prejudgeNo: "",
+    prejudgeYes: '',
+    prejudgeNo: ''
   }
 
   handleChangeBeginDate = (newValue: Date | null) => {
-    this.setState({ beginDate: newValue });
+    this.setState({ beginDate: newValue })
   }
 
   handleChangeEndDate = (newValue: Date | null) => {
-    this.setState({ endDate: newValue });
+    this.setState({ endDate: newValue })
   }
 
-  render(): ReactNode {
+  render (): ReactNode {
     return (
       <Container>
         <Box>
@@ -55,7 +53,7 @@ export default class HomePage extends React.Component {
         </Box>
         <div>
           <Box>
-            <h3>Informations général sur le stage</h3>
+            <h3>Informations générales sur le stage</h3>
           </Box>
           {/* Internship information */}
           <form action="">
@@ -134,7 +132,7 @@ export default class HomePage extends React.Component {
               multiline
             />
             <Box>
-              <h4>Ce que le stage t'a fait comprendre sur :</h4>
+              <h4>Ce que le stage t’as fait comprendre sur :</h4>
             </Box>
             <TextField
               id={this.state.processJobUnderstanding}
@@ -171,12 +169,12 @@ export default class HomePage extends React.Component {
             <br />
             <textarea name="message"></textarea>
             <br />
-            <label htmlFor="">Qu'est-ce que ce stage t'apporte quelque chose dans ta branche de metier ?</label>
+            <label htmlFor="">Qu’est-ce que ce stage t’apportes quelque chose dans ta branche de metier ?</label>
             <br />
             <textarea name="message"></textarea>
             <br />
             <label htmlFor="">
-              Compétences opérationelles selon le 
+              Compétences opérationelles selon le
                 <a href="https://ponsfrilus.github.io/dossier-formation/">
                   dossier de formation
                 </a>
@@ -192,6 +190,6 @@ export default class HomePage extends React.Component {
           </form>
         </div>
       </Container>
-    );
+    )
   }
 }
