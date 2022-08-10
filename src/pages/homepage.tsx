@@ -53,7 +53,7 @@ export default class HomePage extends React.Component {
         </Box>
         <div>
           <Box>
-            <h3>Informations général sur le stage</h3>
+            <h3>Informations générales sur le stage</h3>
           </Box>
           {/* Internship information */}
           <form action="">
