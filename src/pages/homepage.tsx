@@ -1,175 +1,169 @@
-import React, { ReactNode } from 'react'
-import { Box, TextField } from '@mui/material'
+import React, { ReactNode, useState } from 'react'
+import {
+  Box,
+  TextField,
+  FormLabel,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  TextareaAutosize
+} from '@mui/material'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import styled from 'styled-components'
+import { useForm } from 'react-hook-form'
+import DateSelector from '../components/DateSelector'
+import FormDiv from '../components/FormDiv'
 
-const Container = styled.div`
-`
+const Container = styled.div``
 
-export default class HomePage extends React.Component {
-  state = {
-    internshipName: '',
-    internshipService: '',
-    beginDate: null,
-    endDate: null,
-
-    internshipManagerFirstName: '',
-    internshipManagerLastName: '',
-    internshipManagerEmail: '',
-
-    internFirstName: '',
-    internLastName: '',
-    internEmail: '',
-    internUnit: '',
-
-    processknowledgeLearned: '',
-    processWhatWentRight: '',
-    processWhatWentWrong: '',
-    processWhatNeedChange: '',
-    processNecessaryProfSkills: '',
-    processSkillQuestions: '',
-    processJobUnderstanding: '',
-    processIntrospection: '',
-
-    prejudgeYes: '',
-    prejudgeNo: ''
-  }
-
-  handleChangeBeginDate = (newValue: Date | null) => {
-    this.setState({ beginDate: newValue })
-  }
-
-  handleChangeEndDate = (newValue: Date | null) => {
-    this.setState({ endDate: newValue })
-  }
-
-  render (): ReactNode {
-    return (
-      <Container>
-        <Box>
-          <h1>Rapport de stage</h1>
-        </Box>
-        <div>
-          <Box>
-            <h3>Informations générales sur le stage</h3>
-          </Box>
+export default function HomePage () {
+  const { register, handleSubmit, control } = useForm()
+  const [formData, setFormData] = useState('')
+  return (
+    <Container>
+      <Box>
+        <h1>Rapport de stage</h1>
+      </Box>
+      <div>
+        <form
+          onSubmit={handleSubmit((formData) =>
+            setFormData(JSON.stringify(formData))
+          )}
+        >
           {/* Internship information */}
-          <form action="">
-            <TextField id={this.state.internshipName} label="Nom du stage" variant="outlined" />
-            <TextField id={this.state.internshipService} label="Nom du service" variant="outlined" />
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DesktopDatePicker
-                label="Date de début"
-                inputFormat="dd/MM/yyyy"
-                value={this.state.beginDate}
-                onChange={this.handleChangeBeginDate}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DesktopDatePicker
-                label="Date de fin"
-                inputFormat="dd/MM/yyyy"
-                value={this.state.endDate}
-                onChange={this.handleChangeEndDate}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-            <Box>
-              <h3>Responsable de stage</h3>
-            </Box>
-            {/* Manager information field */}
-            <TextField id={this.state.internshipManagerFirstName} label="Prénom" variant="outlined" />
-            <TextField id={this.state.internshipManagerLastName} label="Nom" variant="outlined" />
-            <TextField id={this.state.internshipManagerEmail} label="E-mail" variant="outlined" />
-            <Box>
-              <h3>Stagiaire</h3>
-            </Box>
-            {/* Intern information field */}
-            <TextField id={this.state.internFirstName} label="Prénom" variant="outlined" />
-            <TextField id={this.state.internLastName} label="Nom" variant="outlined" />
-            <TextField id={this.state.internEmail} label="E-mail" variant="outlined" />
-            <TextField id={this.state.internUnit} label="Unité" variant="outlined" />
-            <Box>
-              <h3>Déroulement du stage</h3>
-            </Box>
-            {/* Process of the course */}
-            <TextField
-              id={this.state.processknowledgeLearned}
+          <FormDiv label="Informations générales sur le stage" fields={[
+            { type: 'text', placeholder: 'Nom de l\'entreprise', name: 'internshipName' },
+            { type: 'text', placeholder: 'Nom du service', name: 'internshipService' },
+            { type: 'date', placeholder: 'Date de début', name: 'beginDate' },
+            { type: 'date', placeholder: 'Date de fin', name: 'endDate' }
+          ]} register={register} control={control} />
+          {/* Manager general information field */}
+          <FormDiv label="Responsable de stage - informations générales" fields={[
+            { type: 'text', placeholder: 'Prénom', name: 'internshipManagerFirstName' },
+            { type: 'text', placeholder: 'Nom', name: 'internshipManagerLastName' },
+            { type: 'text', placeholder: 'Téléphone', name: 'internshipManagerPhone' }
+          ]} register={register} control={control} />
+          {/* Manager address information field */}
+          <FormDiv label="Responsable de stage - adresse" fields={[
+            { type: 'text', placeholder: 'Adresse', name: 'internshipManagerAddress' },
+            { type: 'text', placeholder: 'Numéro postal', name: 'internshipManagerPostalNumber' },
+            { type: 'text', placeholder: 'Localité', name: 'internshipManagerLocality' }
+          ]} register={register} control={control} />
+          {/* Intern information field */}
+          <FormDiv label="Stagiaire" fields={[
+            { type: 'text', placeholder: 'Prénom', name: 'internFirstName' },
+            { type: 'text', placeholder: 'Nom', name: 'internLastName' },
+            { type: 'text', placeholder: 'Téléphone', name: 'internPhone' }
+          ]} register={register} control={control} />
+          <Box>
+            <h3>Stagiaire - informations générale</h3>
+          </Box>
+          <TextField
+            {...register('internClass')}
+            label="Classe"
+            variant="outlined"
+          />
+          <TextField
+            {...register('internSchool')}
+            label="Établissement"
+            variant="outlined"
+          />
+          <TextField
+            {...register('internAddress')}
+            label="Adresse (du stagiaire)"
+            variant="outlined"
+          />
+          <TextField
+            {...register('internPostalNumber')}
+            label="Numéro postal"
+            variant="outlined"
+          />
+          <TextField
+            {...register('internLocality')}
+            label="Localité"
+            variant="outlined"
+          />
+          <Box>
+            <h3>Déroulement du stage</h3>
+          </Box>
+          {/* Process of the course */}
+          <FormLabel id="demo-radio-buttons-group-label">Estimes-tu avoir assez d'informations sur cette profession ?</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel {...register('enoughInformations')} value="true" control={<Radio />} label="Oui" />
+              <FormControlLabel {...register('enoughInformations')} value="false" control={<Radio />} label="Non" />
+            </RadioGroup>
+          <FormLabel id="demo-radio-buttons-group-label">Le métier correspond-il à l'idée que tu t'en faisais ?</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel {...register('ideaCorrespond')} value="true" control={<Radio />} label="Oui" />
+              <FormControlLabel {...register('ideaCorrespond')} value="false" control={<Radio />} label="Non" />
+            </RadioGroup>
+          <FormLabel id="demo-radio-buttons-group-label">Ce stage t'a-t-il permis de prendre une décision ?</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel {...register('decision')} value="true" control={<Radio />} label="Oui" />
+              <FormControlLabel {...register('decision')} value="false" control={<Radio />} label="Non" />
+            </RadioGroup>
+          <FormLabel id="demo-radio-buttons-group-label">Si oui, laquelle ?</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel {...register('whatDecisionIfYes')} value="consideringApprenticeship" control={<Radio />} label="J'envisage un apprentissage dans ce métier" />
+              <FormControlLabel {...register('whatDecisionIfYes')} value="hesitating" control={<Radio />} label="J'hésite encore." /> <TextField {...register('whyDecision')} label="Pourquoi ?" multiline style={{ width: 200 }}/>
+              <FormControlLabel {...register('whatDecisionIfYes')} value="abandon" control={<Radio />} label="J'abandonne cette profession." /> <TextField {...register('whyDecision')} label="Pourquoi ?" multiline style={{ width: 200 }}/>
+            </RadioGroup>
+          <TextField
               label="Décrivez brièvement ce que vous avez appris :"
               multiline
-            />
-            <TextField
-              id={this.state.processWhatWentRight}
-              label="Ce qui c'est bien passé ?"
-              multiline
-            />
-            <TextField
-              id={this.state.processWhatWentWrong}
-              label="Ce qui c'est mal passé ?"
-              multiline
-            />
-            <TextField
-              id={this.state.processWhatNeedChange}
-              label="Ce que je modifierais ?"
-              multiline
-            />
-            <TextField
-              id={this.state.processNecessaryProfSkills}
-              label="A ton avis, quelles sont les qualités nécessaires à l’exercice de cette profession ?"
-              multiline
-            />
-            <TextField
-              id={this.state.processWhatNeedChange}
-              label="Ce que je modifierais ?"
-              multiline
-            />
-            <TextField
-              id={this.state.processSkillQuestions}
-              label="As-tu l’impression de posséder ces qualités ?"
-              multiline
-            />
-            <Box>
-              <h4>Ce que le stage t’as fait comprendre sur :</h4>
-            </Box>
-            <TextField
-              id={this.state.processJobUnderstanding}
-              label="Le metier en question"
-              multiline
-            />
-            <TextField
-              id={this.state.processIntrospection}
-              label="Sur toi"
-              multiline
-            />
-            <Box>
-              <h3>Conclusion</h3>
-            </Box>
-            {/* Conclusion */}
-            <label htmlFor="">Le métier correspond-il à l’idée que tu t’en faisais ?</label>
+          />
+          <Box>
+            <h3>Conclusion</h3>
+          </Box>
+          {/* Conclusion */}
+          {/* <FormLabel id="demo-radio-buttons-group-label">Le métier correspond-il à l'idée que tu t'en faisais ?</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue={this.state.prejudgeValue}
+              name="radio-buttons-group"
+              onChange={this.handleChangePrejudge}
+            >
+              <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
+              <FormControlLabel value="Non" control={<Radio />} label="Non" />
+            </RadioGroup>
             <br />
-            <input type="radio" defaultValue={this.state.prejudgeYes} />
-            <label>Oui</label>
+            <FormLabel>Si non, quelles sont les différences entre ton idée et ce que tu as réalisé ?</FormLabel>
             <br />
-            <input type="radio" defaultValue={this.state.prejudgeNo} />
-            <label>Non</label>
+            <TextareaAutosize
+              minRows={3}
+              placeholder="Décris pourquoi tu as coché non.."
+              style={{ width: 300 }}
+            />
             <br />
-            <textarea name="message"></textarea>
+            <FormLabel>Est-ce que ce stage t'a permis de mieux comprendre cet élément du métier ?</FormLabel>
             <br />
-            <label htmlFor="">si non, quelle sont les différences entre ton idée et ce que tu as réalisé ?</label>
+            <TextareaAutosize
+              minRows={3}
+              style={{ width: 300 }}
+            />
             <br />
-            <textarea name="message"></textarea><br />
-            <label htmlFor="">Est-ce que ce stage ta permis de mieux comprendre cet élément du métier ?</label>
+            <FormLabel>Si non, que faudrait il rajouter au stage pour avoir une meilleur vue d'ensemble ?</FormLabel>
             <br />
-            <textarea name="message"></textarea>
+            <TextareaAutosize
+              minRows={3}
+              style={{ width: 300 }}
+            />
             <br />
-            <label htmlFor="">Si non, que faudrait il rajouter au stage pour avoir une meilleur vue d'ensemble ?</label>
-            <br />
-            <textarea name="message"></textarea>
-            <br />
-            <label htmlFor="">Qu’est-ce que ce stage t’apportes quelque chose dans ta branche de metier ?</label>
+            <FormLabel>Qu’est-ce que ce stage t’apportes quelque chose dans ta branche de metier ?</FormLabel>
             <br />
             <textarea name="message"></textarea>
             <br />
@@ -186,10 +180,11 @@ export default class HomePage extends React.Component {
             <label htmlFor="">Commentaire additionnel :</label>
             <br />
             <textarea name="message"></textarea>
-            <br />
-          </form>
-        </div>
-      </Container>
-    )
-  }
+            <br /> */}
+          <input type="submit" />
+        </form>
+        <button onClick={() => console.log(formData)}>TEST BUTTON</button>
+      </div>
+    </Container>
+  )
 }
