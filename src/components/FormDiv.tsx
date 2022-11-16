@@ -1,14 +1,8 @@
-/* eslint-disable space-before-function-paren */
-/* eslint-disable semi */
-/* eslint-disable quotes */
-/* eslint-disable multiline-ternary */
-/* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-tabs */
-import { Box, TextField } from "@mui/material";
-import DateSelector from "./DateSelector";
-import { MuiTelInput } from "mui-tel-input";
-import { useState } from "react";
+import { Box, TextField } from '@mui/material'
+import DateSelector from './DateSelector'
+import { MuiTelInput } from 'mui-tel-input'
+import { useState } from 'react'
 
 type FieldsProp = {
   type: string;
@@ -75,5 +69,5 @@ export default function FormDiv ({
       })}
       </Box>
     </Box>
-  );
+  )
 }
