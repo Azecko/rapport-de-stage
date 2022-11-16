@@ -1,0 +1,38 @@
+{
+    "title": "Stagiaire",
+    "divs": [
+        { 
+            "label": "Informations générales", 
+            "fields": [
+                { "type": "text", "placeholder": "Nom de l'entreprise", "name": "internshipName" },
+                { "type": "text", "placeholder": "Métier", "name": "job" },
+                { "type": "date", "placeholder": "Date de début", "name": "beginDate" },
+                { "type": "date", "placeholder": "Date de fin", "name": "endDate" }
+            ]
+        },
+        {
+            "label": "Responsable", 
+            "fields": [
+                { "type": "text", "placeholder": "Nom", "name": "responsibleLastName" },
+                { "type": "text", "placeholder": "Prénom", "name": "responsibleFirstName" },
+                { "type": "text", "placeholder": "Adresse", "name": "responsibleAddress" },
+                { "type": "text", "placeholder": "Numéro postal", "name": "responsiblePostalCode" },
+                { "type": "text", "placeholder": "Localité", "name": "responsibleLocality" },
+                { "type": "phone", "placeholder": "Téléphone", "name": "responsiblePhone" }
+            ]
+        },
+        {
+            "label": "Stagiaire", 
+            "fields": [
+                { "type": "text", "placeholder": "Nom", "name": "internLastName" },
+                { "type": "text", "placeholder": "Prénom", "name": "internFirstName" },
+                { "type": "text", "placeholder": "Classe", "name": "internClass" },
+                { "type": "text", "placeholder": "Établissement", "name": "internEstablishment" },
+                { "type": "text", "placeholder": "Adresse", "name": "internAddress" },
+                { "type": "text", "placeholder": "Numéro postal", "name": "internPostalCode" },
+                { "type": "text", "placeholder": "Localité", "name": "internLocality" },
+                { "type": "phone", "placeholder": "Téléphone", "name": "internPhone" }
+            ]
+        }
+    ]
+}
