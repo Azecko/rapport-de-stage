@@ -41,6 +41,7 @@ export default function FormDiv ({
                 {...register(field.name)}
                 label={field.placeholder}
                 variant="outlined"
+                required
               />
             )
           case 'date':
@@ -50,6 +51,7 @@ export default function FormDiv ({
                 name={field.name}
                 label={field.placeholder}
                 control={control}
+                required
               />
             )
           case 'phone':
@@ -61,6 +63,7 @@ export default function FormDiv ({
                 control={control}
                 value={phone}
                 onChange={handleChange}
+                required
               />
             )
           default:
