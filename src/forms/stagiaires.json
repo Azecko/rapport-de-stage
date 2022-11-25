@@ -33,6 +33,120 @@
                 { "type": "text", "placeholder": "Localité", "name": "internLocality" },
                 { "type": "phone", "placeholder": "Téléphone", "name": "internPhone" }
             ]
+        },
+        {
+            "label": "Déroulement du stage", 
+            "fields": [
+                { "type": "radios", "placeholder": "Impression générale", "name": "generalImpression", "options": [
+                    { "value": "verygood", "label": "Très bien" },
+                    { "value": "good", "label": "Bien" },
+                    { "value": "mid", "label": "Bof" },
+                    { "value": "verybad", "label": "Très mauvais" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Ambiance", "name": "vibe", "options": [
+                    { "value": "verygood", "label": "Très bien" },
+                    { "value": "good", "label": "Bien" },
+                    { "value": "mid", "label": "Bof" },
+                    { "value": "verybad", "label": "Très mauvais" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Métier", "name": "jobOpinion", "options": [
+                    { "value": "verygood", "label": "Très bien" },
+                    { "value": "good", "label": "Bien" },
+                    { "value": "mid", "label": "Bof" },
+                    { "value": "verybad", "label": "Très mauvais" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Entreprise", "name": "company", "options": [
+                    { "value": "verygood", "label": "Très bien" },
+                    { "value": "good", "label": "Bien" },
+                    { "value": "mid", "label": "Bof" },
+                    { "value": "verybad", "label": "Très mauvais" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Informations (reçues)", "name": "informationsGiven", "options": [
+                    { "value": "verygood", "label": "Très bien" },
+                    { "value": "good", "label": "Bien" },
+                    { "value": "mid", "label": "Bof" },
+                    { "value": "verybad", "label": "Très mauvais" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Encadrement et suivi", "name": "framingAndTracking", "options": [
+                    { "value": "verygood", "label": "Très bien" },
+                    { "value": "good", "label": "Bien" },
+                    { "value": "mid", "label": "Bof" },
+                    { "value": "verybad", "label": "Très mauvais" }
+                    ]
+                },
+                { "type": "entrylist", "placeholder": "Liste des tâches", "name": "tasksList" },
+                { "type": "textarea", "placeholder": "Remarques", "name": "tasksListRemarks"},
+                { "type": "textarea", "placeholder": "A ton avis, quelles sont les qualités nécessaires à l'exercice de cette profession ?", "name": "necessaryQualities"},
+                { "type": "radios", "placeholder": "As-tu l'impression de posséder ces qualités ?", "name": "haveQualities", "options": [
+                    { "value": "most", "label": "Oui, la plupart" },
+                    { "value": "some", "label": "Certaines" },
+                    { "value": "no", "label": "Non" },
+                    { "value": "idk", "label": "Je ne sais pas" }
+                    ]
+                },
+                { "type": "textarea", "placeholder": "A ton avis, quelles sont les matières scolaires importantes dans cette profession ?", "name": "necessarySchoolSubject"},
+                { "type": "textarea", "placeholder": "Que devrais-tu développer ou améliorer pour réussir dans ce métier ?", "name": "whatToImprove"},
+                { "type": "textarea", "placeholder": "Quels sont les remarques ou commentaires qui t’ont été faits pendant le stage ?", "name": "remarksDuringTheInternship"},
+                { "type": "radios", "placeholder": "As-tu l'impression de posséder ces qualités ?", "name": "admissionTest", "options": [
+                    { "value": "yes", "label": "Oui" },
+                    { "value": "no", "label": "Non" },
+                    { "value": "idk", "label": "Je ne sais pas" }
+                    ]
+                }
+                
+            ]
+        },
+        {
+            "label": "Conclusion",
+            "fields": [
+                { "type": "radios", "placeholder": "Estimes-tu avoir assez d'informations sur cette profession ?", "name": "enoughInfos", "options": [
+                    { "value": "yes", "label": "Oui" },
+                    { "value": "no", "label": "Non" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Le métier correspond-il à l'idée que tu t'en faisais ?", "name": "jobCorrespond", "options": [
+                    { "value": "yes", "label": "Oui" },
+                    { "value": "no", "label": "Non" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Ce stage t'a-t-il permis de prendre une décision ?", "name": "internshipTookDecision", "options": [
+                    { "value": "yes", "label": "Oui" },
+                    { "value": "no", "label": "Non" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Si oui, laquelle ?", "name": "ifYesWhatDecision", "options": [
+                    { "value": "consideringApprenticeship", "label": "J'envisage un apprentissage dans ce métier" },
+                    { "value": "hesitating", "label": "J'hésite encore." },
+                    { "value": "abandon", "label": "J'abandonne cette profession." }
+                    ]
+                },
+                { "type": "radios", "placeholder": "L'entreprise t'a-t-elle proposé une place d'apprentissage ?", "name": "apprenticeshipPropose", "options": [
+                    { "value": "yes", "label": "Oui" },
+                    { "value": "no", "label": "Non" }
+                    ]
+                },
+                { "type": "radios", "placeholder": "Penses-tu à un autre métier ?", "name": "thinkingOtherJob", "options": [
+                    { "value": "yes", "label": "Oui" },
+                    { "value": "no", "label": "Non" }
+                    ]
+                },
+                { "type": "text", "placeholder": "Si oui lequel ?", "name": "ifYesWhichOne"},
+                { "type": "checkboxes", "placeholder": "Quelles sont tes prochaines démarches ?", "name": "nextSteps", "options": [
+                    { "value": "infosOtherJobs", "label": "Me renseigner sur d'autres métiers" },
+                    { "value": "searchInternship", "label": "Chercher un autre stage" },
+                    { "value": "schoolsOpenDoors", "label": "Me renseigner sur les portes ouvertes des écoles" },
+                    { "value": "infosAdmissionExam", "label": "Me renseigner sur les examens d'admission" },
+                    { "value": "prepareApplicationFile", "label": "Préparer mon dossier de postulation" },
+                    { "value": "apprenticeshipBourse", "label": "Consulter la bourse des places d'apprentissage" },
+                    { "value": "other", "label": "Autre" }
+                    ]
+                }
+            ]
         }
     ]
 }
