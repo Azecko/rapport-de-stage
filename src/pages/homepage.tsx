@@ -6,12 +6,13 @@ import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import FormDiv from '../components/FormDiv'
 import stagiairesForm from '../forms/stagiaires.json'
-
+import { useNavigate } from 'react-router-dom'
 const Container = styled.div``
 
 export default function HomePage () {
   // const [formData, setFormData] = useState('')
   const { register, handleSubmit, control, setValue } = useForm()
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -21,7 +22,11 @@ export default function HomePage () {
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
-            // setFormData(JSON.stringify(formData))
+            navigate('/preview', {
+              state: {
+                formData: JSON.stringify(formData)
+              }
+            })
             console.log(formData)
           }
           )}
