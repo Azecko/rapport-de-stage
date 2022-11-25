@@ -21,7 +21,7 @@ export default function DateSelector ({
       name={name}
       control={control}
       render={({ field: { onChange, value } }) => (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <LocalizationProvider dateAdapter={AdapterDateFns} >
             <DesktopDatePicker
                 value={value}
                 label={label}
