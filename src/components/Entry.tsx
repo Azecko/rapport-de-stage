@@ -41,7 +41,7 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index 
                 key={`textarea_${index}`}
                 style={{ marginRight: 10 }}
             />
-            <RadioGroup row onChange={(event) => setEntryValue(event.target.value, 'liked')} key="liked_radios">
+            <RadioGroup row onChange={(event) => setEntryValue(JSON.parse(event.target.value.toLowerCase()), 'liked')} key="liked_radios">
                 <FormControlLabel
                     control={<Radio />} label="J'ai aimé" value={true}
                     key={`liked_${index}`}
@@ -51,7 +51,7 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index 
                     key={`less_liked_${index}`}
                 />
             </RadioGroup>
-            <RadioGroup row onChange={(event) => setEntryValue(event.target.value, 'easy')} key="easy_radios">
+            <RadioGroup row onChange={(event) => setEntryValue(JSON.parse(event.target.value.toLowerCase()), 'easy')} key="easy_radios">
                 <FormControlLabel
                     control={<Radio />} label="J'ai trouvé facile" value={true}
                     key={`easy_${index}`}
