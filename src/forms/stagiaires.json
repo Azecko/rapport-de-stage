@@ -92,7 +92,7 @@
                 { "type": "textarea", "placeholder": "A ton avis, quelles sont les matières scolaires importantes dans cette profession ?", "name": "necessarySchoolSubject"},
                 { "type": "textarea", "placeholder": "Que devrais-tu développer ou améliorer pour réussir dans ce métier ?", "name": "whatToImprove"},
                 { "type": "textarea", "placeholder": "Quels sont les remarques ou commentaires qui t’ont été faits pendant le stage ?", "name": "remarksDuringTheInternship"},
-                { "type": "radios", "placeholder": "As-tu l'impression de posséder ces qualités ?", "name": "admissionTest", "options": [
+                { "type": "radios", "placeholder": "Y a-t-il un test d'admission dans cette profession ?", "name": "admissionTest", "options": [
                     { "value": "yes", "label": "Oui" },
                     { "value": "no", "label": "Non" },
                     { "value": "idk", "label": "Je ne sais pas" }
@@ -131,11 +131,10 @@
                     ]
                 },
                 { "type": "radios", "placeholder": "Penses-tu à un autre métier ?", "name": "thinkingOtherJob", "options": [
-                    { "value": "yes", "label": "Oui" },
+                    { "value": "yes", "label": "Oui", "ifYes": true, "name": "ifYesWhichOne", "placeholder": "Si oui, lequel ?" },
                     { "value": "no", "label": "Non" }
                     ]
                 },
-                { "type": "text", "placeholder": "Si oui lequel ?", "name": "ifYesWhichOne"},
                 { "type": "checkboxes", "placeholder": "Quelles sont tes prochaines démarches ?", "name": "nextSteps", "options": [
                     { "value": "infosOtherJobs", "label": "Me renseigner sur d'autres métiers" },
                     { "value": "searchInternship", "label": "Chercher un autre stage" },
