@@ -6,6 +6,7 @@ import HomePage from './pages/homepage'
 import Preview from './pages/preview'
 import {
   createBrowserRouter,
+  HashRouter,
   RouterProvider
 } from 'react-router-dom'
 
@@ -22,7 +23,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HashRouter>
+      <RouterProvider router={router} />
+    </HashRouter>
   </React.StrictMode>
 )
 
