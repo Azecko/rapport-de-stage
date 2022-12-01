@@ -5,30 +5,21 @@ import reportWebVitals from './reportWebVitals'
 import HomePage from './pages/homepage'
 import Preview from './pages/preview'
 import {
-  createBrowserRouter,
   HashRouter,
-  RouterProvider
+  Route,
+  Routes
 } from 'react-router-dom'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomePage />
-  },
-  {
-    path: '/preview',
-    element: <Preview />
-  }
-])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <HashRouter>
-      <RouterProvider router={router} />
-    </HashRouter>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/preview" element={<Preview />} />
+        </Routes>
+      </HashRouter>
   </React.StrictMode>
 )
-
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
