@@ -36,10 +36,8 @@ export default function FormDiv ({
 
   function checkIfYes (value: any, field: any) {
     const selected = field.options.find((opt: any) => opt.value === value)
-    console.log(selected)
     return { ifYes: selected?.ifYes, value }
   }
-
   return (
     <Box key="fieldsLabelBox">
       <h3>{label}</h3>
@@ -89,17 +87,19 @@ export default function FormDiv ({
                   id={field.name}
                   name={field.name}
                   key={field.name}
-                  onChange={(event) => setRadioValue(event.target.value)}
+                  onChange={(event) => {
+                    setRadioValue(event.target.value)
+                  }}
                 >
                   {field.options?.map((option:any) => {
                     return (
-                      <Box key={option}>
+                      <Box key={option.value}>
                         <FormControlLabel
                           {...register(field.name)}
                           value={option.value}
                           label={option.label}
                           name={field.name}
-                          control={<Radio id={`${field.name}_${option}`} />}
+                          control={<Radio id={`${field.name}_${option.value}`} />}
                           key={option}
                         />
                         {checkIfYes(radioValue, field).ifYes &&
@@ -143,15 +143,27 @@ export default function FormDiv ({
                   key={field.name}
                 >
                   {field.options?.map((option:any) => {
+                    const [isChecked, setIsChecked] = useState(false)
                     return (
-                      <FormControlLabel
-                        {...register(field.name)}
-                        value={option.value}
-                        label={option.label}
-                        name={field.name}
-                        control={<Checkbox id={`${field.name}_${option}`} />}
-                        key={option}
-                      />
+                      <Box key={option.value}>
+                        <FormControlLabel
+                          {...register(field.name)}
+                          value={option.value}
+                          label={option.label}
+                          name={field.name}
+                          control={<Checkbox id={`${field.name}_${option.value}`} />}
+                          key={option}
+                          onChange={(event) => {
+                            setIsChecked((event.target as HTMLInputElement).checked)
+                          }}
+                        />
+                        {isChecked && option?.ifYes && (
+                          <TextField
+                            {...register(option.name)}
+                            label={option.placeholder}
+                            style={{ marginRight: 20 }}
+                          />)}
+                      </Box>
                     )
                   })}
                 </FormGroup>

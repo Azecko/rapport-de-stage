@@ -1039,7 +1039,7 @@ export default function Preview () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.ifYesWhichOne}
+          {formData.thinkingOtherJob === 'yes' && formData.ifYesWhichOne}
         </tspan>
       </text>
     </g>
@@ -1624,7 +1624,7 @@ export default function Preview () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.whyHesitating}
+          {formData.ifYesWhatDecision === 'hesitating' && formData.whyHesitating}
         </tspan>
       </text>
       <text
@@ -1730,7 +1730,7 @@ export default function Preview () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.whyAbandon}
+          {formData.ifYesWhatDecision === 'abandon' && formData.whyAbandon}
         </tspan>
       </text>
       <text
@@ -2208,6 +2208,59 @@ export default function Preview () {
           }}
         >
           {formData.nextSteps && formData.nextSteps.includes('other') ? '\u2717' : ''}
+        </tspan>
+      </text>
+      <text
+        x={242.082}
+        y={890.849}
+        style={{
+          fontStyle: 'normal',
+          fontVariant: 'normal',
+          fontWeight: 400,
+          fontStretch: 'normal',
+          fontSize: '26.66666603px',
+          fontFamily: "'DejaVu Sans'",
+          fontVariantLigatures: 'normal',
+          fontVariantCaps: 'normal',
+          fontVariantNumeric: 'normal',
+          fontFeatureSettings: 'normal',
+          textAlign: 'start',
+          textAnchor: 'start',
+          display: 'inline',
+          fill: '#000',
+          fillOpacity: 0.90232556,
+          stroke: 'none',
+          strokeWidth: 2,
+          strokeMiterlimit: 4,
+          strokeDasharray: 'none'
+        }}
+        transform="translate(-73.5 275.8)"
+      >
+        <tspan
+          style={{
+            fontStyle: 'normal',
+            fontVariant: 'normal',
+            fontWeight: 400,
+            fontStretch: 'normal',
+            fontSize: '26.66666603px',
+            fontFamily: "'DejaVu Sans'",
+
+            fontVariantLigatures: 'normal',
+            fontVariantCaps: 'normal',
+            fontVariantNumeric: 'normal',
+            fontFeatureSettings: 'normal',
+            textAlign: 'start',
+
+            textAnchor: 'start',
+            fill: '#000',
+            fillOpacity: 0.90232556,
+            stroke: 'none',
+            strokeWidth: 2,
+            strokeMiterlimit: 4,
+            strokeDasharray: 'none'
+          }}
+        >
+          {formData.nextSteps && formData.nextSteps.includes('other') && formData.whatOther}
         </tspan>
       </text>
     </g>

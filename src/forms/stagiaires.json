@@ -142,7 +142,7 @@
                     { "value": "infosAdmissionExam", "label": "Me renseigner sur les examens d'admission" },
                     { "value": "prepareApplicationFile", "label": "Préparer mon dossier de postulation" },
                     { "value": "apprenticeshipBourse", "label": "Consulter la bourse des places d'apprentissage" },
-                    { "value": "other", "label": "Autre" }
+                    { "value": "other", "label": "Autre", "ifYes": true, "name": "whatOther", "placeholder": "Quoi ?" }
                     ]
                 }
             ]
