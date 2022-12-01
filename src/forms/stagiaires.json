@@ -4,34 +4,34 @@
         { 
             "label": "Informations générales", 
             "fields": [
-                { "type": "text", "placeholder": "Nom de l'entreprise", "name": "internshipName" },
-                { "type": "text", "placeholder": "Métier", "name": "job" },
-                { "type": "date", "placeholder": "Date de début", "name": "beginDate" },
-                { "type": "date", "placeholder": "Date de fin", "name": "endDate" }
+                { "type": "text", "placeholder": "Nom de l'entreprise", "name": "internshipName", "maxlength": 45 },
+                { "type": "text", "placeholder": "Métier", "name": "job", "maxlength": 39 },
+                { "type": "date", "placeholder": "Date de début", "name": "beginDate", "maxlength": 16 },
+                { "type": "date", "placeholder": "Date de fin", "name": "endDate", "maxlength": 16 }
             ]
         },
         {
             "label": "Responsable", 
             "fields": [
-                { "type": "text", "placeholder": "Nom", "name": "responsibleLastName" },
-                { "type": "text", "placeholder": "Prénom", "name": "responsibleFirstName" },
-                { "type": "text", "placeholder": "Adresse", "name": "responsibleAddress" },
-                { "type": "text", "placeholder": "Numéro postal", "name": "responsiblePostalCode" },
-                { "type": "text", "placeholder": "Localité", "name": "responsibleLocality" },
-                { "type": "phone", "placeholder": "Téléphone", "name": "responsiblePhone" }
+                { "type": "text", "placeholder": "Nom", "name": "responsibleLastName", "maxlength": 42 },
+                { "type": "text", "placeholder": "Prénom", "name": "responsibleFirstName", "maxlength": 42 },
+                { "type": "text", "placeholder": "Adresse", "name": "responsibleAddress", "maxlength": 46 },
+                { "type": "text", "placeholder": "Numéro postal", "name": "responsiblePostalCode", "maxlength": 10 },
+                { "type": "text", "placeholder": "Localité", "name": "responsibleLocality", "maxlength": 32 },
+                { "type": "phone", "placeholder": "Téléphone", "name": "responsiblePhone", "maxlength": 20 }
             ]
         },
         {
             "label": "Stagiaire", 
             "fields": [
-                { "type": "text", "placeholder": "Nom", "name": "internLastName" },
-                { "type": "text", "placeholder": "Prénom", "name": "internFirstName" },
-                { "type": "text", "placeholder": "Classe", "name": "internClass" },
-                { "type": "text", "placeholder": "Établissement", "name": "internEstablishment" },
-                { "type": "text", "placeholder": "Adresse", "name": "internAddress" },
-                { "type": "text", "placeholder": "Numéro postal", "name": "internPostalCode" },
-                { "type": "text", "placeholder": "Localité", "name": "internLocality" },
-                { "type": "phone", "placeholder": "Téléphone", "name": "internPhone" }
+                { "type": "text", "placeholder": "Nom", "name": "internLastName", "maxlength": 42 },
+                { "type": "text", "placeholder": "Prénom", "name": "internFirstName", "maxlength": 42 },
+                { "type": "text", "placeholder": "Classe", "name": "internClass", "maxlength": 9 },
+                { "type": "text", "placeholder": "Établissement", "name": "internEstablishment", "maxlength": 28 },
+                { "type": "text", "placeholder": "Adresse", "name": "internAddress", "maxlength": 46 },
+                { "type": "text", "placeholder": "Numéro postal", "name": "internPostalCode", "maxlength": 10 },
+                { "type": "text", "placeholder": "Localité", "name": "internLocality", "maxlength": 32 },
+                { "type": "phone", "placeholder": "Téléphone", "name": "internPhone", "maxlength": 20 }
             ]
         },
         {
@@ -80,8 +80,8 @@
                     ]
                 },
                 { "type": "entrylist", "placeholder": "Liste des tâches", "name": "tasksList" },
-                { "type": "textarea", "placeholder": "Remarques", "name": "tasksListRemarks"},
-                { "type": "textarea", "placeholder": "A ton avis, quelles sont les qualités nécessaires à l'exercice de cette profession ?", "name": "necessaryQualities"},
+                { "type": "textarea", "placeholder": "Remarques", "name": "tasksListRemarks", "maxlength": 115 },
+                { "type": "textarea", "placeholder": "A ton avis, quelles sont les qualités nécessaires à l'exercice de cette profession ?", "name": "necessaryQualities", "maxlength": 115 },
                 { "type": "radios", "placeholder": "As-tu l'impression de posséder ces qualités ?", "name": "haveQualities", "options": [
                     { "value": "most", "label": "Oui, la plupart" },
                     { "value": "some", "label": "Certaines" },
@@ -89,9 +89,9 @@
                     { "value": "idk", "label": "Je ne sais pas" }
                     ]
                 },
-                { "type": "textarea", "placeholder": "A ton avis, quelles sont les matières scolaires importantes dans cette profession ?", "name": "necessarySchoolSubject"},
-                { "type": "textarea", "placeholder": "Que devrais-tu développer ou améliorer pour réussir dans ce métier ?", "name": "whatToImprove"},
-                { "type": "textarea", "placeholder": "Quels sont les remarques ou commentaires qui t’ont été faits pendant le stage ?", "name": "remarksDuringTheInternship"},
+                { "type": "textarea", "placeholder": "A ton avis, quelles sont les matières scolaires importantes dans cette profession ?", "name": "necessarySchoolSubject", "maxlength": 115 },
+                { "type": "textarea", "placeholder": "Que devrais-tu développer ou améliorer pour réussir dans ce métier ?", "name": "whatToImprove", "maxlength": 115 },
+                { "type": "textarea", "placeholder": "Quels sont les remarques ou commentaires qui t’ont été faits pendant le stage ?", "name": "remarksDuringTheInternship", "maxlength": 172 },
                 { "type": "radios", "placeholder": "Y a-t-il un test d'admission dans cette profession ?", "name": "admissionTest", "options": [
                     { "value": "yes", "label": "Oui" },
                     { "value": "no", "label": "Non" },
@@ -121,8 +121,8 @@
                 },
                 { "type": "radios", "placeholder": "Si oui, laquelle ?", "name": "ifYesWhatDecision", "options": [
                     { "value": "consideringApprenticeship", "label": "J'envisage un apprentissage dans ce métier" },
-                    { "value": "hesitating", "label": "J'hésite encore.", "ifYes": true, "name": "whyHesitating", "placeholder": "Pourquoi ?" },
-                    { "value": "abandon", "label": "J'abandonne cette profession.", "ifYes": true, "name": "whyAbandon", "placeholder": "Pourquoi ?" }
+                    { "value": "hesitating", "label": "J'hésite encore.", "ifYes": true, "name": "whyHesitating", "placeholder": "Pourquoi ?", "maxlength": 100 },
+                    { "value": "abandon", "label": "J'abandonne cette profession.", "ifYes": true, "name": "whyAbandon", "placeholder": "Pourquoi ?", "maxlength": 100 }
                     ]
                 },
                 { "type": "radios", "placeholder": "L'entreprise t'a-t-elle proposé une place d'apprentissage ?", "name": "apprenticeshipPropose", "options": [
@@ -131,7 +131,7 @@
                     ]
                 },
                 { "type": "radios", "placeholder": "Penses-tu à un autre métier ?", "name": "thinkingOtherJob", "options": [
-                    { "value": "yes", "label": "Oui", "ifYes": true, "name": "ifYesWhichOne", "placeholder": "Si oui, lequel ?" },
+                    { "value": "yes", "label": "Oui", "ifYes": true, "name": "ifYesWhichOne", "placeholder": "Si oui, lequel ?", "maxlength": 47 },
                     { "value": "no", "label": "Non" }
                     ]
                 },
@@ -142,7 +142,7 @@
                     { "value": "infosAdmissionExam", "label": "Me renseigner sur les examens d'admission" },
                     { "value": "prepareApplicationFile", "label": "Préparer mon dossier de postulation" },
                     { "value": "apprenticeshipBourse", "label": "Consulter la bourse des places d'apprentissage" },
-                    { "value": "other", "label": "Autre", "ifYes": true, "name": "whatOther", "placeholder": "Quoi ?" }
+                    { "value": "other", "label": "Autre", "ifYes": true, "name": "whatOther", "placeholder": "Quoi ?", "maxlength": 51 }
                     ]
                 }
             ]

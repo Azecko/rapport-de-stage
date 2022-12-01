@@ -10,7 +10,8 @@ type FieldsProp = {
   type: string;
   placeholder: string;
   name: string;
-  options?: any
+  options?: any;
+  maxlength?: number;
 };
 
 type FormDivProps = {
@@ -52,6 +53,7 @@ export default function FormDiv ({
                 variant="outlined"
                 key={field.name}
                 sx={{ width: '45ch' }}
+                inputProps={{ maxLength: field.maxlength }}
               />
             )
           case 'date':
@@ -75,6 +77,7 @@ export default function FormDiv ({
                 onChange={handleChange}
                 key={field.name}
                 sx={{ width: '45ch' }}
+                inputProps={{ maxLength: field.maxlength }}
               />
             )
           case 'radios':
@@ -108,6 +111,7 @@ export default function FormDiv ({
                           {...register(option.name)}
                           label={option.placeholder}
                           style={{ marginRight: 20 }}
+                          inputProps={{ maxLength: option.maxlength }}
                         />)}
                       </Box>
                     )
@@ -131,6 +135,7 @@ export default function FormDiv ({
                   rows={3}
                   key={field.name}
                   style={{ width: 400 }}
+                  inputProps={{ maxLength: field.maxlength }}
                 />
               </Box>
             )
@@ -162,6 +167,7 @@ export default function FormDiv ({
                             {...register(option.name)}
                             label={option.placeholder}
                             style={{ marginRight: 20 }}
+                            inputProps={{ maxLength: option.maxlength }}
                           />)}
                       </Box>
                     )
