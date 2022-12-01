@@ -121,8 +121,8 @@
                 },
                 { "type": "radios", "placeholder": "Si oui, laquelle ?", "name": "ifYesWhatDecision", "options": [
                     { "value": "consideringApprenticeship", "label": "J'envisage un apprentissage dans ce métier" },
-                    { "value": "hesitating", "label": "J'hésite encore." },
-                    { "value": "abandon", "label": "J'abandonne cette profession." }
+                    { "value": "hesitating", "label": "J'hésite encore.", "ifYes": true, "name": "whyHesitating", "placeholder": "Pourquoi ?" },
+                    { "value": "abandon", "label": "J'abandonne cette profession.", "ifYes": true, "name": "whyAbandon", "placeholder": "Pourquoi ?" }
                     ]
                 },
                 { "type": "radios", "placeholder": "L'entreprise t'a-t-elle proposé une place d'apprentissage ?", "name": "apprenticeshipPropose", "options": [
