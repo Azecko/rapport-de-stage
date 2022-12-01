@@ -4,6 +4,23 @@ import { useLocation } from 'react-router-dom'
 
 const Container = styled.div``
 
+/**
+ * A date helper — format a Zulu date in french format :
+ * "2022-12-10T23:00:00.000Z" will become "11 décembre 2022"
+ *
+ * Note: This should probaly stand in a helpers dirsctory but for now it's here.
+ *
+ * Feel free to document yourself on
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+ * Formatting option such as { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+ * will work, but might be too long to fit in the field.
+ */
+const dateHelper = (strdate: string) => {
+  const date = new Date(strdate)
+  const formatter = new Intl.DateTimeFormat('fr', { year: 'numeric', month: 'long', day: 'numeric' })
+  return formatter.format(date)
+}
+
 export default function Preview () {
   const location = useLocation()
   const formData = JSON.parse(location.state.formData)
@@ -933,7 +950,7 @@ export default function Preview () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.beginDate}
+          {dateHelper(formData.beginDate)}
         </tspan>
       </text>
       <text
@@ -986,7 +1003,7 @@ export default function Preview () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.endDate}
+          {dateHelper(formData.endDate)}
         </tspan>
       </text>
       <text
