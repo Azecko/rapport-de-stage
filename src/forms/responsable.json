@@ -1,0 +1,778 @@
+{
+  "title":"Responsable",
+  "divs":[
+    {
+      "label":"Informations générales",
+      "fields":[
+        {
+          "type":"text",
+          "placeholder":"Nom de l'entreprise",
+          "name":"enterpriseName",
+          "maxlength":45
+        },
+        {
+          "type":"text",
+          "placeholder":"Métier",
+          "name":"job",
+          "maxlength":39
+        },
+        {
+          "type":"date",
+          "placeholder":"Date de début",
+          "name":"beginDate",
+          "maxlength":16
+        },
+        {
+          "type":"date",
+          "placeholder":"Date de fin",
+          "name":"endDate",
+          "maxlength":16
+        }
+      ]
+    },
+    {
+      "label":"Responsable",
+      "fields":[
+        {
+          "type":"text",
+          "placeholder":"Nom",
+          "name":"responsibleLastName",
+          "maxlength":42
+        },
+        {
+          "type":"text",
+          "placeholder":"Prénom",
+          "name":"responsibleFirstName",
+          "maxlength":42
+        },
+        {
+          "type":"text",
+          "placeholder":"Adresse",
+          "name":"responsibleAddress",
+          "maxlength":46
+        },
+        {
+          "type":"text",
+          "placeholder":"Numéro postal",
+          "name":"responsiblePostalCode",
+          "maxlength":10
+        },
+        {
+          "type":"text",
+          "placeholder":"Localité",
+          "name":"responsibleLocality",
+          "maxlength":32
+        },
+        {
+          "type":"phone",
+          "placeholder":"Téléphone",
+          "name":"responsiblePhone",
+          "maxlength":20
+        }
+      ]
+    },
+    {
+      "label":"Stagiaire",
+      "fields":[
+        {
+          "type":"text",
+          "placeholder":"Nom",
+          "name":"internLastName",
+          "maxlength":42
+        },
+        {
+          "type":"text",
+          "placeholder":"Prénom",
+          "name":"internFirstName",
+          "maxlength":42
+        },
+        {
+          "type":"text",
+          "placeholder":"Classe",
+          "name":"internClass",
+          "maxlength":9
+        },
+        {
+          "type":"text",
+          "placeholder":"Établissement",
+          "name":"internEstablishment",
+          "maxlength":28
+        },
+        {
+          "type":"text",
+          "placeholder":"Adresse",
+          "name":"internAddress",
+          "maxlength":46
+        },
+        {
+          "type":"text",
+          "placeholder":"Numéro postal",
+          "name":"internPostalCode",
+          "maxlength":10
+        },
+        {
+          "type":"text",
+          "placeholder":"Localité",
+          "name":"internLocality",
+          "maxlength":32
+        },
+        {
+          "type":"phone",
+          "placeholder":"Téléphone",
+          "name":"internPhone",
+          "maxlength":20
+        }
+      ]
+    },
+    {
+      "label":"Attitude générale",
+      "fields":[
+        {
+          "type":"radios",
+          "placeholder":"Votre première impression",
+          "name":"firstImpression",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Ponctualité",
+          "name":"punctuality",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Confiance en soi",
+          "name":"selfConfidence",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Dynamisme",
+          "name":"dynamism",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Attention, concentration",
+          "name":"concentrationSpan",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Curiosité",
+          "name":"curiosity",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Esprit d’initiative (sollicite du travail)",
+          "name":"commitment",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Plaisir d’apprendre",
+          "name":"interestLearning",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"textarea",
+          "placeholder":"Remarques / Observations",
+          "name":"attitudeRemarks",
+          "maxlength":115
+        }
+      ]
+    },
+    {
+      "label":"EXÉCUTION DES TÂCHES",
+      "fields":[
+        {
+          "type":"radios",
+          "placeholder":"Habile",
+          "name":"skillful",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Rapide",
+          "name":"fast",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Soigneux-se",
+          "name":"careful",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Méthodique",
+          "name":"methodical",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Persévérant-e",
+          "name":"Persevering",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Attentif-ve",
+          "name":"attentive",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Comprend rapidement les consignes",
+          "name":"followInstructions",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"textarea",
+          "placeholder":"Remarques / Observations",
+          "name":"tasksExecRemarks",
+          "maxlength":172
+        }
+      ]
+    },
+    {
+      "label":"CONTACT AVEC AUTRUI",
+      "fields":[
+        {
+          "type":"radios",
+          "placeholder":"A l’aise dans les contacts",
+          "name":"comfortable",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Serviable",
+          "name":"helpful",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Poli-e",
+          "name":"polite",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Souriant-e",
+          "name":"smiling",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Ose poser des questions",
+          "name":"confidentToAsk",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"Montre de l’intérêt",
+          "name":"showInterest",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"radios",
+          "placeholder":"S’exprime clairement",
+          "name":"expressClairly",
+          "options":[
+            {
+              "value":"verygood",
+              "label":"Très bien"
+            },
+            {
+              "value":"satisfactory",
+              "label":"satisfaisant"
+            },
+            {
+              "value":"to-be-improved",
+              "label":"À améliorer"
+            },
+            {
+              "value":"not-observed",
+              "label":"Non observé"
+            }
+          ]
+        },
+        {
+          "type":"textarea",
+          "placeholder":"Remarques / Observations",
+          "name":"tasksExecRemarks",
+          "maxlength":115
+        }
+      ]
+    },
+    {
+      "label":"AVIS DE LA PERSONNE RESPONSABLE DU STAGE",
+      "fields":[
+        {
+          "type":"radios",
+          "placeholder":"A votre avis, le projet de formation dans ce métier est :",
+          "name":"projetOK",
+          "options":[
+            {
+              "value":"Adéquat",
+              "label":"Adéquat"
+            },
+            {
+              "value":"A préciser",
+              "label":"A préciser"
+            },
+            {
+              "value":"Pas adéquat",
+              "label":"Pas adéquat"
+            }
+          ]
+        },
+        {
+          "type":"textarea",
+          "placeholder":"Remarques",
+          "name":"opinionRemarks",
+          "maxlength":115
+        },
+        {
+          "type":"radios",
+          "placeholder":"Que conseillez-vous à ce ou à cette stagiaire par rapport à son projet ?",
+          "name":"conseilProjet",
+          "options":[
+            {
+              "value":"Chercher une place d’apprentissage",
+              "label":"Chercher une place d’apprentissage"
+            },
+            {
+              "value":"Faire un autre stage",
+              "label":"Faire un autre stage"
+            },
+            {
+              "value":"Continuer à explorer les métiers",
+              "label":"Continuer à explorer les métiers"
+            },
+            {
+              "value":"Autre (préciser)",
+              "label":"Autre (préciser)"
+            }
+          ]
+        },
+        {
+          "type":"textarea",
+          "placeholder":"Dans le cas où ce ou cette stagiaire envisage une formation dans ce métier, quels conseils particuliers lui donneriez-vous ?",
+          "name":"advicesRemarks",
+          "maxlength":145
+        },
+        {
+          "type":"radios",
+          "placeholder":"Si vous envisagiez d’engager un-e apprenti-e, prendriez-vous ce ou cette stagiaire en formation ?",
+          "name":"considerCandidate",
+          "options":[
+            {
+              "value":"Oui. Pourquoi ?",
+              "label":"Oui. Pourquoi ?"
+            },
+            {
+              "value":"Peut-être. Pourquoi ?",
+              "label":"Peut-être. Pourquoi ?"
+            },
+            {
+              "value":"Non. Pourquoi ?",
+              "label":"Non. Pourquoi ?"
+            }
+          ]
+        },
+        {
+          "type":"textarea",
+          "placeholder":"Why ?",
+          "name":"considerCandidatesRemarks",
+          "maxlength":145
+        },
+        {
+          "type":"radios",
+          "placeholder":"Avez-vous pu prendre du temps avec le ou la stagiaire pour faire le bilan des quelques jours passés dans votre entreprise ou établissement ?",
+          "name":"conseilProjet",
+          "options":[
+            {
+              "value":"Oui",
+              "label":"Oui"
+            },
+            {
+              "value":"Non",
+              "label":"Non"
+            }
+          ]
+        },
+        {
+          "type":"text",
+          "placeholder":"Date",
+          "name":"fillUpDate",
+          "maxlength":16
+        },
+        {
+          "type":"text",
+          "placeholder":"Type Sign logo EPFL",
+          "name":"signature",
+          "maxlength":16
+        }
+      ]
+    }
+  ]
+}
