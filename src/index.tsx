@@ -4,6 +4,8 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import HomePage from './pages/homepage'
 import Preview from './pages/preview'
+import ResponsableA from './pages/responsableA'
+import ResponsableB from './pages/responsableB'
 import {
   HashRouter,
   Route,
@@ -16,6 +18,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/preview" element={<Preview />} />
+          <Route path="/respA" element={<ResponsableA />} />
+          <Route path="/respB" element={<ResponsableB />} />
         </Routes>
       </HashRouter>
   </React.StrictMode>

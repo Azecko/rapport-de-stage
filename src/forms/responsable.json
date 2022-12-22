@@ -672,15 +672,15 @@
           "name":"projetOK",
           "options":[
             {
-              "value":"Adéquat",
+              "value":"yes",
               "label":"Adéquat"
             },
             {
-              "value":"A préciser",
+              "value":"maybe",
               "label":"A préciser"
             },
             {
-              "value":"Pas adéquat",
+              "value":"no",
               "label":"Pas adéquat"
             }
           ]
@@ -697,19 +697,19 @@
           "name":"conseilProjet",
           "options":[
             {
-              "value":"Chercher une place d’apprentissage",
+              "value":"seek",
               "label":"Chercher une place d’apprentissage"
             },
             {
-              "value":"Faire un autre stage",
+              "value":"stage",
               "label":"Faire un autre stage"
             },
             {
-              "value":"Continuer à explorer les métiers",
+              "value":"explore",
               "label":"Continuer à explorer les métiers"
             },
             {
-              "value":"Autre (préciser)",
+              "value":"other",
               "label":"Autre (préciser)"
             }
           ]
@@ -726,15 +726,15 @@
           "name":"considerCandidate",
           "options":[
             {
-              "value":"Oui. Pourquoi ?",
+              "value":"yes",
               "label":"Oui. Pourquoi ?"
             },
             {
-              "value":"Peut-être. Pourquoi ?",
+              "value":"maybe",
               "label":"Peut-être. Pourquoi ?"
             },
             {
-              "value":"Non. Pourquoi ?",
+              "value":"no",
               "label":"Non. Pourquoi ?"
             }
           ]
@@ -751,11 +751,11 @@
           "name":"conseilProjet",
           "options":[
             {
-              "value":"Oui",
+              "value":"yes",
               "label":"Oui"
             },
             {
-              "value":"Non",
+              "value":"no",
               "label":"Non"
             }
           ]
