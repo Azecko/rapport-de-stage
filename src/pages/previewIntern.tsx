@@ -22,7 +22,7 @@ const dateHelper = (strdate: string) => {
   return formatter.format(date)
 }
 
-export default function Preview () {
+export default function PreviewIntern () {
   const location = useLocation()
   const formData = JSON.parse(location.state.formData)
 
