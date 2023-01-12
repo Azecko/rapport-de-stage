@@ -9,28 +9,32 @@ type DateSelectorProps = {
   name: string;
   label: string;
   control: Control;
+  dateValue: string;
+  register: any;
 };
 
 export default function DateSelector ({
   name,
   label,
-  control
+  control,
+  dateValue,
+  register
 }: DateSelectorProps) {
   return (
     <Controller
-      name={name}
-      control={control}
-      render={({ field: { onChange, value } }) => (
+    name={name}
+    control={control}
+    render={({ field: { value, onChange } }) => (
         <LocalizationProvider dateAdapter={AdapterDateFns} >
             <DesktopDatePicker
-                value={value}
+                {...register(name)}
+                value={value === null || value === undefined ? dateValue : new Date(value)}
                 label={label}
                 onChange={onChange}
-                inputFormat="dd/MM/yyyy"
                 renderInput={(params) => <TextField {...params} />}
             />
         </LocalizationProvider>
-      )}
+    )}
     />
   )
 }
