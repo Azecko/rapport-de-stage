@@ -29,6 +29,7 @@ export default function Responsable () {
               }
             })
             console.log(formData)
+            localStorage.setItem('responsible', JSON.stringify(formData))
           }
           )}
           key="mainForm"

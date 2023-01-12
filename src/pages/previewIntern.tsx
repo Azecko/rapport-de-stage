@@ -3806,7 +3806,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.easy === false && '\u2717'}
+          {formData.tasksList[0]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -3858,7 +3858,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.easy === false && '\u2717'}
+          {formData.tasksList[1]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -3910,7 +3910,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.easy === false && '\u2717'}
+          {formData.tasksList[2]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -3962,7 +3962,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.easy === false && '\u2717'}
+          {formData.tasksList[3]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -4014,7 +4014,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.easy === false && '\u2717'}
+          {formData.tasksList[4]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -4066,7 +4066,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.easy === false && '\u2717'}
+          {formData.tasksList[5]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -4118,7 +4118,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.easy === false && '\u2717'}
+          {formData.tasksList[6]?.easy === 'hard' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -4898,7 +4898,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.liked === true && '\u2717'}
+          {formData.tasksList[0]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -4950,7 +4950,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.liked === true && '\u2717'}
+          {formData.tasksList[1]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5002,7 +5002,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.liked === true && '\u2717'}
+          {formData.tasksList[2]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5054,7 +5054,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.liked === true && '\u2717'}
+          {formData.tasksList[3]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5106,7 +5106,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.liked === true && '\u2717'}
+          {formData.tasksList[4]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5158,7 +5158,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.liked === true && '\u2717'}
+          {formData.tasksList[5]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5210,7 +5210,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.liked === true && '\u2717'}
+          {formData.tasksList[6]?.liked === 'liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5262,7 +5262,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.liked === false && '\u2717'}
+          {formData.tasksList[0]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5314,7 +5314,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.liked === false && '\u2717'}
+          {formData.tasksList[1]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5366,7 +5366,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.liked === false && '\u2717'}
+          {formData.tasksList[2]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5418,7 +5418,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.liked === false && '\u2717'}
+          {formData.tasksList[3]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5470,7 +5470,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.liked === false && '\u2717'}
+          {formData.tasksList[4]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5522,7 +5522,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.liked === false && '\u2717'}
+          {formData.tasksList[5]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5574,7 +5574,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.liked === false && '\u2717'}
+          {formData.tasksList[6]?.liked === 'less-liked' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5626,7 +5626,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.easy === true && '\u2717'}
+          {formData.tasksList[0]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5678,7 +5678,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.easy === true && '\u2717'}
+          {formData.tasksList[1]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5730,7 +5730,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.easy === true && '\u2717'}
+          {formData.tasksList[2]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5782,7 +5782,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.easy === true && '\u2717'}
+          {formData.tasksList[3]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5834,7 +5834,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.easy === true && '\u2717'}
+          {formData.tasksList[4]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5886,7 +5886,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.easy === true && '\u2717'}
+          {formData.tasksList[5]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
@@ -5938,7 +5938,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.easy === true && '\u2717'}
+          {formData.tasksList[6]?.easy === 'easy' && '\u2717'}
         </tspan>
       </text>
       <text
