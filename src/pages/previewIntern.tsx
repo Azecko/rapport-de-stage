@@ -6721,6 +6721,58 @@ export default function PreviewIntern () {
           {formData.tasksList[6]?.text}
         </tspan>
       </text>
+      <text
+        x={55.838}
+        y={275.095}
+        style={{
+          fontStyle: 'normal',
+          fontVariant: 'normal',
+          fontWeight: 400,
+          fontStretch: 'normal',
+          fontSize: '7.05555534px',
+          fontFamily: "'DejaVu Sans'",
+          fontVariantLigatures: 'normal',
+          fontVariantCaps: 'normal',
+          fontVariantNumeric: 'normal',
+          fontFeatureSettings: 'normal',
+          textAlign: 'start',
+          textAnchor: 'start',
+          display: 'inline',
+          fill: '#000',
+          fillOpacity: 0.90232556,
+          stroke: 'none',
+          strokeWidth: 0.52916664,
+          strokeMiterlimit: 4,
+          strokeDasharray: 'none'
+        }}
+      >
+        <tspan
+          style={{
+            fontStyle: 'normal',
+            fontVariant: 'normal',
+            fontWeight: 400,
+            fontStretch: 'normal',
+            fontSize: '7.05555534px',
+            fontFamily: "'DejaVu Sans'",
+
+            fontVariantLigatures: 'normal',
+            fontVariantCaps: 'normal',
+            fontVariantNumeric: 'normal',
+            fontFeatureSettings: 'normal',
+            textAlign: 'start',
+
+            textAnchor: 'start',
+            fill: '#000',
+            fillOpacity: 0.90232556,
+            stroke: 'none',
+            strokeWidth: 0.52916664,
+            strokeMiterlimit: 4,
+            strokeDasharray: 'none'
+          }}
+        >
+          {formData.tasksListRemarks}
+        </tspan>
+      </text>
     </g>
   </svg>
     </Container>
