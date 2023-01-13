@@ -123,6 +123,7 @@ export default function FormDiv ({
                           label={option.placeholder}
                           style={{ marginRight: 20 }}
                           inputProps={{ maxLength: option.maxlength }}
+                          defaultValue={parsedStorage?.[option.name] || ''}
                         />)}
                       </Box>
                     )
@@ -160,7 +161,7 @@ export default function FormDiv ({
                   key={field.name}
                 >
                   {field.options?.map((option:any) => {
-                    const [isChecked, setIsChecked] = useState(false)
+                    const [isChecked, setIsChecked] = useState(parsedStorage?.[field.name].includes(option.value))
                     return (
                       <Box key={option.value}>
                         <FormControlLabel
@@ -180,6 +181,7 @@ export default function FormDiv ({
                             label={option.placeholder}
                             style={{ marginRight: 20 }}
                             inputProps={{ maxLength: option.maxlength }}
+                            defaultValue={parsedStorage?.[option.name] || ''}
                           />)}
                       </Box>
                     )
