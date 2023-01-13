@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 import HomePage from './pages/homepage'
-import Preview from './pages/preview'
-import ResponsableA from './pages/responsableA'
-import ResponsableB from './pages/responsableB'
+import PreviewIntern from './pages/previewIntern'
+import Stagiaire from './pages/stagiaire'
+import Responsable from './pages/responsable'
 import {
   HashRouter,
   Route,
@@ -17,9 +17,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <HashRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/preview" element={<Preview />} />
-          <Route path="/respA" element={<ResponsableA />} />
-          <Route path="/respB" element={<ResponsableB />} />
+          <Route path="/stagiaire/preview" element={<PreviewIntern />} />
+          <Route path="/stagiaire" element={<Stagiaire />}/>
+          <Route path="/responsable" element={<Responsable />}/>
         </Routes>
       </HashRouter>
   </React.StrictMode>

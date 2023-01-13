@@ -20,6 +20,7 @@ type FormDivProps = {
   register: any;
   setValue: any;
   control: any;
+  localStorage: any;
 };
 
 export default function FormDiv ({
@@ -27,7 +28,8 @@ export default function FormDiv ({
   fields,
   register,
   setValue,
-  control
+  control,
+  localStorage
 }: FormDivProps) {
   const [phone, setPhone] = useState('')
 
@@ -39,6 +41,12 @@ export default function FormDiv ({
     const selected = field.options.find((opt: any) => opt.value === value)
     return { ifYes: selected?.ifYes, value }
   }
+
+  let parsedStorage:any
+  if (localStorage) {
+    parsedStorage = JSON.parse(localStorage)
+  }
+
   return (
     <Box key="fieldsLabelBox">
       <h3>{label}</h3>
@@ -54,16 +62,18 @@ export default function FormDiv ({
                 key={field.name}
                 sx={{ width: '45ch' }}
                 inputProps={{ maxLength: field.maxlength }}
+                defaultValue={parsedStorage?.[field.name] || ''}
               />
             )
           case 'date':
             return (
               <DateSelector
-                {...register(field.name)}
                 name={field.name}
                 label={field.placeholder}
                 control={control}
                 key={field.name}
+                dateValue={parsedStorage?.[field.name] || '01/01/2022'}
+                register={register}
               />
             )
           case 'phone':
@@ -81,7 +91,7 @@ export default function FormDiv ({
               />
             )
           case 'radios':
-            const [radioValue, setRadioValue] = useState<string>('')
+            const [radioValue, setRadioValue] = useState<string>(parsedStorage?.[field.name])
             return (
               <Box>
                 <h4>{field.placeholder}</h4>
@@ -93,6 +103,7 @@ export default function FormDiv ({
                   onChange={(event) => {
                     setRadioValue(event.target.value)
                   }}
+                  value={radioValue}
                 >
                   {field.options?.map((option:any) => {
                     return (
@@ -121,7 +132,7 @@ export default function FormDiv ({
             )
           case 'entrylist':
             return (
-              <EntryList register={register} field={field} setValue={setValue} />
+              <EntryList register={register} field={field} setValue={setValue} localStorage={parsedStorage} />
             )
           case 'textarea':
             return (
@@ -136,6 +147,7 @@ export default function FormDiv ({
                   key={field.name}
                   style={{ width: 400 }}
                   inputProps={{ maxLength: field.maxlength }}
+                  defaultValue={parsedStorage?.[field.name]}
                 />
               </Box>
             )
@@ -156,7 +168,7 @@ export default function FormDiv ({
                           value={option.value}
                           label={option.label}
                           name={field.name}
-                          control={<Checkbox id={`${field.name}_${option.value}`} />}
+                          control={<Checkbox id={`${field.name}_${option.value}`} defaultChecked={parsedStorage?.[field.name] && [...parsedStorage?.[field.name]].includes(option.value)} />}
                           key={option}
                           onChange={(event) => {
                             setIsChecked((event.target as HTMLInputElement).checked)
