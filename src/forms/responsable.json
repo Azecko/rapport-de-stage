@@ -658,7 +658,7 @@
         {
           "type":"textarea",
           "placeholder":"Remarques / Observations",
-          "name":"tasksExecRemarks",
+          "name":"contactRemarks",
           "maxlength":115
         }
       ]
@@ -710,7 +710,11 @@
             },
             {
               "value":"other",
-              "label":"Autre (préciser)"
+              "label":"Autre (préciser)",
+              "ifYes": true,
+              "name": "conseilProjetSpeci",
+              "placeholder": "Précisions",
+              "maxlength": 51
             }
           ]
         },
@@ -741,14 +745,14 @@
         },
         {
           "type":"textarea",
-          "placeholder":"Why ?",
+          "placeholder":"Pourquoi ?",
           "name":"considerCandidatesRemarks",
           "maxlength":145
         },
         {
           "type":"radios",
           "placeholder":"Avez-vous pu prendre du temps avec le ou la stagiaire pour faire le bilan des quelques jours passés dans votre entreprise ou établissement ?",
-          "name":"conseilProjet",
+          "name":"bilanStage",
           "options":[
             {
               "value":"yes",
@@ -761,8 +765,8 @@
           ]
         },
         {
-          "type":"text",
-          "placeholder":"Date",
+          "type":"date",
+          "placeholder":"Date de début",
           "name":"fillUpDate",
           "maxlength":16
         },

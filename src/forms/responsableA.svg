@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="635.26382"
-     inkscape:cy="532.45363"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="538.47429"
+     inkscape:cy="574.67656"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,10 +37,10 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      units="mm"
-     inkscape:window-width="2516"
-     inkscape:window-height="1376"
-     inkscape:window-x="44"
-     inkscape:window-y="27"
+     inkscape:window-width="2560"
+     inkscape:window-height="1403"
+     inkscape:window-x="2560"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -257,7 +257,7 @@
        inkscape:label="enterpriseName">
       <tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.90232556;stroke:none;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan5371-67">formData.conseilProjet==='no'</tspan>
+         id="tspan5371-67">formData.bilanStage==='no'</tspan>
     </text>
     <text
        x="-522.71124"
@@ -268,7 +268,7 @@
        inkscape:label="enterpriseName">
       <tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.90232556;stroke:none;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan5371-67-3">formData.conseilProjet==='yes'</tspan>
+         id="tspan5371-67-3">formData.bilanStage==='yes'</tspan>
     </text>
     <text
        x="-522.68182"
@@ -347,7 +347,7 @@
            height="81.428574"
            x="77.85714"
            y="272.85718" /></flowRegion><flowPara
-         id="flowPara1042"></flowPara></flowRoot>    <flowRoot
+         id="flowPara1042" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot1044"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'NotoEmoji Nerd Font Mono';-inkscape-font-specification:'NotoEmoji Nerd Font Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -358,7 +358,7 @@
            height="47.142857"
            x="77.14286"
            y="269.28577" /></flowRegion><flowPara
-         id="flowPara1050"></flowPara></flowRoot>    <text
+         id="flowPara1050" /></flowRoot>    <text
        x="-509.41922"
        y="386.25906"
        font-size="55"
