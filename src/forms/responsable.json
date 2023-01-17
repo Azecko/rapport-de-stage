@@ -658,7 +658,7 @@
         {
           "type":"textarea",
           "placeholder":"Remarques / Observations",
-          "name":"tasksExecRemarks",
+          "name":"contactRemarks",
           "maxlength":115
         }
       ]
@@ -672,15 +672,15 @@
           "name":"projetOK",
           "options":[
             {
-              "value":"Adéquat",
+              "value":"yes",
               "label":"Adéquat"
             },
             {
-              "value":"A préciser",
+              "value":"maybe",
               "label":"A préciser"
             },
             {
-              "value":"Pas adéquat",
+              "value":"no",
               "label":"Pas adéquat"
             }
           ]
@@ -697,20 +697,24 @@
           "name":"conseilProjet",
           "options":[
             {
-              "value":"Chercher une place d’apprentissage",
+              "value":"seek",
               "label":"Chercher une place d’apprentissage"
             },
             {
-              "value":"Faire un autre stage",
+              "value":"stage",
               "label":"Faire un autre stage"
             },
             {
-              "value":"Continuer à explorer les métiers",
+              "value":"explore",
               "label":"Continuer à explorer les métiers"
             },
             {
-              "value":"Autre (préciser)",
-              "label":"Autre (préciser)"
+              "value":"other",
+              "label":"Autre (préciser)",
+              "ifYes": true,
+              "name": "conseilProjetSpeci",
+              "placeholder": "Précisions",
+              "maxlength": 51
             }
           ]
         },
@@ -726,43 +730,43 @@
           "name":"considerCandidate",
           "options":[
             {
-              "value":"Oui. Pourquoi ?",
+              "value":"yes",
               "label":"Oui. Pourquoi ?"
             },
             {
-              "value":"Peut-être. Pourquoi ?",
+              "value":"maybe",
               "label":"Peut-être. Pourquoi ?"
             },
             {
-              "value":"Non. Pourquoi ?",
+              "value":"no",
               "label":"Non. Pourquoi ?"
             }
           ]
         },
         {
           "type":"textarea",
-          "placeholder":"Why ?",
+          "placeholder":"Pourquoi ?",
           "name":"considerCandidatesRemarks",
           "maxlength":145
         },
         {
           "type":"radios",
           "placeholder":"Avez-vous pu prendre du temps avec le ou la stagiaire pour faire le bilan des quelques jours passés dans votre entreprise ou établissement ?",
-          "name":"conseilProjet",
+          "name":"bilanStage",
           "options":[
             {
-              "value":"Oui",
+              "value":"yes",
               "label":"Oui"
             },
             {
-              "value":"Non",
+              "value":"no",
               "label":"Non"
             }
           ]
         },
         {
-          "type":"text",
-          "placeholder":"Date",
+          "type":"date",
+          "placeholder":"Date de début",
           "name":"fillUpDate",
           "maxlength":16
         },

@@ -16,11 +16,18 @@ type EntryListProps = {
     field: FieldsProp
     register: any;
     setValue: any;
+    localStorage:any;
 }
 
-export default function EntryList ({ register, setValue, field }: EntryListProps) {
-  const [entries, setEntries] = useState<number>(1)
-  const [entryList, setEntryList] = useState<any[]>([{ done: false, seen: false, text: '', liked: false, easy: false }])
+export default function EntryList ({ register, setValue, field, localStorage }: EntryListProps) {
+  if (!localStorage) {
+    localStorage = {
+      tasksList: [{ done: false, seen: false, text: '', liked: false, easy: false }]
+    }
+  }
+
+  const [entries, setEntries] = useState<number>(localStorage.tasksList?.length || 1)
+  const [entryList, setEntryList] = useState<any[]>(localStorage.tasksList || [{ done: false, seen: false, text: '', liked: false, easy: false }])
 
   const saveEntries = () => {
     setValue(field.name, entryList)
@@ -44,7 +51,7 @@ export default function EntryList ({ register, setValue, field }: EntryListProps
             {
                 [...Array(entries)].map((e, index) => {
                   return (
-                        <Entry setValue={setValue} name={field.name} entryList={entryList} setEntryList={setEntryList} index={index} key={`${field.name}_${index}`}/>
+                        <Entry setValue={setValue} name={field.name} entryList={entryList} setEntryList={setEntryList} index={index} key={`${field.name}_${index}`} entries={entryList}/>
                   )
                 })
             }
