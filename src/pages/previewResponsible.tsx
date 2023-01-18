@@ -1112,7 +1112,7 @@ export default function previewResponsible () {
       </text>
       <text
         x={-522.527}
-        y={291.22}
+        y={276.22}
         fontSize={55}
         style={{
           fontStyle: 'normal',
@@ -1136,34 +1136,43 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.considerCandidatesRemarks}
-        </tspan>
+        {formData.considerCandidatesRemarks && formData.considerCandidatesRemarks.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'considerCandidatesRemarks'}
+            dy="2em"
+            x="-522.527"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
+
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
+
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={-522.265}
-        y={183.025}
+        y={169.025}
         fontSize={55}
         style={{
           fontStyle: 'normal',
@@ -1187,30 +1196,39 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.advicesRemarks}
-        </tspan>
+        {formData.advicesRemarks && formData.advicesRemarks.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'advicesRemarks'}
+            dy="2em"
+            x="-522.265"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
+
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
+
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={-458.285}
@@ -6124,7 +6142,7 @@ export default function previewResponsible () {
       </text>
       <text
         x={-154.388}
-        y={12.726}
+        y={-1.726}
         fontSize={55}
         style={{
           fontStyle: 'normal',
@@ -6148,34 +6166,43 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.opinionRemarks}
-        </tspan>
+        {formData.opinionRemarks && formData.opinionRemarks.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'opinionRemarks'}
+            dy="2em"
+            x="-154.388"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
+
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
+
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={-387.904}
-        y={37.054}
+        y={23.054}
         fontSize={55}
         style={{
           fontStyle: 'normal',
@@ -6199,34 +6226,43 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.tasksExecRemarks}
-        </tspan>
+        {formData.tasksExecRemarks && formData.tasksExecRemarks.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'tasksExecRemarks'}
+            dy="2em"
+            x="-387.904"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
+
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
+
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={-388.706}
-        y={-89.364}
+        y={-103.364}
         fontSize={55}
         style={{
           fontStyle: 'normal',
@@ -6250,34 +6286,43 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.attitudeRemarks}
-        </tspan>
+        {formData.attitudeRemarks && formData.attitudeRemarks.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'attitudeRemarks'}
+            dy="2em"
+            x="-388.706"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
+
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
+
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={-154.578}
-        y={-95.779}
+        y={-109.779}
         fontSize={55}
         style={{
           fontStyle: 'normal',
@@ -6301,30 +6346,39 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-         {formData.contactRemarks}
-        </tspan>
+        {formData.contactRemarks && formData.contactRemarks.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'contactRemarks'}
+            dy="2em"
+            x="-154.578"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
+
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
+
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={-154.749}
