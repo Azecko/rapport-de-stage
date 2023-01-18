@@ -161,7 +161,7 @@ export default function FormDiv ({
                   key={field.name}
                 >
                   {field.options?.map((option:any) => {
-                    const [isChecked, setIsChecked] = useState(parsedStorage?.[field.name].includes(option.value))
+                    const [isChecked, setIsChecked] = useState(parsedStorage?.[field.name] && parsedStorage?.[field.name].includes(option.value))
                     return (
                       <Box key={option.value}>
                         <FormControlLabel
