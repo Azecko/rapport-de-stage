@@ -1,0 +1,62 @@
+.homepageDiv a {
+    text-decoration: none;
+    color: rgb(0, 140, 255);
+    border-bottom: 1px solid transparent;
+    transition: 300ms;
+}
+
+.homepageDiv a:hover {
+    border-color: rgb(0, 140, 255);
+}
+
+.homepageDiv {
+    width: 100vw;
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.homepageDiv p {
+    max-width: 50vw;
+    text-align: center;
+}
+
+.homepageDiv h1 {
+    text-align: center;
+}
+
+.homepageDiv li {
+    text-align: center;
+}
+
+.homepageButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.homepageButtons Button {
+    margin: 10px;
+}
+
+.homepageFooter {
+    background-color: rgb(82, 82, 82);
+    color: white;
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepageFooter a {
+    text-decoration: none;
+    color: rgb(106, 208, 255);
+    border-bottom: 1px solid transparent;
+    transition: 300ms;
+}
+
+.homepageFooter a:hover {
+    border-color: rgb(106, 208, 255);
+}
