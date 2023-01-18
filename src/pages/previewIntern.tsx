@@ -2298,7 +2298,7 @@ export default function PreviewIntern () {
     <g fontSize={55}>
       <text
         x={254.884}
-        y={44.287}
+        y={29.287}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2321,36 +2321,43 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.necessaryQualities && formData.necessaryQualities.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'necessaryQualities'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.necessaryQualities}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={254.616}
-        y={125.27}
+        y={111.27}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2373,36 +2380,43 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.necessarySchoolSubject && formData.necessarySchoolSubject.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'necessarySchoolSubject'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.necessarySchoolSubject}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={254.873}
-        y={172.844}
+        y={158.844}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2425,36 +2439,43 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.whatToImprove && formData.whatToImprove.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'whatToImprove'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.whatToImprove}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={254.082}
-        y={219.616}
+        y={204.616}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2477,32 +2498,39 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.remarksDuringTheInternship && formData.remarksDuringTheInternship.match(/.{1,55}/g).map((element:any) => {
+          return (
+            <tspan
+            key={'remarksDuringTheInternship'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.remarksDuringTheInternship}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={106.068}

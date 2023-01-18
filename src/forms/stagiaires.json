@@ -81,7 +81,7 @@
                 },
                 { "type": "entrylist", "placeholder": "Liste des tâches", "name": "tasksList" },
                 { "type": "textarea", "placeholder": "Remarques", "name": "tasksListRemarks", "maxlength": 115 },
-                { "type": "textarea", "placeholder": "A ton avis, quelles sont les qualités nécessaires à l'exercice de cette profession ?", "name": "necessaryQualities", "maxlength": 115 },
+                { "type": "textarea", "placeholder": "A ton avis, quelles sont les qualités nécessaires à l'exercice de cette profession ?", "name": "necessaryQualities", "maxlength": 109 },
                 { "type": "radios", "placeholder": "As-tu l'impression de posséder ces qualités ?", "name": "haveQualities", "options": [
                     { "value": "most", "label": "Oui, la plupart" },
                     { "value": "some", "label": "Certaines" },
@@ -89,9 +89,9 @@
                     { "value": "idk", "label": "Je ne sais pas" }
                     ]
                 },
-                { "type": "textarea", "placeholder": "A ton avis, quelles sont les matières scolaires importantes dans cette profession ?", "name": "necessarySchoolSubject", "maxlength": 115 },
-                { "type": "textarea", "placeholder": "Que devrais-tu développer ou améliorer pour réussir dans ce métier ?", "name": "whatToImprove", "maxlength": 115 },
-                { "type": "textarea", "placeholder": "Quels sont les remarques ou commentaires qui t’ont été faits pendant le stage ?", "name": "remarksDuringTheInternship", "maxlength": 172 },
+                { "type": "textarea", "placeholder": "A ton avis, quelles sont les matières scolaires importantes dans cette profession ?", "name": "necessarySchoolSubject", "maxlength": 109 },
+                { "type": "textarea", "placeholder": "Que devrais-tu développer ou améliorer pour réussir dans ce métier ?", "name": "whatToImprove", "maxlength": 109 },
+                { "type": "textarea", "placeholder": "Quels sont les remarques ou commentaires qui t’ont été faits pendant le stage ?", "name": "remarksDuringTheInternship", "maxlength": 165 },
                 { "type": "radios", "placeholder": "Y a-t-il un test d'admission dans cette profession ?", "name": "admissionTest", "options": [
                     { "value": "yes", "label": "Oui" },
                     { "value": "no", "label": "Non" },
