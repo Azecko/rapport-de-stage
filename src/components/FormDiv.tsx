@@ -31,12 +31,6 @@ export default function FormDiv ({
   control,
   localStorage
 }: FormDivProps) {
-  const [phone, setPhone] = useState('')
-
-  const handleChange = (newPhone:any) => {
-    setPhone(newPhone)
-  }
-
   function checkIfYes (value: any, field: any) {
     const selected = field.options.find((opt: any) => opt.value === value)
     return { ifYes: selected?.ifYes, value }
@@ -77,6 +71,11 @@ export default function FormDiv ({
               />
             )
           case 'phone':
+            const [phone, setPhone] = useState(parsedStorage?.[field.name])
+
+            const handleChange = (newPhone:any) => {
+              setPhone(newPhone)
+            }
             return (
               <MuiTelInput
                 {...register(field.name)}
