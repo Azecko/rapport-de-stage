@@ -42,6 +42,7 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
                 key={`textarea_${index}`}
                 style={{ marginRight: 10 }}
                 defaultValue={entries[index] && entries[index].text}
+                inputProps={{ maxLength: 20 }}
             />
             <RadioGroup row onChange={(event) => setEntryValue(event.target.value.toLowerCase(), 'liked')} key="liked_radios" defaultValue={entries[index] && entries[index].liked}>
                 <FormControlLabel
