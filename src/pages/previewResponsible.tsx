@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
+import dateHelper from '../helpers/dateHelper'
 
 const Container = styled.div``
 
@@ -15,12 +16,6 @@ const Container = styled.div``
  * Formatting option such as { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
  * will work, but might be too long to fit in the field.
  */
-const dateHelper = (strdate: string) => {
-  if (!strdate) return
-  const date = new Date(strdate)
-  const formatter = new Intl.DateTimeFormat('fr', { year: 'numeric', month: 'long', day: 'numeric' })
-  return formatter.format(date)
-}
 
 export default function previewResponsible () {
   const location = useLocation()

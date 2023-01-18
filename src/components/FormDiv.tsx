@@ -72,7 +72,7 @@ export default function FormDiv ({
                 label={field.placeholder}
                 control={control}
                 key={field.name}
-                dateValue={parsedStorage?.[field.name] || '01/01/2022'}
+                dateValue={parsedStorage?.[field.name] || new Date()}
                 register={register}
               />
             )
