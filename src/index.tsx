@@ -4,6 +4,7 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import HomePage from './pages/homepage'
 import PreviewIntern from './pages/previewIntern'
+import PreviewResponsible from './pages/previewResponsible'
 import Stagiaire from './pages/stagiaire'
 import Responsable from './pages/responsable'
 import {
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/stagiaire/preview" element={<PreviewIntern />} />
+          <Route path="/responsable/preview" element={<PreviewResponsible />} />
           <Route path="/stagiaire" element={<Stagiaire />}/>
           <Route path="/responsable" element={<Responsable />}/>
         </Routes>
