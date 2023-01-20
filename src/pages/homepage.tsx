@@ -30,7 +30,7 @@ export default function HomePage () {
               </a>  du canton de Vaud pour les stagiaires et les responsables de stages.
               <h3>Fonctionnalités :</h3>
               <li>Rapports officiels et valides</li>
-              <li>Imprimable</li>
+              <li>Imprimables</li>
               <li>Maintien des données après avoir sauvegardé via le stockage local</li>
             </p>
             <div className="homepageButtons">
