@@ -28,12 +28,12 @@ export default function Responsable () {
   }
 
   return (
-    <Container>
+    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh' }}>
       <Box>
         <h1>Rapport de stage | Responsable</h1>
       </Box>
+      <Button onClick={() => navigate('/')}>Retour à l'accueil</Button>
       <div key="divForm">
-        <button onClick={() => navigate('/')}>Homepage</button>
         <form
           onSubmit={handleSubmit((formData) => {
             navigate('/responsable/preview', {
@@ -65,7 +65,7 @@ export default function Responsable () {
                 <React.Fragment>
                   <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                     <Box sx={{ flex: '1 1 auto' }} />
-                    <Button type="submit">SUBMIT</Button>
+                    <Button type="submit">Voir le rapport</Button>
                   </Box>
                 </React.Fragment>
               )
@@ -96,7 +96,7 @@ export default function Responsable () {
                     <Box sx={{ flex: '1 1 auto' }} />
 
                     <Button onClick={handleNext}>
-                      {activeStep === responsableForm.divs.length - 1 ? 'Finish' : 'Next'}
+                      {activeStep === responsableForm.divs.length - 1 ? 'Fin' : 'Suivant'}
                     </Button>
                   </Box>
                 </React.Fragment>

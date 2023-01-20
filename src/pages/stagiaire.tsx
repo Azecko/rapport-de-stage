@@ -28,12 +28,12 @@ export default function Stagiaire () {
   }
 
   return (
-    <Container>
+    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh' }}>
       <Box>
         <h1>Rapport de stage | Stagiaire</h1>
       </Box>
+      <Button onClick={() => navigate('/')}>Retour à l'accueil</Button>
       <div key="divForm">
-        <Button onClick={() => navigate('/')}>Homepage</Button>
         <form
           onSubmit={handleSubmit((formData) => {
             navigate('/stagiaire/preview', {

@@ -50,8 +50,6 @@ export default function FormDiv ({
   var isCheckedStorage:any
   isCheckedStorage = JSON.parse(isChecked)
 
-  console.log(isCheckedStorage)
-
   return (
     <Box key="fieldsLabelBox">
       <h3>{label}</h3>
