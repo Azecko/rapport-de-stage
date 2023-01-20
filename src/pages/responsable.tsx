@@ -91,7 +91,7 @@ export default function Responsable () {
                       onClick={handleBack}
                       sx={{ mr: 1 }}
                     >
-                      Back
+                      Retour
                     </Button>
                     <Box sx={{ flex: '1 1 auto' }} />
 
