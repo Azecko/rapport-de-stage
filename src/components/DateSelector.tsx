@@ -31,7 +31,7 @@ export default function DateSelector ({
                 value={value === null || value === undefined ? dateValue : new Date(value)}
                 label={label}
                 onChange={onChange}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => <TextField {...params} style={{ width: '45ch' }} />}
             />
         </LocalizationProvider>
     )}

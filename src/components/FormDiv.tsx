@@ -51,33 +51,37 @@ export default function FormDiv ({
   isCheckedStorage = JSON.parse(isChecked)
 
   return (
-    <Box key="fieldsLabelBox">
-      <h3>{label}</h3>
+    <Box key="fieldsLabelBox" style={{ width: '100vw', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+      <h2>{label}</h2>
       <Box display='flex' flexDirection='column' flexWrap="wrap" gap={2} key="fieldsBox">
       {fields.map((field) => {
         switch (field.type) {
           case 'text':
             return (
-              <TextField
-                {...register(field.name)}
-                label={field.placeholder}
-                variant="outlined"
-                key={field.name}
-                sx={{ width: '45ch' }}
-                inputProps={{ maxLength: field.maxlength }}
-                defaultValue={parsedStorage?.[field.name] || ''}
-              />
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                <TextField
+                  {...register(field.name)}
+                  label={field.placeholder}
+                  variant="outlined"
+                  key={field.name}
+                  sx={{ width: '45ch' }}
+                  inputProps={{ maxLength: field.maxlength }}
+                  defaultValue={parsedStorage?.[field.name] || ''}
+                />
+              </Box>
             )
           case 'date':
             return (
-              <DateSelector
-                name={field.name}
-                label={field.placeholder}
-                control={control}
-                key={field.name}
-                dateValue={parsedStorage?.[field.name] || new Date()}
-                register={register}
-              />
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                <DateSelector
+                  name={field.name}
+                  label={field.placeholder}
+                  control={control}
+                  key={field.name}
+                  dateValue={parsedStorage?.[field.name] || new Date()}
+                  register={register}
+                />
+              </Box>
             )
           case 'phone':
             const [phone, setPhone] = useState(parsedStorage?.[field.name])
@@ -111,10 +115,9 @@ export default function FormDiv ({
             }
 
             return (
-              <Box>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                 <h4>{field.placeholder}</h4>
                 <RadioGroup
-                  row
                   id={field.name}
                   name={field.name}
                   key={field.name}
@@ -153,7 +156,7 @@ export default function FormDiv ({
             )
           case 'textarea':
             return (
-              <Box>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                 <h4>{field.placeholder}</h4>
                 <TextField
                   {...register(field.name)}
@@ -170,7 +173,7 @@ export default function FormDiv ({
             )
           case 'checkboxes':
             return (
-              <Box>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                 <h4>{field.placeholder}</h4>
                 <FormGroup
                   id={field.name}

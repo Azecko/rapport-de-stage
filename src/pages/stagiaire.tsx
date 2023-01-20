@@ -28,7 +28,7 @@ export default function Stagiaire () {
   }
 
   return (
-    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh' }}>
+    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', marginBottom: '5vh' }}>
       <Box>
         <h1>Rapport de stage | Stagiaire</h1>
       </Box>
@@ -36,35 +36,52 @@ export default function Stagiaire () {
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
+            const datas = { ...JSON.parse(localStorage.getItem('intern') || '{}'), ...formData }
             navigate('/stagiaire/preview', {
               state: {
-                formData: JSON.stringify(formData)
+                formData: JSON.stringify(datas)
               }
             })
-            console.log(formData)
-            localStorage.setItem('intern', JSON.stringify(formData))
+            console.log(datas)
+            localStorage.setItem('intern', JSON.stringify(datas))
           }
           )}
           key="mainForm"
         >
-          <Stepper activeStep={activeStep}>
-            {
-              stagiairesForm.divs.map((div:any, index: number) => {
-                const stepProps:any = {}
-                const labelProps:any = {}
+          <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Stepper activeStep={activeStep}>
+              {
+                stagiairesForm.divs.map((div:any, index: number) => {
+                  const stepProps:any = {}
+                  const labelProps:any = {}
 
-                return (
-                  <Step key={div.label} {...stepProps}>
-                    <StepLabel {...labelProps}>{div.label}</StepLabel>
-                  </Step>
-                )
-              })}
-          </Stepper>
+                  return (
+                    <Step key={div.label} {...stepProps}>
+                      <StepLabel {...labelProps}>{div.label}</StepLabel>
+                    </Step>
+                  )
+                })}
+            </Stepper>
+          </Box>
+          <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh' }}>
+            <Button type="submit">Voir le rapport</Button>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: 45, pt: 2, alignItems: 'center', justifyContent: 'center' }}>
+            <Button
+              color="error"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Retour
+            </Button>
+            <Button onClick={handleNext} style={{ display: activeStep === stagiairesForm.divs.length - 1 ? 'none' : 'block' }}>Suivant</Button>
+          </Box>
           {activeStep === stagiairesForm.divs.length
             ? (
                 <React.Fragment>
                   <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                    <Box sx={{ flex: '1 1 auto' }} />
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: '1 1 auto' }} />
                     <Button type="submit">Voir le rapport</Button>
                   </Box>
                 </React.Fragment>
@@ -84,20 +101,6 @@ export default function Stagiaire () {
                     isChecked={isChecked}
                     setIsChecked={setIsChecked}
                   />
-                  <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                    <Button
-                      color="inherit"
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      sx={{ mr: 1 }}
-                    >
-                      Retour
-                    </Button>
-                    <Box sx={{ flex: '1 1 auto' }} />
-                    <Button onClick={handleNext}>
-                      {activeStep === stagiairesForm.divs.length - 1 ? 'Fin' : 'Suivant'}
-                    </Button>
-                  </Box>
                 </React.Fragment>
               )
           }
