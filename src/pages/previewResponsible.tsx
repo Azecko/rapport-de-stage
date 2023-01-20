@@ -1136,7 +1136,7 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        {formData.considerCandidatesRemarks && formData.considerCandidatesRemarks.match(/.{1,55}/g).map((element:any) => {
+        {formData.considerCandidatesRemarks && formData.considerCandidatesRemarks.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
           return (
             <tspan
             key={'considerCandidatesRemarks'}
@@ -1196,7 +1196,7 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        {formData.advicesRemarks && formData.advicesRemarks.match(/.{1,55}/g).map((element:any) => {
+        {formData.advicesRemarks && formData.advicesRemarks.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
           return (
             <tspan
             key={'advicesRemarks'}
@@ -6166,7 +6166,7 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        {formData.opinionRemarks && formData.opinionRemarks.match(/.{1,55}/g).map((element:any) => {
+        {formData.opinionRemarks && formData.opinionRemarks.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
           return (
             <tspan
             key={'opinionRemarks'}
@@ -6226,7 +6226,7 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        {formData.tasksExecRemarks && formData.tasksExecRemarks.match(/.{1,55}/g).map((element:any) => {
+        {formData.tasksExecRemarks && formData.tasksExecRemarks.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
           return (
             <tspan
             key={'tasksExecRemarks'}
@@ -6286,7 +6286,7 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        {formData.attitudeRemarks && formData.attitudeRemarks.match(/.{1,55}/g).map((element:any) => {
+        {formData.attitudeRemarks && formData.attitudeRemarks.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
           return (
             <tspan
             key={'attitudeRemarks'}
@@ -6346,7 +6346,7 @@ export default function previewResponsible () {
           strokeDasharray: 'none'
         }}
       >
-        {formData.contactRemarks && formData.contactRemarks.match(/.{1,55}/g).map((element:any) => {
+        {formData.contactRemarks && formData.contactRemarks.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
           return (
             <tspan
             key={'contactRemarks'}
