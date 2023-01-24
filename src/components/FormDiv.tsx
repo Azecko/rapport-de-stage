@@ -182,7 +182,10 @@ export default function FormDiv ({
                   {field.options?.map((option:any) => {
                     const handleCheck = (optionValue:any) => {
                       if (option.ifYes) {
-                        optionValue === true ? isCheckedStorage?.[field.name].push(option.value) : isCheckedStorage?.[field.name].pop(option.value)
+                        if (isCheckedStorage[field.name] === undefined) {
+                          isCheckedStorage[field.name] = []
+                        }
+                        optionValue === true ? isCheckedStorage[field.name]?.push(option.value) : isCheckedStorage[field.name]?.pop(option.value)
                       }
                       setIsChecked(JSON.stringify(isCheckedStorage))
                     }
