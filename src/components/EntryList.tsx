@@ -47,7 +47,7 @@ export default function EntryList ({ register, setValue, field, localStorage }: 
 
   return (
         <Box display="flex" flexDirection="column" key={field.name} justifyContent="center" alignItems="center" width="100vw">
-            <h4>{field.placeholder}</h4>
+            <h3>{field.placeholder}</h3>
             {
                 [...Array(entries)].map((e, index) => {
                   return (

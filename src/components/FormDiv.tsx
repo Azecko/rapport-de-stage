@@ -116,7 +116,7 @@ export default function FormDiv ({
 
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h4>{field.placeholder}</h4>
+                <h3>{field.placeholder}</h3>
                 <RadioGroup
                   id={field.name}
                   name={field.name}
@@ -157,7 +157,7 @@ export default function FormDiv ({
           case 'textarea':
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h4>{field.placeholder}</h4>
+                <h3>{field.placeholder}</h3>
                 <TextField
                   {...register(field.name)}
                   id="outlined-multiline-static"
@@ -174,7 +174,7 @@ export default function FormDiv ({
           case 'checkboxes':
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h4>{field.placeholder}</h4>
+                <h3>{field.placeholder}</h3>
                 <FormGroup
                   id={field.name}
                   key={field.name}
