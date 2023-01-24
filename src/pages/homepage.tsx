@@ -5,6 +5,7 @@ import {
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import '../style/homepage.css'
+import faviconImage from '../images/banana_logo.png'
 const Container = styled.div``
 
 export default function HomePage () {
@@ -15,7 +16,7 @@ export default function HomePage () {
     <Container>
       <div key="divForm" className="homepageDiv">
         <Box>
-            <h1>Rapport de stage</h1>
+            <h1>Rapport de stage <img src={faviconImage} alt="Banana icon" /></h1>
             <p>
               <a
                 href="https://github.com/ponsfrilus/rapport-de-stage"
