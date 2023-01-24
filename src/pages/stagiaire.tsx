@@ -32,7 +32,7 @@ export default function Stagiaire () {
       <Box>
         <h1>Rapport de stage | Stagiaire</h1>
       </Box>
-      <Button onClick={() => navigate('/')}>Retour à l'accueil</Button>
+      <Button onClick={() => navigate('/')} variant="outlined">Retour à l'accueil</Button>
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
@@ -64,7 +64,7 @@ export default function Stagiaire () {
             </Stepper>
           </Box>
           <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh' }}>
-            <Button type="submit">Voir le rapport</Button>
+            <Button type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'row', gap: 45, pt: 2, alignItems: 'center', justifyContent: 'center' }}>
             <Button
@@ -82,7 +82,7 @@ export default function Stagiaire () {
                 <React.Fragment>
                   <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: '1 1 auto' }} />
-                    <Button type="submit">Voir le rapport</Button>
+                    <Button type="submit" variant="contained">Voir le rapport</Button>
                   </Box>
                 </React.Fragment>
               )
