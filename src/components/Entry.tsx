@@ -18,7 +18,7 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
   }
 
   return (
-        <Box display="flex" flexDirection="row" key={index}>
+        <Box display="flex" flexDirection="row" key={index} justifyContent="center" alignItems="center">
             <FormControlLabel
                 onChange={(event) => setEntryValue((event.target as HTMLInputElement).checked, 'done')}
                 name="Done"
@@ -40,8 +40,9 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
                 multiline
                 rows={2}
                 key={`textarea_${index}`}
-                style={{ marginRight: 10 }}
+                style={{ marginRight: 10, marginTop: 15 }}
                 defaultValue={entries[index] && entries[index].text}
+                inputProps={{ maxLength: 20 }}
             />
             <RadioGroup row onChange={(event) => setEntryValue(event.target.value.toLowerCase(), 'liked')} key="liked_radios" defaultValue={entries[index] && entries[index].liked}>
                 <FormControlLabel

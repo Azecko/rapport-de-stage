@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Box, Button
+  Box, Button, Stepper, Step, StepLabel
 } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -14,43 +14,96 @@ export default function Stagiaire () {
   const { register, handleSubmit, control, setValue } = useForm()
   const navigate = useNavigate()
 
+  const [radioValue, setRadioValue] = React.useState(localStorage.getItem('intern') || '{}')
+  const [isChecked, setIsChecked] = React.useState(localStorage.getItem('intern') || '{}')
+
+  const [activeStep, setActiveStep] = React.useState(0)
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1)
+  }
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1)
+  }
+
   return (
-    <Container>
+    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', marginBottom: '5vh' }}>
       <Box>
         <h1>Rapport de stage | Stagiaire</h1>
       </Box>
+      <Button onClick={() => navigate('/')} variant="outlined">Retour à l'accueil</Button>
       <div key="divForm">
-        <button onClick={() => navigate('/')}>Homepage</button>
         <form
           onSubmit={handleSubmit((formData) => {
+            const datas = { ...JSON.parse(localStorage.getItem('intern') || '{}'), ...formData }
             navigate('/stagiaire/preview', {
               state: {
-                formData: JSON.stringify(formData)
+                formData: JSON.stringify(datas)
               }
             })
-            console.log(formData)
-            localStorage.setItem('intern', JSON.stringify(formData))
+            console.log(datas)
+            localStorage.setItem('intern', JSON.stringify(datas))
           }
           )}
           key="mainForm"
         >
-          {
-            stagiairesForm.divs.map((div:any, index: number) => {
-              return (
-                <FormDiv
-                key={index}
-                label={div.label} fields={
-                  div.fields
-                }
-                register={register}
-                setValue={setValue}
-                control={control}
-                localStorage={localStorage.getItem('intern')}
-                />
+          <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Stepper activeStep={activeStep}>
+              {
+                stagiairesForm.divs.map((div:any, index: number) => {
+                  const stepProps:any = {}
+                  const labelProps:any = {}
+
+                  return (
+                    <Step key={div.label} {...stepProps}>
+                      <StepLabel {...labelProps}>{div.label}</StepLabel>
+                    </Step>
+                  )
+                })}
+            </Stepper>
+          </Box>
+          <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh' }}>
+            <Button type="submit" variant="contained">Voir le rapport</Button>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: 45, pt: 2, alignItems: 'center', justifyContent: 'center' }}>
+            <Button
+              color="error"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Retour
+            </Button>
+            <Button onClick={handleNext} style={{ display: activeStep === stagiairesForm.divs.length - 1 ? 'none' : 'block' }}>Suivant</Button>
+          </Box>
+          {activeStep === stagiairesForm.divs.length
+            ? (
+                <React.Fragment>
+                  <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: '1 1 auto' }} />
+                    <Button type="submit" variant="contained">Voir le rapport</Button>
+                  </Box>
+                </React.Fragment>
               )
-            })
+            : (
+                <React.Fragment>
+                  <FormDiv
+                    label={stagiairesForm.divs[activeStep].label} fields={
+                      stagiairesForm.divs[activeStep].fields
+                    }
+                    register={register}
+                    setValue={setValue}
+                    control={control}
+                    localStorage={localStorage.getItem('intern')}
+                    radioValue={radioValue}
+                    setRadioValue={setRadioValue}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
+                  />
+                </React.Fragment>
+              )
           }
-        <Button type="submit">SUBMIT</Button>
         </form>
       </div>
     </Container>

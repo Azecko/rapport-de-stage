@@ -21,6 +21,10 @@ type FormDivProps = {
   setValue: any;
   control: any;
   localStorage: any;
+  radioValue: any;
+  setRadioValue: any;
+  isChecked: any;
+  setIsChecked: any;
 };
 
 export default function FormDiv ({
@@ -29,46 +33,55 @@ export default function FormDiv ({
   register,
   setValue,
   control,
-  localStorage
+  localStorage,
+  setRadioValue,
+  radioValue,
+  isChecked,
+  setIsChecked
 }: FormDivProps) {
-  function checkIfYes (value: any, field: any) {
-    const selected = field.options.find((opt: any) => opt.value === value)
-    return { ifYes: selected?.ifYes, value }
-  }
-
   let parsedStorage:any
   if (localStorage) {
     parsedStorage = JSON.parse(localStorage)
   }
 
+  var radioValueStorage:any
+  radioValueStorage = JSON.parse(radioValue)
+
+  var isCheckedStorage:any
+  isCheckedStorage = JSON.parse(isChecked)
+
   return (
-    <Box key="fieldsLabelBox">
-      <h3>{label}</h3>
+    <Box key="fieldsLabelBox" style={{ width: '100vw', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+      <h2>{label}</h2>
       <Box display='flex' flexDirection='column' flexWrap="wrap" gap={2} key="fieldsBox">
       {fields.map((field) => {
         switch (field.type) {
           case 'text':
             return (
-              <TextField
-                {...register(field.name)}
-                label={field.placeholder}
-                variant="outlined"
-                key={field.name}
-                sx={{ width: '45ch' }}
-                inputProps={{ maxLength: field.maxlength }}
-                defaultValue={parsedStorage?.[field.name] || ''}
-              />
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                <TextField
+                  {...register(field.name)}
+                  label={field.placeholder}
+                  variant="outlined"
+                  key={field.name}
+                  sx={{ width: '45ch' }}
+                  inputProps={{ maxLength: field.maxlength }}
+                  defaultValue={parsedStorage?.[field.name] || ''}
+                />
+              </Box>
             )
           case 'date':
             return (
-              <DateSelector
-                name={field.name}
-                label={field.placeholder}
-                control={control}
-                key={field.name}
-                dateValue={parsedStorage?.[field.name] || new Date()}
-                register={register}
-              />
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                <DateSelector
+                  name={field.name}
+                  label={field.placeholder}
+                  control={control}
+                  key={field.name}
+                  dateValue={parsedStorage?.[field.name] || new Date()}
+                  register={register}
+                />
+              </Box>
             )
           case 'phone':
             const [phone, setPhone] = useState(parsedStorage?.[field.name])
@@ -90,19 +103,26 @@ export default function FormDiv ({
               />
             )
           case 'radios':
-            const [radioValue, setRadioValue] = useState<string>(parsedStorage?.[field.name])
+
+            const checkIfYes = (value: any, field: any) => {
+              const selected = field.options.find((opt: any) => opt.value === value)
+              return { ifYes: selected?.ifYes, value }
+            }
+
+            const handleRadioChange = (value:any) => {
+              radioValueStorage[field.name] = value
+              setRadioValue(JSON.stringify(radioValueStorage))
+            }
+
             return (
-              <Box>
-                <h4>{field.placeholder}</h4>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <h3>{field.placeholder}</h3>
                 <RadioGroup
-                  row
                   id={field.name}
                   name={field.name}
                   key={field.name}
-                  onChange={(event) => {
-                    setRadioValue(event.target.value)
-                  }}
-                  value={radioValue}
+                  value={radioValueStorage?.[field.name]}
+                  onChange={(event) => handleRadioChange(event.target.value)}
                 >
                   {field.options?.map((option:any) => {
                     return (
@@ -136,8 +156,8 @@ export default function FormDiv ({
             )
           case 'textarea':
             return (
-              <Box>
-                <h4>{field.placeholder}</h4>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <h3>{field.placeholder}</h3>
                 <TextField
                   {...register(field.name)}
                   id="outlined-multiline-static"
@@ -153,14 +173,19 @@ export default function FormDiv ({
             )
           case 'checkboxes':
             return (
-              <Box>
-                <h4>{field.placeholder}</h4>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <h3>{field.placeholder}</h3>
                 <FormGroup
                   id={field.name}
                   key={field.name}
-                >
+                  >
                   {field.options?.map((option:any) => {
-                    const [isChecked, setIsChecked] = useState(parsedStorage?.[field.name] && parsedStorage?.[field.name].includes(option.value))
+                    const handleCheck = (optionValue:any) => {
+                      if (option.ifYes) {
+                        optionValue === true ? isCheckedStorage?.[field.name].push(option.value) : isCheckedStorage?.[field.name].pop(option.value)
+                      }
+                      setIsChecked(JSON.stringify(isCheckedStorage))
+                    }
                     return (
                       <Box key={option.value}>
                         <FormControlLabel
@@ -171,10 +196,10 @@ export default function FormDiv ({
                           control={<Checkbox id={`${field.name}_${option.value}`} defaultChecked={parsedStorage?.[field.name] && [...parsedStorage?.[field.name]].includes(option.value)} />}
                           key={option}
                           onChange={(event) => {
-                            setIsChecked((event.target as HTMLInputElement).checked)
+                            handleCheck((event.target as HTMLInputElement).checked)
                           }}
                         />
-                        {isChecked && option?.ifYes && (
+                        {(isCheckedStorage?.[field.name] && isCheckedStorage?.[field.name].includes(option.value)) && option?.ifYes && (
                           <TextField
                             {...register(option.name)}
                             label={option.placeholder}

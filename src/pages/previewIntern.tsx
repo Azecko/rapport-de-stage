@@ -2298,7 +2298,7 @@ export default function PreviewIntern () {
     <g fontSize={55}>
       <text
         x={254.884}
-        y={44.287}
+        y={29.287}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2321,36 +2321,43 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.necessaryQualities && formData.necessaryQualities.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
+          return (
+            <tspan
+            key={'necessaryQualities'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.necessaryQualities}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={254.616}
-        y={125.27}
+        y={111.27}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2373,36 +2380,43 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.necessarySchoolSubject && formData.necessarySchoolSubject.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
+          return (
+            <tspan
+            key={'necessarySchoolSubject'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.necessarySchoolSubject}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={254.873}
-        y={172.844}
+        y={158.844}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2425,36 +2439,43 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.whatToImprove && formData.whatToImprove.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
+          return (
+            <tspan
+            key={'whatToImprove'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.whatToImprove}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={254.082}
-        y={219.616}
+        y={204.616}
         style={{
           fontStyle: 'normal',
           fontVariant: 'normal',
@@ -2477,32 +2498,39 @@ export default function PreviewIntern () {
           strokeDasharray: 'none'
         }}
       >
-        <tspan
-          style={{
-            fontStyle: 'normal',
-            fontVariant: 'normal',
-            fontWeight: 400,
-            fontStretch: 'normal',
-            fontSize: '7.05555534px',
-            fontFamily: "'DejaVu Sans'",
+        {formData.remarksDuringTheInternship && formData.remarksDuringTheInternship.match(/.{1,55}(?:\s|$)/g).map((element:any) => {
+          return (
+            <tspan
+            key={'remarksDuringTheInternship'}
+            dy="2em"
+            x="254.082"
+            style={{
+              fontStyle: 'normal',
+              fontVariant: 'normal',
+              fontWeight: 400,
+              fontStretch: 'normal',
+              fontSize: '7.05555534px',
+              fontFamily: "'DejaVu Sans'",
 
-            fontVariantLigatures: 'normal',
-            fontVariantCaps: 'normal',
-            fontVariantNumeric: 'normal',
-            fontFeatureSettings: 'normal',
-            textAlign: 'start',
+              fontVariantLigatures: 'normal',
+              fontVariantCaps: 'normal',
+              fontVariantNumeric: 'normal',
+              fontFeatureSettings: 'normal',
+              textAlign: 'start',
 
-            textAnchor: 'start',
-            fill: '#000',
-            fillOpacity: 0.90232556,
-            stroke: 'none',
-            strokeWidth: 0.52916664,
-            strokeMiterlimit: 4,
-            strokeDasharray: 'none'
-          }}
-        >
-          {formData.remarksDuringTheInternship}
-        </tspan>
+              textAnchor: 'start',
+              fill: '#000',
+              fillOpacity: 0.90232556,
+              stroke: 'none',
+              strokeWidth: 0.52916664,
+              strokeMiterlimit: 4,
+              strokeDasharray: 'none'
+            }}
+            >
+              {element}
+            </tspan>
+          )
+        })}
       </text>
       <text
         x={106.068}
@@ -3801,7 +3829,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[0]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -3853,7 +3881,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[1]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -3905,7 +3933,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[2]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -3957,7 +3985,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[3]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4009,7 +4037,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[4]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4061,7 +4089,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[5]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4113,7 +4141,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.easy === 'hard' && '\u2717'}
+          {formData.tasksList && formData.tasksList[6]?.easy === 'hard' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4165,7 +4193,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[0]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4217,7 +4245,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[1]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4269,7 +4297,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[2]?.done === true ? 'u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4321,7 +4349,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[3]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4373,7 +4401,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[4]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4425,7 +4453,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[5]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4477,7 +4505,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.done === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[6]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4529,7 +4557,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[0]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4581,7 +4609,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[1]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4633,7 +4661,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[2]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4685,7 +4713,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[3]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4737,7 +4765,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[4]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4789,7 +4817,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[5]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4841,7 +4869,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.seen === true && '\u2717'}
+          {formData.tasksList && formData.tasksList[6]?.seen === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4893,7 +4921,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[0]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4945,7 +4973,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[1]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -4997,7 +5025,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[2]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5049,7 +5077,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[3]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5101,7 +5129,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[4]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5153,7 +5181,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[5]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5205,7 +5233,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.liked === 'liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[6]?.liked === 'liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5257,7 +5285,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[0]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5309,7 +5337,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[1]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5361,7 +5389,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[2]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5413,7 +5441,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[3]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5465,7 +5493,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[4]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5517,7 +5545,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[5]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5569,7 +5597,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.liked === 'less-liked' && '\u2717'}
+          {formData.tasksList && formData.tasksList[6]?.liked === 'less-liked' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5621,7 +5649,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[0]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5673,7 +5701,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[1]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5725,7 +5753,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[2]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5777,7 +5805,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[3]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5829,7 +5857,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[4]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5881,7 +5909,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[5]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -5933,7 +5961,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.easy === 'easy' && '\u2717'}
+          {formData.tasksList && formData.tasksList[6]?.easy === 'easy' ? '\u2717' : ''}
         </tspan>
       </text>
       <text
@@ -6401,7 +6429,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[0]?.text}
+          {formData.tasksList ? formData.tasksList[0]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6453,7 +6481,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[1]?.text}
+          {formData.tasksList ? formData.tasksList[1]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6505,7 +6533,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[2]?.text}
+          {formData.tasksList ? formData.tasksList[2]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6557,7 +6585,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[3]?.text}
+          {formData.tasksList ? formData.tasksList[3]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6609,7 +6637,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[4]?.text}
+          {formData.tasksList ? formData.tasksList[4]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6661,7 +6689,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[5]?.text}
+          {formData.tasksList ? formData.tasksList[5]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6713,7 +6741,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList[6]?.text}
+          {formData.tasksList ? formData.tasksList[6]?.text : ''}
         </tspan>
       </text>
       <text
@@ -6765,7 +6793,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksListRemarks}
+          {formData.tasksListRemarks || ''}
         </tspan>
       </text>
     </g>
