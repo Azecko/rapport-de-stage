@@ -10,7 +10,7 @@ import DarkMode from '../components/DarkMode'
 const Container = styled.div``
 
 export default function HomePage () {
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapp_stage_darkMode') === undefined ? true : localStorage.getItem('rapp_stage_darkMode') === 'true')
   // const [formData, setFormData] = useState('')
   const navigate = useNavigate()
 
