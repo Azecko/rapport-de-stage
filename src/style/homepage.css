@@ -19,7 +19,8 @@
 }
 
 .homepageDiv p {
-    max-width: 50vw;
+    padding-right: 5vw;
+    padding-left: 5vw;
     text-align: center;
 }
 
