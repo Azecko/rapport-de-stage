@@ -11,7 +11,7 @@
 
 .homepageDiv {
     width: 100vw;
-    height: 93vh;
+    height: 86vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,8 @@
 }
 
 .homepageDiv p {
-    max-width: 50vw;
+    padding-right: 5vw;
+    padding-left: 5vw;
     text-align: center;
 }
 

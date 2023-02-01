@@ -11,6 +11,7 @@ type DateSelectorProps = {
   control: Control;
   dateValue: string;
   register: any;
+  darkMode: boolean;
 };
 
 export default function DateSelector ({
@@ -18,7 +19,8 @@ export default function DateSelector ({
   label,
   control,
   dateValue,
-  register
+  register,
+  darkMode
 }: DateSelectorProps) {
   return (
     <Controller
@@ -31,7 +33,7 @@ export default function DateSelector ({
                 value={value === null || value === undefined ? dateValue : new Date(value)}
                 label={label}
                 onChange={onChange}
-                renderInput={(params) => <TextField {...params} style={{ width: '45ch' }} />}
+                renderInput={(params) => <TextField {...params} sx={{ width: '45ch', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' }, svg: { color: darkMode ? 'white' : 'black' } }} />}
             />
         </LocalizationProvider>
     )}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box, Button, Tooltip
 } from '@mui/material'
@@ -6,18 +6,23 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import '../style/homepage.css'
 import faviconImage from '../images/banana_logo.png'
+import DarkMode from '../components/DarkMode'
 const Container = styled.div``
 
 export default function HomePage () {
+  const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapp_stage_darkMode') === undefined ? true : localStorage.getItem('rapp_stage_darkMode') === 'true')
   // const [formData, setFormData] = useState('')
   const navigate = useNavigate()
 
   return (
-    <Container>
+    <Container style={{ backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
+      <Box style={{ display: 'flex', justifyContent: 'end', marginRight: '4vw', paddingTop: '3vh' }}>
+          <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
+      </Box>
       <div key="divForm" className="homepageDiv">
         <Box>
-            <h1>Rapport de stage <img src={faviconImage} alt="Banana icon" /></h1>
-            <p>
+            <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage <img src={faviconImage} alt="Banana icon" /></h1>
+            <p style={{ color: darkMode ? 'white' : 'black' }}>
               <a
                 href="https://github.com/ponsfrilus/rapport-de-stage"
                 target="_blank"

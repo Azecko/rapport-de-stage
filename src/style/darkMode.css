@@ -1,0 +1,11 @@
+:root {
+    --darkModeColor: white;
+  }  
+
+.MuiStepIcon-text {
+    fill: var(--darkModeColor) !important; 
+}
+
+.MuiStepLabel-label {
+    color: var(--darkModeColor) !important;
+}
