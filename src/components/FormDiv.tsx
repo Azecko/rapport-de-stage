@@ -105,8 +105,8 @@ export default function FormDiv ({
           case 'radios':
 
             const checkIfYes = (value: any, field: any) => {
-              const selected = field.options.find((opt: any) => opt.value === value)
-              return { ifYes: selected?.ifYes, value }
+              const selected = field.options.find((opt: any) => opt.value === JSON.parse(value)[field.name])
+              return { ifYes: selected?.ifYes, value: selected?.value }
             }
 
             const handleRadioChange = (value:any) => {
