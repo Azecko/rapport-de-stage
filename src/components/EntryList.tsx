@@ -17,9 +17,10 @@ type EntryListProps = {
     register: any;
     setValue: any;
     localStorage:any;
+    darkMode: boolean;
 }
 
-export default function EntryList ({ register, setValue, field, localStorage }: EntryListProps) {
+export default function EntryList ({ register, setValue, field, localStorage, darkMode }: EntryListProps) {
   if (!localStorage) {
     localStorage = {
       tasksList: [{ done: false, seen: false, text: '', liked: false, easy: false }]
@@ -47,11 +48,11 @@ export default function EntryList ({ register, setValue, field, localStorage }: 
 
   return (
         <Box display="flex" flexDirection="column" key={field.name} justifyContent="center" alignItems="center" width="100vw">
-            <h3>{field.placeholder}</h3>
+            <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
             {
                 [...Array(entries)].map((e, index) => {
                   return (
-                        <Entry setValue={setValue} name={field.name} entryList={entryList} setEntryList={setEntryList} index={index} key={`${field.name}_${index}`} entries={entryList}/>
+                        <Entry setValue={setValue} name={field.name} entryList={entryList} setEntryList={setEntryList} index={index} key={`${field.name}_${index}`} entries={entryList} darkMode={darkMode}/>
                   )
                 })
             }

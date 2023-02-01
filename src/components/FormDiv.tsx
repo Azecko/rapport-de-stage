@@ -25,6 +25,7 @@ type FormDivProps = {
   setRadioValue: any;
   isChecked: any;
   setIsChecked: any;
+  darkMode: boolean;
 };
 
 export default function FormDiv ({
@@ -37,7 +38,8 @@ export default function FormDiv ({
   setRadioValue,
   radioValue,
   isChecked,
-  setIsChecked
+  setIsChecked,
+  darkMode
 }: FormDivProps) {
   let parsedStorage:any
   if (localStorage) {
@@ -52,7 +54,7 @@ export default function FormDiv ({
 
   return (
     <Box key="fieldsLabelBox" style={{ width: '100vw', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-      <h2>{label}</h2>
+      <h2 style={{ color: darkMode ? 'white' : 'black' }}>{label}</h2>
       <Box display='flex' flexDirection='column' flexWrap="wrap" gap={2} key="fieldsBox">
       {fields.map((field) => {
         switch (field.type) {
@@ -64,7 +66,7 @@ export default function FormDiv ({
                   label={field.placeholder}
                   variant="outlined"
                   key={field.name}
-                  sx={{ width: '45ch' }}
+                  sx={{ width: '45ch', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                   inputProps={{ maxLength: field.maxlength }}
                   defaultValue={parsedStorage?.[field.name] || ''}
                 />
@@ -80,6 +82,7 @@ export default function FormDiv ({
                   key={field.name}
                   dateValue={parsedStorage?.[field.name] || new Date()}
                   register={register}
+                  darkMode={darkMode}
                 />
               </Box>
             )
@@ -98,7 +101,7 @@ export default function FormDiv ({
                 value={phone}
                 onChange={handleChange}
                 key={field.name}
-                sx={{ width: '45ch' }}
+                sx={{ width: '45ch', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                 inputProps={{ maxLength: field.maxlength }}
               />
             )
@@ -116,7 +119,7 @@ export default function FormDiv ({
 
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h3>{field.placeholder}</h3>
+                <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
                 <RadioGroup
                   id={field.name}
                   name={field.name}
@@ -132,17 +135,18 @@ export default function FormDiv ({
                           value={option.value}
                           label={option.label}
                           name={field.name}
-                          control={<Radio id={`${field.name}_${option.value}`} />}
+                          control={<Radio id={`${field.name}_${option.value}`} sx={{ color: darkMode ? 'gray' : 'black' }} />}
                           key={option}
+                          style={{ color: darkMode ? 'white' : 'black' }}
                         />
                         {checkIfYes(radioValue, field).ifYes &&
                         checkIfYes(radioValue, field).value === option.value && (
                         <TextField
                           {...register(option.name)}
                           label={option.placeholder}
-                          style={{ marginRight: 20 }}
                           inputProps={{ maxLength: option.maxlength }}
                           defaultValue={parsedStorage?.[option.name] || ''}
+                          sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                         />)}
                       </Box>
                     )
@@ -152,12 +156,12 @@ export default function FormDiv ({
             )
           case 'entrylist':
             return (
-              <EntryList register={register} field={field} setValue={setValue} localStorage={parsedStorage} />
+              <EntryList register={register} field={field} setValue={setValue} localStorage={parsedStorage} darkMode={darkMode} />
             )
           case 'textarea':
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h3>{field.placeholder}</h3>
+                <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
                 <TextField
                   {...register(field.name)}
                   id="outlined-multiline-static"
@@ -165,8 +169,8 @@ export default function FormDiv ({
                   multiline
                   rows={3}
                   key={field.name}
-                  style={{ width: 400 }}
-                  inputProps={{ maxLength: field.maxlength }}
+                  sx={{ width: 400, fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, label: { color: darkMode ? 'white' : 'black' } }}
+                  inputProps={{ maxLength: field.maxlength, style: { color: darkMode ? 'white' : 'black' } }}
                   defaultValue={parsedStorage?.[field.name]}
                 />
               </Box>
@@ -174,7 +178,7 @@ export default function FormDiv ({
           case 'checkboxes':
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h3>{field.placeholder}</h3>
+                <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
                 <FormGroup
                   id={field.name}
                   key={field.name}
@@ -196,17 +200,18 @@ export default function FormDiv ({
                           value={option.value}
                           label={option.label}
                           name={field.name}
-                          control={<Checkbox id={`${field.name}_${option.value}`} defaultChecked={parsedStorage?.[field.name] && [...parsedStorage?.[field.name]].includes(option.value)} />}
+                          control={<Checkbox sx={{ color: darkMode ? 'gray' : 'black' }} id={`${field.name}_${option.value}`} defaultChecked={parsedStorage?.[field.name] && [...parsedStorage?.[field.name]].includes(option.value)} />}
                           key={option}
                           onChange={(event) => {
                             handleCheck((event.target as HTMLInputElement).checked)
                           }}
+                          style={{ color: darkMode ? 'white' : 'black' }}
                         />
                         {(isCheckedStorage?.[field.name] && isCheckedStorage?.[field.name].includes(option.value)) && option?.ifYes && (
                           <TextField
                             {...register(option.name)}
                             label={option.placeholder}
-                            style={{ marginRight: 20 }}
+                            sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                             inputProps={{ maxLength: option.maxlength }}
                             defaultValue={parsedStorage?.[option.name] || ''}
                           />)}
