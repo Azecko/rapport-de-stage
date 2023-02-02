@@ -15,7 +15,7 @@ export default function HomePage () {
   const navigate = useNavigate()
 
   return (
-    <Container style={{ backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
+    <Container style={{ backgroundColor: darkMode ? '#2a2b2b' : 'white', minHeight: '100vh' }}>
       <Box style={{ display: 'flex', justifyContent: 'end', marginRight: '4vw', paddingTop: '3vh' }}>
           <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
       </Box>
