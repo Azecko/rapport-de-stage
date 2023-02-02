@@ -10,12 +10,13 @@ import DarkMode from '../components/DarkMode'
 const Container = styled.div``
 
 export default function HomePage () {
-  const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapp_stage_darkMode') === undefined ? true : localStorage.getItem('rapp_stage_darkMode') === 'true')
+  const storage = JSON.parse(localStorage.getItem('rapport-de-stage') || '{}')
+  const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapport-de-stage') === null || !storage.options ? true : storage.options?.darkMode === 'true')
   // const [formData, setFormData] = useState('')
   const navigate = useNavigate()
 
   return (
-    <Container style={{ backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
+    <Container style={{ backgroundColor: darkMode ? '#2a2b2b' : 'white', minHeight: '100vh' }}>
       <Box style={{ display: 'flex', justifyContent: 'end', marginRight: '4vw', paddingTop: '3vh' }}>
           <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
       </Box>
