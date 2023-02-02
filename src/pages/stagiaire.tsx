@@ -16,8 +16,9 @@ export default function Stagiaire () {
   const { register, handleSubmit, control, setValue } = useForm()
   const navigate = useNavigate()
 
-  const [radioValue, setRadioValue] = React.useState(localStorage.getItem('intern') || '{}')
-  const [isChecked, setIsChecked] = React.useState(localStorage.getItem('intern') || '{}')
+  const storage = JSON.parse(localStorage.getItem('rapport-de-stage') || '{}')
+  const [radioValue, setRadioValue] = React.useState(JSON.stringify(storage.intern) || '{}')
+  const [isChecked, setIsChecked] = React.useState(JSON.stringify(storage.intern) || '{}')
 
   const [activeStep, setActiveStep] = React.useState(0)
 
@@ -29,7 +30,7 @@ export default function Stagiaire () {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
 
-  const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapp_stage_darkMode') === undefined ? true : localStorage.getItem('rapp_stage_darkMode') === 'true')
+  const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapport-de-stage') === null || !storage.options ? true : storage.options?.darkMode === 'true')
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
@@ -44,14 +45,14 @@ export default function Stagiaire () {
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
-            const datas = { ...JSON.parse(localStorage.getItem('intern') || '{}'), ...formData }
+            const datas = { ...storage.intern, ...formData }
             navigate('/stagiaire/preview', {
               state: {
                 formData: JSON.stringify(datas)
               }
             })
-            console.log(datas)
-            localStorage.setItem('intern', JSON.stringify(datas))
+            storage.intern = datas
+            localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
           }
           )}
           key="mainForm"
@@ -105,7 +106,7 @@ export default function Stagiaire () {
                     register={register}
                     setValue={setValue}
                     control={control}
-                    localStorage={localStorage.getItem('intern')}
+                    localStorage={JSON.stringify(storage.intern)}
                     radioValue={radioValue}
                     setRadioValue={setRadioValue}
                     isChecked={isChecked}
