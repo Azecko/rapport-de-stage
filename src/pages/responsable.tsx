@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {
-  Box, Button, Stepper, Step, StepLabel
+  Box, Button, Stepper, Step, StepLabel, Alert, AlertTitle
 } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -30,11 +30,19 @@ export default function Responsable () {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
 
+  const [errorAlert, setErrorAlert] = useState(false)
+
   const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapport-de-stage') === null || !storage.options ? true : storage.options?.darkMode === 'true')
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
     <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
+      {errorAlert && (
+        <Alert severity="error" color="info" onClose={() => setErrorAlert(false)}>
+          <AlertTitle>Erreur</AlertTitle>
+          Aucun modèle n'a encore été crée, merci de d'abord sauver un modèle via le bouton <strong>sauver le modèle</strong> avant d'essayer de l'importer.
+        </Alert>
+      )}
       <Box style={{ display: 'flex', justifyContent: 'end', marginRight: '4vw', paddingTop: '3vh', width: '100vw' }}>
           <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
       </Box>
@@ -42,6 +50,29 @@ export default function Responsable () {
         <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage | Responsable</h1>
       </Box>
       <Button onClick={() => navigate('/')} variant="outlined" color="info">Retour à l'accueil</Button>
+      <Box style = {{ display: 'flex', justifyContent: 'center', gap: '2vw' }}>
+          <Button onClick={handleSubmit((formData) => {
+            const templateDatas = { ...storage.responsible, ...formData }
+            if (storage.templates) {
+              if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
+                storage.templates.responsible = templateDatas
+                localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+              }
+            } else {
+              storage.templates = {}
+              storage.templates.responsible = templateDatas
+              localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+            }
+          }
+          )} variant="outlined">Sauver le modèle</Button>
+            <Button onClick={() => {
+              if (!storage.templates) return setErrorAlert(true)
+              storage.responsible = storage.templates.responsible
+              localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+              location.reload()
+            }
+          } variant="outlined">Importer le modèle</Button>
+        </Box>
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
@@ -72,7 +103,7 @@ export default function Responsable () {
                 })}
             </Stepper>
           </Box>
-          <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh', paddingBottom: '3vh' }}>
+          <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh', paddingBottom: '2vh' }}>
             <Button type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <hr style={{ width: '50vw' }}/>
