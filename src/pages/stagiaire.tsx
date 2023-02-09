@@ -34,14 +34,14 @@ export default function Stagiaire () {
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
-    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
-      <Box style={{ display: 'flex', justifyContent: 'end', marginRight: '4vw', paddingTop: '3vh', width: '100vw' }}>
-          <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
+    <Container style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
+      <Box style={{ display: 'flex', justifyContent: 'space-between', width: '80vw', paddingTop: '3vh' }}>
+        <Button onClick={() => navigate('/')} variant='outlined'>Retour à l'accueil</Button>
+        <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
       </Box>
       <Box>
         <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage | Stagiaire</h1>
       </Box>
-      <Button onClick={() => navigate('/')} variant="outlined" color="info">Retour à l'accueil</Button>
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
