@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import React, { useState } from 'react'
 import {
-  Box, Button, Stepper, Step, StepLabel, Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select
+  Box, Button, Stepper, Step, StepLabel, FormControl, InputLabel, MenuItem, Select, Dialog, DialogActions, DialogContent, DialogTitle, TextField
 } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -22,9 +22,24 @@ export default function Responsable () {
   const storage = JSON.parse(localStorage.getItem('rapport-de-stage') || '{}')
   const [report] = React.useState(searchParams.get('report') || 'responsible')
 
+  const [open, setOpen] = React.useState(false)
+  const [savingName, setSavingName] = React.useState('')
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   const handleReportChange = (event:any) => {
     setSearchParams({ report: event.target.value })
     location.reload()
+  }
+
+  const handleSavingName = (event:any) => {
+    setSavingName(event.target.value)
   }
 
   const [radioValue, setRadioValue] = React.useState(JSON.stringify(storage[report]) || '{}')
@@ -68,29 +83,64 @@ export default function Responsable () {
         <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage | Responsable</h1>
       </Box>
       <Button onClick={() => navigate('/')} variant="outlined" color="info">Retour à l'accueil</Button>
-      <FormControl sx={{ width: '8vw' }}>
-        <InputLabel sx={{ color: darkMode ? 'white' : 'black' }} id="demo-simple-select-label">Rapport</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={report}
-          label="Rapport"
-          onChange={handleReportChange}
-          sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, color: darkMode ? 'white' : 'black' }}
-        >
-          <MenuItem value=''>
-            <em>Par défaut</em>
-          </MenuItem>
-          {
-            Object.keys(storage).map(element => {
-              if (element === 'templates' || element === 'responsible' || element === 'options' || element === 'intern') {
-                return false
-              }
-              return <MenuItem key={element} value={element}>{element}</MenuItem>
-            })
-          }
-        </Select>
-      </FormControl>
+      <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2vw' }}>
+        <FormControl sx={{ width: '8vw' }}>
+          <InputLabel sx={{ color: darkMode ? 'white' : 'black' }} id="demo-simple-select-label">Rapport</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={report}
+            label="Rapport"
+            onChange={handleReportChange}
+            sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, color: darkMode ? 'white' : 'black' }}
+          >
+            <MenuItem value=''>
+              <em>Par défaut</em>
+            </MenuItem>
+            {
+              Object.keys(storage).map(element => {
+                if (element === 'templates' || element === 'responsible' || element === 'options' || element === 'intern') {
+                  return false
+                }
+                return <MenuItem key={element} value={element}>{element}</MenuItem>
+              })
+            }
+          </Select>
+        </FormControl>
+        <Button variant='contained' onClick={searchParams.get('report')
+          ? handleSubmit((formData) => {
+            storage[report] = { ...storage[report], ...formData }
+            localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+            setAlertSeverity('success')
+            setAlertDescription('Le rapport a bien été enregistré !')
+            setAlertTitle('Succès')
+            setErrorAlert(true)
+          })
+          : handleClickOpen}>Sauver ce rapport</Button>
+        <Dialog open={open} onClose={handleClose} sx={{ color: 'black' }}>
+          <DialogTitle>Saisir un nom pour ce rapport</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Nom"
+              fullWidth
+              variant="standard"
+              onChange={handleSavingName}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Annuler</Button>
+            <Button onClick={handleSubmit((formData) => {
+              storage[savingName] = formData
+              localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+              setSearchParams({ report: savingName })
+              location.reload()
+            })}>Sauvegarder</Button>
+          </DialogActions>
+        </Dialog>
+      </Box>
       <Box style = {{ display: 'flex', justifyContent: 'center', gap: '2vw' }}>
           <Button onClick={handleSubmit((formData) => {
             const templateDatas = { ...storage[report], ...formData }
