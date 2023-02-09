@@ -10,6 +10,7 @@ import responsableForm from '../forms/responsable.json'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import DarkMode from '../components/DarkMode'
 import '../style/darkMode.css'
+import CustomAlert from '../components/CustomAlert'
 const Container = styled.div``
 
 export default function Responsable () {
@@ -41,16 +42,24 @@ export default function Responsable () {
 
   const [errorAlert, setErrorAlert] = useState(false)
 
+  const [alertSeverity, setAlertSeverity] = useState('')
+  const [alertColor, setAlertColor] = useState('')
+  const [alertDescription, setAlertDescription] = useState('')
+  const [alertTitle, setAlertTitle] = useState('')
+
   const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapport-de-stage') === null || !storage.options ? true : storage.options?.darkMode === 'true')
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
     <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
       {errorAlert && (
-        <Alert severity="error" color="info" onClose={() => setErrorAlert(false)}>
-          <AlertTitle>Erreur</AlertTitle>
-          Aucun modèle n'a encore été crée, merci de d'abord sauver un modèle via le bouton <strong>sauver le modèle</strong> avant d'essayer de l'importer.
-        </Alert>
+        <CustomAlert
+          alertSeverity={alertSeverity}
+          alertColor={alertColor}
+          setErrorAlert={setErrorAlert}
+          alertDescription={alertDescription}
+          alertTitle={alertTitle}
+        />
       )}
       <Box style={{ display: 'flex', justifyContent: 'end', marginRight: '4vw', paddingTop: '3vh', width: '100vw' }}>
           <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
@@ -98,7 +107,13 @@ export default function Responsable () {
           }
           )} variant="outlined">Sauver le modèle</Button>
             <Button onClick={() => {
-              if (!storage.templates) return setErrorAlert(true)
+              if (!storage.templates) {
+                setAlertSeverity('error')
+                setAlertColor('info')
+                setAlertDescription('Aucun modèle n\'a encore été crée, merci de d\'abord sauver un modèle avant d\'essayer de l\'importer.')
+                setAlertTitle('Erreur')
+                return setErrorAlert(true)
+              }
               storage[report] = storage.templates.responsible
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               location.reload()
