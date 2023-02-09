@@ -20,7 +20,7 @@ export default function Responsable () {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const storage = JSON.parse(localStorage.getItem('rapport-de-stage') || '{}')
-  const [report] = React.useState(searchParams.get('report') || 'responsible')
+  const [report, setReport] = React.useState(searchParams.get('report') || 'responsible')
 
   const [open, setOpen] = React.useState(false)
   const [savingName, setSavingName] = React.useState('')
@@ -107,17 +107,27 @@ export default function Responsable () {
             }
           </Select>
         </FormControl>
-        <Button variant='contained' onClick={searchParams.get('report')
-          ? handleSubmit((formData) => {
-            storage[report] = { ...storage[report], ...formData }
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1vh' }}>
+          <Button variant='contained' onClick={searchParams.get('report')
+            ? handleSubmit((formData) => {
+              storage[report] = { ...storage[report], ...formData }
+              localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+              setAlertSeverity('success')
+              setAlertDescription('Le rapport a bien été enregistré !')
+              setAlertTitle('Succès')
+              setErrorAlert(true)
+            })
+            : handleClickOpen}>Sauver ce rapport
+          </Button>
+          {searchParams.get('report') && <Button color='error' variant='contained' onClick={() => {
+            delete storage[report]
             localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-            setAlertSeverity('success')
-            setAlertDescription('Le rapport a bien été enregistré !')
-            setAlertTitle('Succès')
-            setErrorAlert(true)
-          })
-          : handleClickOpen}>Sauver ce rapport
-        </Button>
+            setSearchParams('')
+          }}>
+            Supprimer ce rapport
+          </Button>
+          }
+        </Box>
         <Dialog open={open} onClose={handleClose} sx={{ color: 'black' }}>
           <DialogTitle>Saisir un nom pour ce rapport</DialogTitle>
           <DialogContent>
@@ -137,7 +147,8 @@ export default function Responsable () {
               storage[savingName] = formData
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               setSearchParams({ report: savingName })
-              location.reload()
+              setReport(savingName)
+              handleClose()
             })}
             >
               Sauvegarder
