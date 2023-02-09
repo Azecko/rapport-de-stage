@@ -116,7 +116,8 @@ export default function Responsable () {
             setAlertTitle('Succès')
             setErrorAlert(true)
           })
-          : handleClickOpen}>Sauver ce rapport</Button>
+          : handleClickOpen}>Sauver ce rapport
+        </Button>
         <Dialog open={open} onClose={handleClose} sx={{ color: 'black' }}>
           <DialogTitle>Saisir un nom pour ce rapport</DialogTitle>
           <DialogContent>
@@ -137,7 +138,10 @@ export default function Responsable () {
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               setSearchParams({ report: savingName })
               location.reload()
-            })}>Sauvegarder</Button>
+            })}
+            >
+              Sauvegarder
+            </Button>
           </DialogActions>
         </Dialog>
       </Box>
