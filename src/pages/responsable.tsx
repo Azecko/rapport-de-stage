@@ -1,12 +1,13 @@
+/* eslint-disable dot-notation */
 import React, { useState } from 'react'
 import {
-  Box, Button, Stepper, Step, StepLabel, Alert, AlertTitle
+  Box, Button, Stepper, Step, StepLabel, Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select
 } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import FormDiv from '../components/FormDiv'
 import responsableForm from '../forms/responsable.json'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import DarkMode from '../components/DarkMode'
 import '../style/darkMode.css'
 const Container = styled.div``
@@ -15,10 +16,18 @@ export default function Responsable () {
   // const [formData, setFormData] = useState('')
   const { register, handleSubmit, control, setValue } = useForm()
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const storage = JSON.parse(localStorage.getItem('rapport-de-stage') || '{}')
-  const [radioValue, setRadioValue] = React.useState(JSON.stringify(storage.responsible) || '{}')
-  const [isChecked, setIsChecked] = React.useState(JSON.stringify(storage.responsible) || '{}')
+  const [report] = React.useState(searchParams.get('report') || 'responsible')
+
+  const handleReportChange = (event:any) => {
+    setSearchParams({ report: event.target.value })
+    location.reload()
+  }
+
+  const [radioValue, setRadioValue] = React.useState(JSON.stringify(storage[report]) || '{}')
+  const [isChecked, setIsChecked] = React.useState(JSON.stringify(storage[report]) || '{}')
 
   const [activeStep, setActiveStep] = React.useState(0)
 
@@ -50,9 +59,32 @@ export default function Responsable () {
         <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage | Responsable</h1>
       </Box>
       <Button onClick={() => navigate('/')} variant="outlined" color="info">Retour à l'accueil</Button>
+      <FormControl sx={{ width: '8vw' }}>
+        <InputLabel sx={{ color: darkMode ? 'white' : 'black' }} id="demo-simple-select-label">Rapport</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={report}
+          label="Rapport"
+          onChange={handleReportChange}
+          sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, color: darkMode ? 'white' : 'black' }}
+        >
+          <MenuItem value=''>
+            <em>Par défaut</em>
+          </MenuItem>
+          {
+            Object.keys(storage).map(element => {
+              if (element === 'templates' || element === 'responsible' || element === 'options' || element === 'intern') {
+                return false
+              }
+              return <MenuItem key={element} value={element}>{element}</MenuItem>
+            })
+          }
+        </Select>
+      </FormControl>
       <Box style = {{ display: 'flex', justifyContent: 'center', gap: '2vw' }}>
           <Button onClick={handleSubmit((formData) => {
-            const templateDatas = { ...storage.responsible, ...formData }
+            const templateDatas = { ...storage[report], ...formData }
             if (storage.templates) {
               if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
                 storage.templates.responsible = templateDatas
@@ -67,7 +99,7 @@ export default function Responsable () {
           )} variant="outlined">Sauver le modèle</Button>
             <Button onClick={() => {
               if (!storage.templates) return setErrorAlert(true)
-              storage.responsible = storage.templates.responsible
+              storage[report] = storage.templates.responsible
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               location.reload()
             }
@@ -76,13 +108,13 @@ export default function Responsable () {
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
-            const datas = { ...storage.responsible, ...formData }
+            const datas = { ...storage[report], ...formData }
             navigate('/responsable/preview', {
               state: {
                 formData: JSON.stringify(datas)
               }
             })
-            storage.responsible = datas
+            storage[report] = datas
             localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
           }
           )}
@@ -137,7 +169,7 @@ export default function Responsable () {
                     register={register}
                     setValue={setValue}
                     control={control}
-                    localStorage={JSON.stringify(storage.responsible)}
+                    localStorage={JSON.stringify(storage[report])}
                     radioValue={radioValue}
                     setRadioValue={setRadioValue}
                     isChecked={isChecked}
