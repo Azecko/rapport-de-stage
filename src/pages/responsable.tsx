@@ -128,17 +128,16 @@ export default function Responsable () {
           </Button>
           }
         </Box>
-        <Dialog open={open} onClose={handleClose} sx={{ color: 'black' }}>
-          <DialogTitle>Saisir un nom pour ce rapport</DialogTitle>
+        <Dialog open={open} onClose={handleClose} PaperProps={{ style: { backgroundColor: darkMode ? '#424242' : 'white' } }}>
+          <DialogTitle sx={{ color: darkMode ? 'white' : 'black' }}>Saisir un nom pour ce rapport</DialogTitle>
           <DialogContent>
             <TextField
-              autoFocus
               margin="dense"
               id="name"
               label="Nom"
               fullWidth
-              variant="standard"
               onChange={handleSavingName}
+              sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
             />
           </DialogContent>
           <DialogActions>
