@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import dateHelper from '../helpers/dateHelper'
+import { Box, Button } from '@mui/material'
+import '../style/previewPrint.css'
 
 const Container = styled.div``
 
@@ -21,8 +23,14 @@ export default function PreviewIntern () {
   const location = useLocation()
   const formData = JSON.parse(location.state.formData)
 
+  const navigate = useNavigate()
+
   return (
     <Container>
+      <Box sx={{ display: 'flex', gap: '2vw', paddingTop: '2vh', marginLeft: '4vw', marginBottom: '2vh' }} className='no-print'>
+        <Button variant="contained" onClick={() => navigate('/stagiaire')}>🡨 Retour</Button>
+        <Button variant="contained" onClick={() => window.print()}>Imprimer 🖨️</Button>
+      </Box>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
