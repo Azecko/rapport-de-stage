@@ -8,14 +8,16 @@ type EntryProps = {
     setEntryList: any,
     index: number,
     entries: any,
-    darkMode: boolean
+    darkMode: boolean,
+    saveEntries: any
 }
 
-export default function Entry ({ setValue, name, entryList, setEntryList, index, entries, darkMode }: EntryProps) {
+export default function Entry ({ setValue, name, entryList, setEntryList, index, entries, darkMode, saveEntries }: EntryProps) {
   const setEntryValue = (value: any, type: string) => {
     const newValue = entryList
     newValue[index][type] = value
     setEntryList(newValue)
+    saveEntries()
   }
 
   return (

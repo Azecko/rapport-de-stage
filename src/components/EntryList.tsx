@@ -52,14 +52,13 @@ export default function EntryList ({ register, setValue, field, localStorage, da
             {
                 [...Array(entries)].map((e, index) => {
                   return (
-                        <Entry setValue={setValue} name={field.name} entryList={entryList} setEntryList={setEntryList} index={index} key={`${field.name}_${index}`} entries={entryList} darkMode={darkMode}/>
+                        <Entry setValue={setValue} name={field.name} entryList={entryList} setEntryList={setEntryList} index={index} key={`${field.name}_${index}`} entries={entryList} darkMode={darkMode} saveEntries={saveEntries}/>
                   )
                 })
             }
-            <Box display="flex" flexDirection="row" key={`${field.name}_buttons`}>
-                <Button onClick={() => controlEntry(1)} key="add_button">+</Button>
-                <Button onClick={() => controlEntry(-1)} key="remove_button">-</Button>
-                <Button onClick={() => saveEntries()} key="sabe_button">SAVE</Button>
+            <Box display="flex" flexDirection="row" gap="1vw" key={`${field.name}_buttons`}>
+                <Button onClick={() => controlEntry(1)} variant="outlined" key="add_button">+</Button>
+                <Button onClick={() => controlEntry(-1)} variant="outlined" key="remove_button">-</Button>
             </Box>
         </Box>
   )
