@@ -40,7 +40,7 @@ export default function Stagiaire () {
         <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
       </Box>
       <Box>
-        <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage | Stagiaire</h1>
+        <h1 style={{ color: darkMode ? 'white' : 'black', fontSize: 'calc(1.25em + 1vmin)' }}>Rapport de stage | Stagiaire</h1>
       </Box>
       <div key="divForm">
         <form
@@ -58,7 +58,7 @@ export default function Stagiaire () {
           key="mainForm"
         >
           <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Stepper activeStep={activeStep}>
+            <Stepper activeStep={activeStep} sx={{ display: 'flex', flexDirection: 'column', gap: '0.5vh', alignItems: 'flex-start' }}>
               {
                 stagiairesForm.divs.map((div:any, index: number) => {
                   const stepProps:any = {}
@@ -76,7 +76,7 @@ export default function Stagiaire () {
             <Button type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <hr style={{ width: '50vw' }}/>
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: 45, pt: 2, alignItems: 'center', justifyContent: 'center' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '30vw', pt: 2, alignItems: 'center', justifyContent: 'center' }}>
             <Button
               color="error"
               disabled={activeStep === 0}

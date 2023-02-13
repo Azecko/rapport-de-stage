@@ -56,7 +56,7 @@ export default function EntryList ({ register, setValue, field, localStorage, da
                   )
                 })
             }
-            <Box display="flex" flexDirection="row" gap="1vw" key={`${field.name}_buttons`}>
+            <Box display="flex" flexDirection="row" gap="1vw" key={`${field.name}_buttons`} sx={{ marginTop: entryList.length === 1 ? '1vh' : '' }}>
                 <Button onClick={() => controlEntry(1)} variant="outlined" key="add_button">+</Button>
                 <Button onClick={() => controlEntry(-1)} variant="outlined" key="remove_button">-</Button>
             </Box>

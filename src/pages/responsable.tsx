@@ -66,7 +66,7 @@ export default function Responsable () {
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
-    <Container style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: '100vw', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
+    <Container style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
       {errorAlert && (
         <CustomAlert
           alertSeverity={alertSeverity}
@@ -81,10 +81,10 @@ export default function Responsable () {
         <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
       </Box>
       <Box>
-        <h1 style={{ color: darkMode ? 'white' : 'black' }}>Rapport de stage | Responsable</h1>
+        <h1 style={{ color: darkMode ? 'white' : 'black', fontSize: 'calc(1.25em + 1vmin)' }}>Rapport de stage | Responsable</h1>
       </Box>
       <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2vw' }}>
-        <FormControl sx={{ width: '8vw' }}>
+        <FormControl sx={{ width: '9rem' }}>
           <InputLabel sx={{ color: darkMode ? 'white' : 'black' }} id="demo-simple-select-label">Rapport</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -200,7 +200,7 @@ export default function Responsable () {
           key="mainForm"
         >
           <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Stepper activeStep={activeStep}>
+            <Stepper activeStep={activeStep} sx={{ display: 'flex', flexDirection: 'column', gap: '0.5vh', alignItems: 'flex-start' }}>
               {
                 responsableForm.divs.map((div:any, index: number) => {
                   const stepProps:any = {}
@@ -208,17 +208,18 @@ export default function Responsable () {
 
                   return (
                     <Step key={div.label} {...stepProps}>
-                      <StepLabel {...labelProps}>{div.label}</StepLabel>
+                      <StepLabel {...labelProps} sx={{ maxWidth: '12rem' }}>{div.label}</StepLabel>
                     </Step>
                   )
-                })}
+                })
+              }
             </Stepper>
           </Box>
           <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh', paddingBottom: '2vh' }}>
             <Button type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <hr style={{ width: '50vw' }}/>
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: 45, pt: 2, alignItems: 'center', justifyContent: 'center' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '30vw', pt: 2, alignItems: 'center', justifyContent: 'center' }}>
             <Button
               color="error"
               disabled={activeStep === 0}
