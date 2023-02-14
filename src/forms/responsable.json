@@ -320,7 +320,7 @@
       ]
     },
     {
-      "label":"EXÉCUTION DES TÂCHES",
+      "label":"Exécution des tâches",
       "fields":[
         {
           "type":"radios",
@@ -492,7 +492,7 @@
       ]
     },
     {
-      "label":"CONTACT AVEC AUTRUI",
+      "label":"Contact avec autrui",
       "fields":[
         {
           "type":"radios",
@@ -664,7 +664,7 @@
       ]
     },
     {
-      "label":"AVIS DE LA PERSONNE RESPONSABLE DU STAGE",
+      "label":"Avis de la personne responsable du stage",
       "fields":[
         {
           "type":"radios",

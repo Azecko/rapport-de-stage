@@ -21,6 +21,11 @@ type FormDivProps = {
   setValue: any;
   control: any;
   localStorage: any;
+  radioValue: any;
+  setRadioValue: any;
+  isChecked: any;
+  setIsChecked: any;
+  darkMode: boolean;
 };
 
 export default function FormDiv ({
@@ -29,54 +34,64 @@ export default function FormDiv ({
   register,
   setValue,
   control,
-  localStorage
+  localStorage,
+  setRadioValue,
+  radioValue,
+  isChecked,
+  setIsChecked,
+  darkMode
 }: FormDivProps) {
-  const [phone, setPhone] = useState('')
-
-  const handleChange = (newPhone:any) => {
-    setPhone(newPhone)
-  }
-
-  function checkIfYes (value: any, field: any) {
-    const selected = field.options.find((opt: any) => opt.value === value)
-    return { ifYes: selected?.ifYes, value }
-  }
-
   let parsedStorage:any
   if (localStorage) {
     parsedStorage = JSON.parse(localStorage)
   }
 
+  var radioValueStorage:any
+  radioValueStorage = JSON.parse(radioValue)
+
+  var isCheckedStorage:any
+  isCheckedStorage = JSON.parse(isChecked)
+
   return (
-    <Box key="fieldsLabelBox">
-      <h3>{label}</h3>
+    <Box key="fieldsLabelBox" style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+      <h2 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{label}</h2>
       <Box display='flex' flexDirection='column' flexWrap="wrap" gap={2} key="fieldsBox">
       {fields.map((field) => {
         switch (field.type) {
           case 'text':
             return (
-              <TextField
-                {...register(field.name)}
-                label={field.placeholder}
-                variant="outlined"
-                key={field.name}
-                sx={{ width: '45ch' }}
-                inputProps={{ maxLength: field.maxlength }}
-                defaultValue={parsedStorage?.[field.name] || ''}
-              />
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                <TextField
+                  {...register(field.name)}
+                  label={field.placeholder}
+                  variant="outlined"
+                  key={field.name}
+                  sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
+                  inputProps={{ maxLength: field.maxlength }}
+                  defaultValue={parsedStorage?.[field.name] || ''}
+                />
+              </Box>
             )
           case 'date':
             return (
-              <DateSelector
-                name={field.name}
-                label={field.placeholder}
-                control={control}
-                key={field.name}
-                dateValue={parsedStorage?.[field.name] || '01/01/2022'}
-                register={register}
-              />
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
+                <DateSelector
+                  name={field.name}
+                  label={field.placeholder}
+                  control={control}
+                  key={field.name}
+                  dateValue={parsedStorage?.[field.name] || new Date()}
+                  register={register}
+                  darkMode={darkMode}
+                />
+              </Box>
             )
           case 'phone':
+            const [phone, setPhone] = useState(parsedStorage?.[field.name])
+
+            const handleChange = (newPhone:any) => {
+              setPhone(newPhone)
+            }
             return (
               <MuiTelInput
                 {...register(field.name)}
@@ -86,24 +101,31 @@ export default function FormDiv ({
                 value={phone}
                 onChange={handleChange}
                 key={field.name}
-                sx={{ width: '45ch' }}
+                sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                 inputProps={{ maxLength: field.maxlength }}
               />
             )
           case 'radios':
-            const [radioValue, setRadioValue] = useState<string>(parsedStorage?.[field.name])
+
+            const checkIfYes = (value: any, field: any) => {
+              const selected = field.options.find((opt: any) => opt.value === JSON.parse(value)[field.name])
+              return { ifYes: selected?.ifYes, value: selected?.value }
+            }
+
+            const handleRadioChange = (value:any) => {
+              radioValueStorage[field.name] = value
+              setRadioValue(JSON.stringify(radioValueStorage))
+            }
+
             return (
-              <Box>
-                <h4>{field.placeholder}</h4>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <h3 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{field.placeholder}</h3>
                 <RadioGroup
-                  row
                   id={field.name}
                   name={field.name}
                   key={field.name}
-                  onChange={(event) => {
-                    setRadioValue(event.target.value)
-                  }}
-                  value={radioValue}
+                  value={radioValueStorage?.[field.name]}
+                  onChange={(event) => handleRadioChange(event.target.value)}
                 >
                   {field.options?.map((option:any) => {
                     return (
@@ -113,16 +135,18 @@ export default function FormDiv ({
                           value={option.value}
                           label={option.label}
                           name={field.name}
-                          control={<Radio id={`${field.name}_${option.value}`} />}
+                          control={<Radio id={`${field.name}_${option.value}`} sx={{ color: darkMode ? 'gray' : 'black' }} />}
                           key={option}
+                          style={{ color: darkMode ? 'white' : 'black' }}
                         />
                         {checkIfYes(radioValue, field).ifYes &&
                         checkIfYes(radioValue, field).value === option.value && (
                         <TextField
                           {...register(option.name)}
                           label={option.placeholder}
-                          style={{ marginRight: 20 }}
                           inputProps={{ maxLength: option.maxlength }}
+                          defaultValue={parsedStorage?.[option.name] || ''}
+                          sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                         />)}
                       </Box>
                     )
@@ -132,12 +156,12 @@ export default function FormDiv ({
             )
           case 'entrylist':
             return (
-              <EntryList register={register} field={field} setValue={setValue} localStorage={parsedStorage} />
+              <EntryList register={register} field={field} setValue={setValue} localStorage={parsedStorage} darkMode={darkMode} />
             )
           case 'textarea':
             return (
-              <Box>
-                <h4>{field.placeholder}</h4>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <h3 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{field.placeholder}</h3>
                 <TextField
                   {...register(field.name)}
                   id="outlined-multiline-static"
@@ -145,22 +169,30 @@ export default function FormDiv ({
                   multiline
                   rows={3}
                   key={field.name}
-                  style={{ width: 400 }}
-                  inputProps={{ maxLength: field.maxlength }}
+                  sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, label: { color: darkMode ? 'white' : 'black' } }}
+                  inputProps={{ maxLength: field.maxlength, style: { color: darkMode ? 'white' : 'black' } }}
                   defaultValue={parsedStorage?.[field.name]}
                 />
               </Box>
             )
           case 'checkboxes':
             return (
-              <Box>
-                <h4>{field.placeholder}</h4>
+              <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
                 <FormGroup
                   id={field.name}
                   key={field.name}
-                >
+                  >
                   {field.options?.map((option:any) => {
-                    const [isChecked, setIsChecked] = useState(false)
+                    const handleCheck = (optionValue:any) => {
+                      if (option.ifYes) {
+                        if (isCheckedStorage[field.name] === undefined) {
+                          isCheckedStorage[field.name] = []
+                        }
+                        optionValue === true ? isCheckedStorage[field.name]?.push(option.value) : isCheckedStorage[field.name]?.pop(option.value)
+                      }
+                      setIsChecked(JSON.stringify(isCheckedStorage))
+                    }
                     return (
                       <Box key={option.value}>
                         <FormControlLabel
@@ -168,18 +200,20 @@ export default function FormDiv ({
                           value={option.value}
                           label={option.label}
                           name={field.name}
-                          control={<Checkbox id={`${field.name}_${option.value}`} defaultChecked={parsedStorage?.[field.name] && [...parsedStorage?.[field.name]].includes(option.value)} />}
+                          control={<Checkbox sx={{ color: darkMode ? 'gray' : 'black' }} id={`${field.name}_${option.value}`} defaultChecked={parsedStorage?.[field.name] && [...parsedStorage?.[field.name]].includes(option.value)} />}
                           key={option}
                           onChange={(event) => {
-                            setIsChecked((event.target as HTMLInputElement).checked)
+                            handleCheck((event.target as HTMLInputElement).checked)
                           }}
+                          style={{ color: darkMode ? 'white' : 'black' }}
                         />
-                        {isChecked && option?.ifYes && (
+                        {(isCheckedStorage?.[field.name] && isCheckedStorage?.[field.name].includes(option.value)) && option?.ifYes && (
                           <TextField
                             {...register(option.name)}
                             label={option.placeholder}
-                            style={{ marginRight: 20 }}
+                            sx={{ fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                             inputProps={{ maxLength: option.maxlength }}
+                            defaultValue={parsedStorage?.[option.name] || ''}
                           />)}
                       </Box>
                     )
