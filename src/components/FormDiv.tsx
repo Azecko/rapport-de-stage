@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 /* eslint-disable no-case-declarations */
 /* eslint-disable react/react-in-jsx-scope */
 import { Box, Checkbox, FormControlLabel, FormGroup, Radio, RadioGroup, TextField } from '@mui/material'
