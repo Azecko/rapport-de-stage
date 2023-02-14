@@ -40,6 +40,7 @@ export default function HomePage () {
               <li>Imprimables</li>
               <li>Maintien des données après avoir sauvegardé via le stockage local</li>
               <li>Mode sombre / mode clair</li>
+              <li>Gestion de plusieurs rapports pour les responsables</li>
             </p>
             <div className="homepageButtons">
               <Tooltip title="Créer un rapport de stage Stagiaire" arrow>
