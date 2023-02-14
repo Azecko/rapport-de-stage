@@ -33,7 +33,7 @@ export default function DateSelector ({
                 value={value === null || value === undefined ? dateValue : new Date(value)}
                 label={label}
                 onChange={onChange}
-                renderInput={(params) => <TextField {...params} sx={{ width: '45ch', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' }, svg: { color: darkMode ? 'white' : 'black' } }} />}
+                renderInput={(params) => <TextField {...params} sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' }, svg: { color: darkMode ? 'white' : 'black' } }} />}
             />
         </LocalizationProvider>
     )}

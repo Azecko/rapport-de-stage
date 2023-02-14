@@ -53,8 +53,8 @@ export default function FormDiv ({
   isCheckedStorage = JSON.parse(isChecked)
 
   return (
-    <Box key="fieldsLabelBox" style={{ width: '100vw', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-      <h2 style={{ color: darkMode ? 'white' : 'black' }}>{label}</h2>
+    <Box key="fieldsLabelBox" style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+      <h2 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{label}</h2>
       <Box display='flex' flexDirection='column' flexWrap="wrap" gap={2} key="fieldsBox">
       {fields.map((field) => {
         switch (field.type) {
@@ -66,7 +66,7 @@ export default function FormDiv ({
                   label={field.placeholder}
                   variant="outlined"
                   key={field.name}
-                  sx={{ width: '45ch', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
+                  sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                   inputProps={{ maxLength: field.maxlength }}
                   defaultValue={parsedStorage?.[field.name] || ''}
                 />
@@ -101,7 +101,7 @@ export default function FormDiv ({
                 value={phone}
                 onChange={handleChange}
                 key={field.name}
-                sx={{ width: '45ch', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
+                sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
                 inputProps={{ maxLength: field.maxlength }}
               />
             )
@@ -119,7 +119,7 @@ export default function FormDiv ({
 
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
+                <h3 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{field.placeholder}</h3>
                 <RadioGroup
                   id={field.name}
                   name={field.name}
@@ -161,7 +161,7 @@ export default function FormDiv ({
           case 'textarea':
             return (
               <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h3 style={{ color: darkMode ? 'white' : 'black' }}>{field.placeholder}</h3>
+                <h3 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{field.placeholder}</h3>
                 <TextField
                   {...register(field.name)}
                   id="outlined-multiline-static"
@@ -169,7 +169,7 @@ export default function FormDiv ({
                   multiline
                   rows={3}
                   key={field.name}
-                  sx={{ width: 400, fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, label: { color: darkMode ? 'white' : 'black' } }}
+                  sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, label: { color: darkMode ? 'white' : 'black' } }}
                   inputProps={{ maxLength: field.maxlength, style: { color: darkMode ? 'white' : 'black' } }}
                   defaultValue={parsedStorage?.[field.name]}
                 />

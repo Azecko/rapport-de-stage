@@ -21,7 +21,8 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
   }
 
   return (
-        <Box display="flex" flexDirection="row" key={index} justifyContent="center" alignItems="center">
+    <Box>
+        <Box display="flex" flexDirection="row" key={index} justifyContent="center" alignItems="center" flexWrap="wrap">
             <FormControlLabel
                 onChange={(event) => setEntryValue((event.target as HTMLInputElement).checked, 'done')}
                 name="Done"
@@ -45,11 +46,11 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
                 multiline
                 rows={2}
                 key={`textarea_${index}`}
-                sx={{ marginRight: 3, maginTop: 15, fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, label: { color: darkMode ? 'white' : 'black' } }}
+                sx={{ width: '20rem', marginRight: 3, maginTop: 15, fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, label: { color: darkMode ? 'white' : 'black' } }}
                 defaultValue={entries[index] && entries[index].text}
                 inputProps={{ maxLength: 20, style: { color: darkMode ? 'white' : 'black' } }}
             />
-            <RadioGroup row onChange={(event) => setEntryValue(event.target.value.toLowerCase(), 'liked')} key="liked_radios" defaultValue={entries[index] && entries[index].liked}>
+            <RadioGroup onChange={(event) => setEntryValue(event.target.value.toLowerCase(), 'liked')} key="liked_radios" defaultValue={entries[index] && entries[index].liked}>
                 <FormControlLabel
                     control={<Radio sx={{ color: darkMode ? 'gray' : 'black' }} />} label="J'ai aimé" value={'liked'}
                     key={`liked_${index}`}
@@ -61,7 +62,7 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
                     style={{ color: darkMode ? 'white' : 'black' }}
                 />
             </RadioGroup>
-            <RadioGroup row onChange={(event) => setEntryValue(event.target.value.toLowerCase(), 'easy')} key="easy_radios" defaultValue={entries[index] && entries[index].easy}>
+            <RadioGroup onChange={(event) => setEntryValue(event.target.value.toLowerCase(), 'easy')} key="easy_radios" defaultValue={entries[index] && entries[index].easy}>
                 <FormControlLabel
                     control={<Radio sx={{ color: darkMode ? 'gray' : 'black' }} />} label="J'ai trouvé facile" value={'easy'}
                     key={`easy_${index}`}
@@ -74,5 +75,7 @@ export default function Entry ({ setValue, name, entryList, setEntryList, index,
                 />
             </RadioGroup>
         </Box>
+        {entryList.length > 1 && <hr style={{ width: '40vw' }}/>}
+    </Box>
   )
 }
