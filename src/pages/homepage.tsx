@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import '../style/homepage.css'
 import faviconImage from '../images/banana_logo.png'
 import DarkMode from '../components/DarkMode'
+import packageJSON from '../../package.json'
 const Container = styled.div``
 
 export default function HomePage () {
@@ -52,7 +53,7 @@ export default function HomePage () {
             </div>
         </Box>
       </div>
-      <footer className="homepageFooter"><p> Coded with 💙 by <a href="https://github.com/Azecko" target="_blank" rel="noreferrer">Azecko</a></p></footer>
+      <footer className="homepageFooter"><p> Coded with 💙 by <a href="https://github.com/Azecko" target="_blank" rel="noreferrer">Azecko</a> - <i>v{packageJSON.version}</i></p></footer>
     </Container>
   )
 }
