@@ -88,23 +88,16 @@ export default function FormDiv ({
               </Box>
             )
           case 'phone':
-
             const [phone, setPhone] = useState<any>({})
-            if (phone?.[field.name] === undefined) {
-              setPhone((prevState:any) => ({ ...prevState, [field.name]: parsedStorage?.[field.name] }))
-            }
-
             return (
               <MuiTelInput
                 {...register(field.name)}
                 name={field.name}
                 label={field.placeholder}
                 control={control}
-                value={phone?.[field.name]}
+                value={phone?.[field.name] !== undefined ? phone?.[field.name] : parsedStorage?.[field.name]}
                 onChange={(data) => {
-                  setPhone((prevState:any) => ({
-                    ...prevState, [field.name]: data
-                  }))
+                  setPhone((prevState:any) => ({ ...prevState, [field.name]: data }))
                 }}
                 key={field.name}
                 sx={{ width: '20rem', fieldset: { borderColor: darkMode ? '#B6B6B6' : '' }, input: { color: darkMode ? 'white' : 'black' }, label: { color: darkMode ? 'white' : 'black' } }}
