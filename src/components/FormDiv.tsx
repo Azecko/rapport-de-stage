@@ -55,7 +55,9 @@ export default function FormDiv ({
 
   return (
     <Box key="fieldsLabelBox" style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-      <h2 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{label}</h2>
+      <Box style={{ position: 'sticky', top: 0, width: '30vw', zIndex: 100 }}>
+        <h2 style={{ color: darkMode ? 'white' : 'black', textAlign: 'center' }}>{label}</h2>
+      </Box>
       <Box display='flex' flexDirection='column' flexWrap="wrap" gap={2} key="fieldsBox">
       {fields.map((field) => {
         switch (field.type) {

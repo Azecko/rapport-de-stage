@@ -76,17 +76,19 @@ export default function Stagiaire () {
             <Button type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <hr style={{ width: '50vw' }}/>
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '30vw', pt: 2, alignItems: 'center', justifyContent: 'center' }}>
-            <Button
-              color="error"
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              sx={{ mr: 1 }}
-              variant="contained"
-            >
-              Retour
-            </Button>
-            <Button variant="contained" sx={{ input: { color: 'white' } }} onClick={handleNext} disabled={activeStep === stagiairesForm.divs.length - 1}>Suivant</Button>
+          <Box style={{ position: 'sticky', top: 0, width: '100%', zIndex: 100, alignSelf: 'flex-start', backgroundColor: '#2a2b2b', paddingBottom: '30px' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', gap: '30vw', pt: 2, alignItems: 'center', justifyContent: 'center', overflow: 'auto' }}>
+              <Button
+                color="error"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                sx={{ mr: 1 }}
+                variant="contained"
+              >
+                Retour
+              </Button>
+              <Button variant="contained" sx={{ input: { color: 'white' } }} onClick={handleNext} disabled={activeStep === stagiairesForm.divs.length - 1}>Suivant</Button>
+            </Box>
           </Box>
           {activeStep === stagiairesForm.divs.length
             ? (
