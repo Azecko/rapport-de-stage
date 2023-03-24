@@ -416,7 +416,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Persévérant-e",
+          "placeholder":"Persévérant·e",
           "name":"Persevering",
           "options":[
             {
@@ -439,7 +439,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Attentif-ve",
+          "placeholder":"Attentif·ve",
           "name":"attentive",
           "options":[
             {
@@ -542,7 +542,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Poli-e",
+          "placeholder":"Poli·e",
           "name":"polite",
           "options":[
             {
@@ -565,7 +565,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Souriant-e",
+          "placeholder":"Souriant·e",
           "name":"smiling",
           "options":[
             {
@@ -726,7 +726,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Si vous envisagiez d’engager un-e apprenti-e, prendriez-vous ce ou cette stagiaire en formation ?",
+          "placeholder":"Si vous envisagiez d’engager un·e apprenti·e, prendriez-vous ce ou cette stagiaire en formation ?",
           "name":"considerCandidate",
           "options":[
             {
