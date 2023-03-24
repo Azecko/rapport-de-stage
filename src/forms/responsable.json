@@ -138,7 +138,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -161,7 +161,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -184,7 +184,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -207,7 +207,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -230,7 +230,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -253,7 +253,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -276,7 +276,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -299,7 +299,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -333,7 +333,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -356,7 +356,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -379,7 +379,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -402,7 +402,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -416,7 +416,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Persévérant-e",
+          "placeholder":"Persévérant·e",
           "name":"Persevering",
           "options":[
             {
@@ -425,7 +425,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -439,7 +439,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Attentif-ve",
+          "placeholder":"Attentif·ve",
           "name":"attentive",
           "options":[
             {
@@ -448,7 +448,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -471,7 +471,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -505,7 +505,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -528,7 +528,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -542,7 +542,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Poli-e",
+          "placeholder":"Poli·e",
           "name":"polite",
           "options":[
             {
@@ -551,7 +551,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -565,7 +565,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Souriant-e",
+          "placeholder":"Souriant·e",
           "name":"smiling",
           "options":[
             {
@@ -574,7 +574,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -597,7 +597,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -620,7 +620,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -643,7 +643,7 @@
             },
             {
               "value":"satisfactory",
-              "label":"satisfaisant"
+              "label":"Satisfaisant"
             },
             {
               "value":"to-be-improved",
@@ -692,7 +692,7 @@
           "maxlength":115
         },
         {
-          "type":"radios",
+          "type":"checkboxes",
           "placeholder":"Que conseillez-vous à ce ou à cette stagiaire par rapport à son projet ?",
           "name":"conseilProjet",
           "options":[
@@ -726,7 +726,7 @@
         },
         {
           "type":"radios",
-          "placeholder":"Si vous envisagiez d’engager un-e apprenti-e, prendriez-vous ce ou cette stagiaire en formation ?",
+          "placeholder":"Si vous envisagiez d’engager un·e apprenti·e, prendriez-vous ce ou cette stagiaire en formation ?",
           "name":"considerCandidate",
           "options":[
             {

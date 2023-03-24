@@ -37,11 +37,13 @@ export default function HomePage () {
                 rapports de stages officiels
               </a>  du canton de Vaud pour les stagiaires et les responsables de stages.
               <h3>Fonctionnalités :</h3>
-              <li>Rapports officiels et valides</li>
-              <li>Imprimables</li>
-              <li>Maintien des données après avoir sauvegardé via le stockage local</li>
-              <li>Mode sombre / mode clair</li>
-              <li>Gestion de plusieurs rapports pour les responsables</li>
+              <ul style={{ listStyle: 'none' }}>
+                <li>Rapports officiels et valides</li>
+                <li>Imprimables</li>
+                <li>Maintien des données après avoir sauvegardé via le stockage local</li>
+                <li>Mode sombre / mode clair</li>
+                <li>Gestion de plusieurs rapports pour les responsables</li>
+              </ul>
             </p>
             <div className="homepageButtons">
               <Tooltip title="Créer un rapport de stage Stagiaire" arrow>
