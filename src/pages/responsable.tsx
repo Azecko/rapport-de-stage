@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import React, { useState } from 'react'
 import {
-  Box, Button, Stepper, Step, StepLabel, FormControl, InputLabel, MenuItem, Select, Dialog, DialogActions, DialogContent, DialogTitle, TextField
+  Box, Button, Stepper, Step, StepLabel, FormControl, InputLabel, MenuItem, Select, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Menu
 } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -63,6 +63,62 @@ export default function Responsable () {
   const [alertTitle, setAlertTitle] = useState('')
 
   const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapport-de-stage') === null || !storage.options ? true : storage.options?.darkMode === 'true')
+
+  const [anchorEl, setAnchorEl] = useState(null)
+  const openMenu = Boolean(anchorEl)
+  const handleMenuClick = (event:any) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleMenuClose = () => {
+    setAnchorEl(null)
+  }
+
+  const [importAnchorEl, setImportAnchorEl] = useState(null)
+  const openImportMenu = Boolean(importAnchorEl)
+  const handleImportMenuClick = (event:any) => {
+    setImportAnchorEl(event.currentTarget)
+  }
+  const handleImportMenuClose = () => {
+    setImportAnchorEl(null)
+  }
+
+  function download (filename:any, text:any) {
+    const element = document.createElement('a')
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+    element.setAttribute('download', filename)
+    element.style.display = 'none'
+    document.body.appendChild(element)
+    element.click()
+    document.body.removeChild(element)
+  }
+
+  function handleFileSelect (event:any) {
+    handleImportMenuClose()
+    const reader = new FileReader()
+    reader.onload = handleFileLoad
+    reader.readAsText(event.target.files[0])
+  }
+  function handleFileLoad (event:any) {
+    const confirm = window.confirm('Voulez-vous vraiment importer les données de ce fichier ?')
+    if (confirm) {
+      const resultObject = JSON.parse(event.target.result)
+      if (!resultObject['beginDate']) {
+        alert("Merci d'importer un fichier JSON valide généré par le bouton 'Sauver le modèle & sauver en JSON'")
+      } else {
+        if (!storage.templates) storage.templates = {}
+        storage.templates.responsible = resultObject
+        storage[report] = storage.templates.responsible
+        localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+        location.reload()
+      }
+    }
+  }
+
+  const responsableCss = `
+    #import-label:hover {
+      cursor: pointer;
+    }
+  `
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
@@ -156,21 +212,92 @@ export default function Responsable () {
         </Dialog>
       </Box>
       <Box style = {{ display: 'flex', justifyContent: 'center', gap: '2vw' }}>
-          <Button onClick={handleSubmit((formData) => {
-            const templateDatas = { ...storage[report], ...formData }
-            if (storage.templates) {
-              if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
+          {/* Save button */}
+          <Button
+            id="demo-customized-button"
+            aria-controls={openMenu ? 'demo-customized-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={openMenu ? 'true' : undefined}
+            variant="outlined"
+            disableElevation
+            onClick={handleMenuClick}
+          >
+            Sauver le modèle ↓
+          </Button>
+          <Menu
+            id="demo-customized-menu"
+            MenuListProps={{
+              'aria-labelledby': 'demo-customized-button'
+            }}
+            anchorEl={anchorEl}
+            open={openMenu}
+            onClose={handleMenuClose}
+          >
+            <MenuItem onClick={handleSubmit((formData) => {
+              const templateDatas = { ...storage[report], ...formData }
+              if (storage.templates) {
+                if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
+                  storage.templates.responsible = templateDatas
+                  localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+                }
+              } else {
+                storage.templates = {}
                 storage.templates.responsible = templateDatas
                 localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               }
-            } else {
-              storage.templates = {}
-              storage.templates.responsible = templateDatas
-              localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-            }
-          }
-          )} variant="outlined">Sauver le modèle</Button>
-            <Button onClick={() => {
+
+              handleMenuClose()
+            })} disableRipple>
+              Sauver le modèle
+            </MenuItem>
+            <MenuItem onClick={handleSubmit((formData) => {
+              const templateDatas = { ...storage[report], ...formData }
+              if (storage.templates) {
+                if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
+                  storage.templates.responsible = templateDatas
+                  localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+                }
+              } else {
+                storage.templates = {}
+                storage.templates.responsible = templateDatas
+                localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+              }
+
+              console.log(storage.templates.responsible.internFirstName)
+
+              const name = storage.templates.responsible.internFirstName || 'noName'
+              const date = new Date()
+
+              download(`rappStage_${name}_${date.toISOString().split('T')[0]}.json`, JSON.stringify(storage.templates.responsible))
+
+              handleMenuClose()
+            })} disableRipple>
+              Sauver le modèle & sauver en JSON
+            </MenuItem>
+          </Menu>
+
+          {/* Import button */}
+          <Button
+            id="demo-customized-button"
+            aria-controls={openImportMenu ? 'demo-customized-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={openImportMenu ? 'true' : undefined}
+            variant="outlined"
+            disableElevation
+            onClick={handleImportMenuClick}
+          >
+            Importer le modèle ↓
+          </Button>
+          <Menu
+            id="demo-customized-menu"
+            MenuListProps={{
+              'aria-labelledby': 'demo-customized-button'
+            }}
+            anchorEl={importAnchorEl}
+            open={openImportMenu}
+            onClose={handleImportMenuClose}
+          >
+            <MenuItem onClick={() => {
               if (!storage.templates) {
                 setAlertSeverity('error')
                 setAlertColor('info')
@@ -181,8 +308,24 @@ export default function Responsable () {
               storage[report] = storage.templates.responsible
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               location.reload()
-            }
-          } variant="outlined">Importer le modèle</Button>
+
+              handleImportMenuClose()
+            }} disableRipple>
+              Importer le modèle existant
+            </MenuItem>
+            <MenuItem disableRipple>
+              <input
+                accept=".json"
+                style={{ display: 'none' }}
+                id="import-button-file"
+                type="file"
+                onChange={handleFileSelect}
+              />
+              <label htmlFor="import-button-file" id="import-label">
+                Importer depuis un fichier JSON
+              </label>
+            </MenuItem>
+          </Menu>
         </Box>
       <div key="divForm">
         <form
@@ -263,6 +406,7 @@ export default function Responsable () {
           }
         </form>
       </div>
+      <style>{responsableCss}</style>
     </Container>
   )
 }
