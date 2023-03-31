@@ -175,7 +175,7 @@ export default function Responsable () {
             })
             : handleClickOpen}>Sauver ce rapport
           </Button>
-          {searchParams.get('report') && <Button color='error' variant='contained' onClick={() => {
+          <Button color='error' variant='contained' disabled={searchParams.get('report') == null || searchParams.get('report') === ''} onClick={() => {
             delete storage[report]
             localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
             setSearchParams('')
