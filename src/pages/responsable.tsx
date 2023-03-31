@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import React, { useState } from 'react'
 import {
-  Box, Button, Stepper, Step, StepLabel, FormControl, InputLabel, MenuItem, Select, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Menu
+  Box, Button, Stepper, Step, StepLabel, FormControl, InputLabel, MenuItem, Select, Dialog, DialogActions, DialogContent, DialogTitle, TextField
 } from '@mui/material'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
@@ -64,24 +64,6 @@ export default function Responsable () {
 
   const [darkMode, setDarkMode] = useState<any>(localStorage.getItem('rapport-de-stage') === null || !storage.options ? true : storage.options?.darkMode === 'true')
 
-  const [anchorEl, setAnchorEl] = useState(null)
-  const openMenu = Boolean(anchorEl)
-  const handleMenuClick = (event:any) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleMenuClose = () => {
-    setAnchorEl(null)
-  }
-
-  const [importAnchorEl, setImportAnchorEl] = useState(null)
-  const openImportMenu = Boolean(importAnchorEl)
-  const handleImportMenuClick = (event:any) => {
-    setImportAnchorEl(event.currentTarget)
-  }
-  const handleImportMenuClose = () => {
-    setImportAnchorEl(null)
-  }
-
   function download (filename:any, text:any) {
     const element = document.createElement('a')
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
@@ -93,11 +75,11 @@ export default function Responsable () {
   }
 
   function handleFileSelect (event:any) {
-    handleImportMenuClose()
     const reader = new FileReader()
     reader.onload = handleFileLoad
     reader.readAsText(event.target.files[0])
   }
+
   function handleFileLoad (event:any) {
     const confirm = window.confirm('Voulez-vous vraiment importer les données de ce fichier ?')
     if (confirm) {
@@ -105,20 +87,18 @@ export default function Responsable () {
       if (!resultObject['beginDate']) {
         alert("Merci d'importer un fichier JSON valide généré par le bouton 'Sauver le modèle & sauver en JSON'")
       } else {
-        if (!storage.templates) storage.templates = {}
-        storage.templates.responsible = resultObject
-        storage[report] = storage.templates.responsible
+        storage[report] = resultObject
         localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
         location.reload()
       }
     }
   }
 
-  const responsableCss = `
-    #import-label:hover {
-      cursor: pointer;
-    }
-  `
+  const inputFile = React.useRef<HTMLInputElement | null>(null)
+
+  const onButtonClick = () => {
+    inputFile.current?.click()
+  }
 
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
@@ -175,14 +155,31 @@ export default function Responsable () {
             })
             : handleClickOpen}>Sauver ce rapport
           </Button>
-          {searchParams.get('report') && <Button color='error' variant='contained' onClick={() => {
+          <Button color='error' variant='contained' disabled={searchParams.get('report') == null || searchParams.get('report') === ''} onClick={() => {
             delete storage[report]
             localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
             setSearchParams('')
           }}>
             Supprimer ce rapport
           </Button>
-          }
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1vh' }}>
+          <Button variant="contained" color="info" onClick={handleSubmit((formData) => {
+            const templateDatas = { ...storage[report], ...formData }
+
+            const name = templateDatas.internFirstName || 'noName'
+            const date = new Date()
+
+            download(`rappStage_${name}_${date.toISOString().split('T')[0]}.json`, JSON.stringify(templateDatas, null, 4))
+          })}>Exporter (JSON)</Button>
+          <input
+            accept=".json"
+            style={{ display: 'none' }}
+            type="file"
+            ref={inputFile}
+            onChange={handleFileSelect}
+          />
+          <Button variant="contained" onClick={onButtonClick}>Importer (JSON)</Button>
         </Box>
         <Dialog open={open} onClose={handleClose} PaperProps={{ style: { backgroundColor: darkMode ? '#424242' : 'white' } }}>
           <DialogTitle sx={{ color: darkMode ? 'white' : 'black' }}>Saisir un nom pour ce rapport</DialogTitle>
@@ -212,121 +209,33 @@ export default function Responsable () {
         </Dialog>
       </Box>
       <Box style = {{ display: 'flex', justifyContent: 'center', gap: '2vw' }}>
-          {/* Save button */}
-          <Button
-            id="demo-customized-button"
-            aria-controls={openMenu ? 'demo-customized-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={openMenu ? 'true' : undefined}
-            variant="outlined"
-            disableElevation
-            onClick={handleMenuClick}
-          >
-            Sauver le modèle ↓
-          </Button>
-          <Menu
-            id="demo-customized-menu"
-            MenuListProps={{
-              'aria-labelledby': 'demo-customized-button'
-            }}
-            anchorEl={anchorEl}
-            open={openMenu}
-            onClose={handleMenuClose}
-          >
-            <MenuItem onClick={handleSubmit((formData) => {
-              const templateDatas = { ...storage[report], ...formData }
-              if (storage.templates) {
-                if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
-                  storage.templates.responsible = templateDatas
-                  localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-                }
-              } else {
-                storage.templates = {}
-                storage.templates.responsible = templateDatas
-                localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-              }
-
-              handleMenuClose()
-            })} disableRipple>
-              Sauver le modèle
-            </MenuItem>
-            <MenuItem onClick={handleSubmit((formData) => {
-              const templateDatas = { ...storage[report], ...formData }
-              if (storage.templates) {
-                if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
-                  storage.templates.responsible = templateDatas
-                  localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-                }
-              } else {
-                storage.templates = {}
-                storage.templates.responsible = templateDatas
-                localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-              }
-
-              console.log(storage.templates.responsible.internFirstName)
-
-              const name = storage.templates.responsible.internFirstName || 'noName'
-              const date = new Date()
-
-              download(`rappStage_${name}_${date.toISOString().split('T')[0]}.json`, JSON.stringify(storage.templates.responsible))
-
-              handleMenuClose()
-            })} disableRipple>
-              Sauver le modèle & sauver en JSON
-            </MenuItem>
-          </Menu>
-
-          {/* Import button */}
-          <Button
-            id="demo-customized-button"
-            aria-controls={openImportMenu ? 'demo-customized-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={openImportMenu ? 'true' : undefined}
-            variant="outlined"
-            disableElevation
-            onClick={handleImportMenuClick}
-          >
-            Importer le modèle ↓
-          </Button>
-          <Menu
-            id="demo-customized-menu"
-            MenuListProps={{
-              'aria-labelledby': 'demo-customized-button'
-            }}
-            anchorEl={importAnchorEl}
-            open={openImportMenu}
-            onClose={handleImportMenuClose}
-          >
-            <MenuItem onClick={() => {
-              if (!storage.templates) {
-                setAlertSeverity('error')
-                setAlertColor('info')
-                setAlertDescription('Aucun modèle n\'a encore été crée, merci de d\'abord sauver un modèle avant d\'essayer de l\'importer.')
-                setAlertTitle('Erreur')
-                return setErrorAlert(true)
-              }
-              storage[report] = storage.templates.responsible
+        <Button onClick={handleSubmit((formData) => {
+          const templateDatas = { ...storage[report], ...formData }
+          if (storage.templates) {
+            if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
+              storage.templates.responsible = templateDatas
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-              location.reload()
-
-              handleImportMenuClose()
-            }} disableRipple>
-              Importer le modèle existant
-            </MenuItem>
-            <MenuItem disableRipple>
-              <input
-                accept=".json"
-                style={{ display: 'none' }}
-                id="import-button-file"
-                type="file"
-                onChange={handleFileSelect}
-              />
-              <label htmlFor="import-button-file" id="import-label">
-                Importer depuis un fichier JSON
-              </label>
-            </MenuItem>
-          </Menu>
-        </Box>
+            }
+          } else {
+            storage.templates = {}
+            storage.templates.responsible = templateDatas
+            localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+          }
+        }
+        )} variant="outlined">Sauver le modèle</Button>
+        <Button onClick={() => {
+          if (!storage.templates) {
+            setAlertSeverity('error')
+            setAlertColor('info')
+            setAlertDescription('Aucun modèle n\'a encore été crée, merci de d\'abord sauver un modèle avant d\'essayer de l\'importer.')
+            setAlertTitle('Erreur')
+            return setErrorAlert(true)
+          }
+          storage[report] = storage.templates.responsible
+          localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+          location.reload()
+        }} variant="outlined">Importer le modèle</Button>
+      </Box>
       <div key="divForm">
         <form
           onSubmit={handleSubmit((formData) => {
@@ -406,7 +315,6 @@ export default function Responsable () {
           }
         </form>
       </div>
-      <style>{responsableCss}</style>
     </Container>
   )
 }
