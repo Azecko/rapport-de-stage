@@ -10,6 +10,7 @@ import responsableForm from '../forms/responsable.json'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import DarkMode from '../components/DarkMode'
 import '../style/darkMode.css'
+import { useTour } from '@reactour/tour'
 import CustomAlert from '../components/CustomAlert'
 const Container = styled.div``
 
@@ -100,6 +101,8 @@ export default function Responsable () {
     inputFile.current?.click()
   }
 
+  const { setIsOpen } = useTour()
+
   darkMode ? document.documentElement.style.setProperty('--darkModeColor', 'white') : document.documentElement.style.setProperty('--darkModeColor', 'black')
   return (
     <Container style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '3vh', paddingBottom: '5vh', minHeight: '100vh', backgroundColor: darkMode ? '#2a2b2b' : 'white' }}>
@@ -114,13 +117,16 @@ export default function Responsable () {
       )}
       <Box style={{ display: 'flex', justifyContent: 'space-between', width: '80vw', paddingTop: '3vh' }}>
         <Button onClick={() => navigate('/')} variant='outlined'>Retour à l'accueil</Button>
-        <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
+        <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <DarkMode setDarkMode={setDarkMode} darkMode={darkMode}></DarkMode>
+          <Button onClick={() => setIsOpen(true)} variant='contained'>Aide</Button>
+        </Box>
       </Box>
       <Box>
         <h1 style={{ color: darkMode ? 'white' : 'black', fontSize: 'calc(1.25em + 1vmin)' }}>Rapport de stage | Responsable</h1>
       </Box>
       <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2vw' }}>
-        <FormControl sx={{ width: '9rem' }}>
+        <FormControl sx={{ width: '9rem' }} className='reports-list'>
           <InputLabel sx={{ color: darkMode ? 'white' : 'black' }} id="demo-simple-select-label">Rapport</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -144,7 +150,7 @@ export default function Responsable () {
           </Select>
         </FormControl>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1vh' }}>
-          <Button variant='contained' onClick={searchParams.get('report')
+          <Button className='save-report-btn' variant='contained' onClick={searchParams.get('report')
             ? handleSubmit((formData) => {
               storage[report] = { ...storage[report], ...formData }
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
@@ -155,7 +161,7 @@ export default function Responsable () {
             })
             : handleClickOpen}>Sauver ce rapport
           </Button>
-          <Button color='error' variant='contained' disabled={searchParams.get('report') == null || searchParams.get('report') === ''} onClick={() => {
+          <Button className='delete-report-btn' id='delete-report-btn' color='error' variant='contained' disabled={searchParams.get('report') == null || searchParams.get('report') === ''} onClick={() => {
             delete storage[report]
             localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
             setSearchParams('')
@@ -164,7 +170,7 @@ export default function Responsable () {
           </Button>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1vh' }}>
-          <Button variant="contained" color="info" onClick={handleSubmit((formData) => {
+          <Button className="export-json-btn" variant="contained" color="info" onClick={handleSubmit((formData) => {
             const templateDatas = { ...storage[report], ...formData }
 
             const name = templateDatas.internFirstName || 'noName'
@@ -179,7 +185,7 @@ export default function Responsable () {
             ref={inputFile}
             onChange={handleFileSelect}
           />
-          <Button variant="contained" onClick={onButtonClick}>Importer (JSON)</Button>
+          <Button className="import-json-btn" variant="contained" onClick={onButtonClick}>Importer (JSON)</Button>
         </Box>
         <Dialog open={open} onClose={handleClose} PaperProps={{ style: { backgroundColor: darkMode ? '#424242' : 'white' } }}>
           <DialogTitle sx={{ color: darkMode ? 'white' : 'black' }}>Saisir un nom pour ce rapport</DialogTitle>
@@ -209,7 +215,7 @@ export default function Responsable () {
         </Dialog>
       </Box>
       <Box style = {{ display: 'flex', justifyContent: 'center', gap: '2vw' }}>
-        <Button onClick={handleSubmit((formData) => {
+        <Button className='save-model-btn' onClick={handleSubmit((formData) => {
           const templateDatas = { ...storage[report], ...formData }
           if (storage.templates) {
             if (confirm('Êtes-vous sûr ? Cela écrasera l\'ancien modèle.')) {
@@ -223,7 +229,7 @@ export default function Responsable () {
           }
         }
         )} variant="outlined">Sauver le modèle</Button>
-        <Button onClick={() => {
+        <Button className='import-model-btn' onClick={() => {
           if (!storage.templates) {
             setAlertSeverity('error')
             setAlertColor('info')
@@ -252,7 +258,7 @@ export default function Responsable () {
           key="mainForm"
         >
           <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Stepper activeStep={activeStep} sx={{ display: 'flex', flexDirection: 'column', gap: '0.5vh', alignItems: 'flex-start' }}>
+            <Stepper className='form-steps' activeStep={activeStep} sx={{ display: 'flex', flexDirection: 'column', gap: '0.5vh', alignItems: 'flex-start' }}>
               {
                 responsableForm.divs.map((div:any, index: number) => {
                   const stepProps:any = {}
@@ -268,12 +274,13 @@ export default function Responsable () {
             </Stepper>
           </Box>
           <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '3vh', paddingBottom: '2vh' }}>
-            <Button type="submit" variant="contained">Voir le rapport</Button>
+            <Button className='see-report-btn' type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <hr style={{ width: '50vw' }}/>
           <Box style={{ position: 'sticky', top: 0, width: '100%', zIndex: 100, alignSelf: 'flex-start', backgroundColor: '#2a2b2b', paddingBottom: '30px' }}>
             <Box sx={{ display: 'flex', flexDirection: 'row', gap: '30vw', pt: 2, alignItems: 'center', justifyContent: 'center', overflow: 'auto' }}>
               <Button
+                className='back-step-btn'
                 color="error"
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -282,7 +289,7 @@ export default function Responsable () {
               >
                 Retour
               </Button>
-              <Button variant="contained" sx={{ input: { color: 'white' } }} onClick={handleNext} disabled={activeStep === responsableForm.divs.length - 1}>Suivant</Button>
+              <Button className='next-step-btn' variant="contained" sx={{ input: { color: 'white' } }} onClick={handleNext} disabled={activeStep === responsableForm.divs.length - 1}>Suivant</Button>
             </Box>
           </Box>
           {activeStep === responsableForm.divs.length
