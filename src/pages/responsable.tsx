@@ -204,6 +204,7 @@ export default function Responsable () {
           <DialogActions>
             <Button onClick={handleClose}>Annuler</Button>
             <Button onClick={handleSubmit((formData) => {
+              if (savingName === '' || savingName.match(/^ *$/) !== null) return alert('Le nom du rapport ne peut pas être vide.')
               storage[savingName] = formData
               localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
               setSearchParams({ report: savingName })
