@@ -162,9 +162,11 @@ export default function Responsable () {
             : handleClickOpen}>Sauver ce rapport
           </Button>
           <Button className='delete-report-btn' id='delete-report-btn' color='error' variant='contained' disabled={searchParams.get('report') == null || searchParams.get('report') === ''} onClick={() => {
-            delete storage[report]
-            localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
-            setSearchParams('')
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?')) {
+              delete storage[report]
+              localStorage.setItem('rapport-de-stage', JSON.stringify(storage))
+              setSearchParams('')
+            }
           }}>
             Supprimer ce rapport
           </Button>
