@@ -6436,7 +6436,7 @@ export default function previewResponsible () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.conseilProjet.includes('seek') && '\u2717'}
+          {formData.conseilProjet?.includes('seek') && '\u2717'}
         </tspan>
       </text>
       <text
@@ -6487,7 +6487,7 @@ export default function previewResponsible () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.conseilProjet.includes('stage') && '\u2717'}
+          {formData.conseilProjet?.includes('stage') && '\u2717'}
         </tspan>
       </text>
       <text
@@ -6538,7 +6538,7 @@ export default function previewResponsible () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.conseilProjet.includes('explore') && '\u2717'}
+          {formData.conseilProjet?.includes('explore') && '\u2717'}
         </tspan>
       </text>
       <text
@@ -6589,7 +6589,7 @@ export default function previewResponsible () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.conseilProjet.includes('other') && '\u2717'}
+          {formData.conseilProjet?.includes('other') && '\u2717'}
         </tspan>
       </text>
       <text
