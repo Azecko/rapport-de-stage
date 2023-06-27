@@ -166,7 +166,7 @@ export default function FormDiv ({
                 <TextField
                   {...register(field.name)}
                   id="outlined-multiline-static"
-                  label="Écris..."
+                  label="Texte..."
                   multiline
                   rows={3}
                   key={field.name}
