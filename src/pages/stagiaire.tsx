@@ -76,7 +76,7 @@ export default function Stagiaire () {
             <Button type="submit" variant="contained">Voir le rapport</Button>
           </Box>
           <hr style={{ width: '50vw' }}/>
-          <Box style={{ position: 'sticky', top: 0, width: '100%', zIndex: 100, alignSelf: 'flex-start', backgroundColor: '#2a2b2b', paddingBottom: '30px' }}>
+          <Box style={{ position: 'sticky', top: 0, width: '100%', zIndex: 100, alignSelf: 'flex-start', backgroundColor: darkMode ? '#2a2b2b' : 'white', paddingBottom: '30px' }}>
             <Box sx={{ display: 'flex', flexDirection: 'row', gap: '30vw', pt: 2, alignItems: 'center', justifyContent: 'center', overflow: 'auto' }}>
               <Button
                 color="error"
