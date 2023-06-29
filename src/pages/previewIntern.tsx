@@ -4305,7 +4305,7 @@ export default function PreviewIntern () {
             strokeDasharray: 'none'
           }}
         >
-          {formData.tasksList && formData.tasksList[2]?.done === true ? 'u2717' : ''}
+          {formData.tasksList && formData.tasksList[2]?.done === true ? '\u2717' : ''}
         </tspan>
       </text>
       <text
