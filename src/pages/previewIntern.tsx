@@ -23,8 +23,8 @@ export default function PreviewIntern () {
   const location = useLocation()
   const formData = JSON.parse(location.state.formData)
 
-  const monthNames = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin',
-    'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'
+  const monthNames = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin',
+    'juillet', 'août', 'septembre', 'octobre', 'novembre', 'decembre'
   ]
   const d = new Date()
 
@@ -32,7 +32,7 @@ export default function PreviewIntern () {
     if (!formData.internFirstName || !formData.internLastName) {
       document.title = 'Rapport de stage'
     } else {
-      document.title = `${formData.internFirstName.replace(' ', '-')}_${formData.internLastName.replace(' ', '-')}_Rapport_de_stage_stagiaire_${monthNames[d.getMonth()]}_${d.getFullYear()}`
+      document.title = `${formData.internFirstName.replace(' ', '-')}_${formData.internLastName.replace(' ', '-')}_Rapport_de_stage_EPFL_stagiaire_${monthNames[d.getMonth()]}_${d.getFullYear()}`
     }
   }, [])
 
