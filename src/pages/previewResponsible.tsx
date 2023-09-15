@@ -23,6 +23,19 @@ export default function previewResponsible () {
   const location = useLocation()
   const formData = JSON.parse(location.state.formData)
 
+  const monthNames = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin',
+    'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'
+  ]
+  const d = new Date()
+
+  React.useEffect(() => {
+    if (!formData.internFirstName || !formData.internLastName) {
+      document.title = 'Rapport de stage'
+    } else {
+      document.title = `${formData.internFirstName.replace(' ', '-')}_${formData.internLastName.replace(' ', '-')}_Rapport_de_stage_responsables_${monthNames[d.getMonth()]}_${d.getFullYear()}`
+    }
+  }, [])
+
   const navigate = useNavigate()
 
   return (
