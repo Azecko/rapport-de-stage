@@ -1,7 +1,7 @@
 {
   "name": "rapport de stage",
   "version": "1.0.4",
-  "homepage": "/rapport-de-stage/",
+  "homepage": "/rapport-de-stage-old/",
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^2.14.0",
